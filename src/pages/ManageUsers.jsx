@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 const ManageUsers = () => {
   const [users, setUsers] = useState([]);
   const [newUser, setNewUser] = useState({
@@ -17,7 +19,7 @@ const ManageUsers = () => {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('https://scripteca-backend-d240561046d4.herokuapp.com/api/users', {
+      const response = await axios.get(`${API_URL}/api/users`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUsers(response.data);
@@ -30,7 +32,7 @@ const ManageUsers = () => {
   const handleAddUser = async () => {
     try {
       const token = localStorage.getItem('token');
-      await axios.post('https://scripteca-backend-d240561046d4.herokuapp.com/api/users', newUser, {
+      await axios.post(`${API_URL}/api/users`, newUser, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchUsers();
@@ -51,7 +53,7 @@ const ManageUsers = () => {
   const handleEditUser = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`https://scripteca-backend-d240561046d4.herokuapp.com/api/users/${id}`, editUser, {
+      await axios.put(`${API_URL}/api/users/${id}`, editUser, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchUsers();
@@ -77,7 +79,7 @@ const ManageUsers = () => {
   const handleDeleteUser = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`https://scripteca-backend-d240561046d4.herokuapp.com/api/users/${id}`, {
+      await axios.delete(`${API_URL}/api/users/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchUsers();

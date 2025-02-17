@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/account.css';
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 const Account = () => {
   const [user, setUser] = useState({
     name: '',
@@ -24,7 +26,7 @@ const Account = () => {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('https://scripteca-backend-d240561046d4.herokuapp.com/api/users/me', {
+        const response = await axios.get(`${API_URL}/api/users/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

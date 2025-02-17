@@ -17,8 +17,9 @@ const StudentRecordings = () => {
 
   const fetchRecordings = async () => {
     try {
+      const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
       const token = localStorage.getItem('token');
-      const response = await axios.get('https://scripteca-backend-d240561046d4.herokuapp.com/api/recordings', {
+      const response = await axios.get(`${API_URL}/api/recordings`, {
         headers: { Authorization: `Bearer ${token}` },
       });
  

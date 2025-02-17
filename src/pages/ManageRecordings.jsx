@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 const ManageRecordings = () => {
   const [recordings, setRecordings] = useState([]);
   const [newRecording, setNewRecording] = useState({
@@ -14,7 +16,7 @@ const ManageRecordings = () => {
   const fetchRecordings = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5000/api/recordings", {
+      const response = await axios.get(`${API_URL}/api/recordings`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -35,7 +37,7 @@ const ManageRecordings = () => {
   const handleAddRecording = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:5000/api/recordings", newRecording, {
+      await axios.post(`${API_URL}api/recordings`, newRecording, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchRecordings();
@@ -48,7 +50,7 @@ const ManageRecordings = () => {
   const handleEditRecording = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.put(`http://localhost:5000/api/recordings/${id}`, editRecording, {
+      await axios.put(`${API_URL}/api/recordings/${id}`, editRecording, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchRecordings();
@@ -61,7 +63,7 @@ const ManageRecordings = () => {
   const handleDeleteRecording = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/recordings/${id}`, {
+      await axios.delete(`${API_URL}/api/recordings/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchRecordings();
