@@ -22,8 +22,7 @@ import iconGithub from '../assets/img/icons/github.svg';
 
 // Íconos para la sección "Tu experiencia de aprendizaje"
 
-import cibersecBanner from '../assets/img/banner-EspecialidadCiberseguridad.png';
-import fullStackJS from '../assets/img/banner-FullStackJavaScript.png'
+import sitioWebBanner from '../assets/img/banner-CreaSitioWeb.jpg';
 
 const LandingPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -43,7 +42,7 @@ const LandingPage = () => {
         </nav>
         <div className="btn-container">
           <Link to="/login">Entrar</Link>
-          <Link to="/">Contacto</Link>
+          <Link href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
         </div>
         <section className="sidebar-footer">
         <section className="social-links">
@@ -70,7 +69,7 @@ const LandingPage = () => {
           <div className="btn-group-header">
             <div className="btn-container">
               <Link to="/login" className="btn-login">Entrar</Link>
-              <Link to="/" className="btn-contact">Contacto</Link>
+              <Link to="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank" className="btn-contact">Contacto</Link>
             </div>
             <div className="hamburger" onClick={() => setSidebarOpen(true)}>
               <span></span>
@@ -94,7 +93,7 @@ const LandingPage = () => {
             por menos de un café al día.
           </p>
           <div className="btn-container">
-            <a>Más información</a>
+            <a href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Más información</a>
             <a href="#cursos">Todos los cursos</a>
           </div>
         </section>
@@ -129,27 +128,11 @@ const LandingPage = () => {
           <h2>Nuestros Cursos</h2>
           <div className="courses-container">
             <div className="course-card">
-              <img src={cibersecBanner} alt="Curso de Programación Web" />
+              <img src={sitioWebBanner} alt="Curso de Programación Web" />
               <div className="course-info">
-                <h3>Curso de Programación Web</h3>
-                <p>Aprende a desarrollar aplicaciones web modernas desde cero, sin necesidad de experiencia previa.</p>
-                <a>Ver Detalles</a>
-              </div>
-            </div>
-            <div className="course-card">
-              <img src={fullStackJS} alt="Curso de Data Science" />
-              <div className="course-info">
-                <h3>Curso de Data Science</h3>
-                <p>Explora análisis de datos y machine learning mediante proyectos prácticos y reales.</p>
-                <a>Ver Detalles</a>
-              </div>
-            </div>
-            <div className="course-card">
-              <img src={cibersecBanner} alt="Curso de Desarrollo Móvil" />
-              <div className="course-info">
-                <h3>Curso de Desarrollo Móvil</h3>
-                <p>Conviértete en un experto desarrollador de aplicaciones móviles con clases prácticas y dinámicas.</p>
-                <a>Ver Detalles</a>
+                <h3>Crea tu sitio web como un profesional, paso a paso</h3>
+                <p>Aprende a desarrollar sitios web modernos desde cero, sin necesidad de experiencia previa.</p>
+                <a href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre%el%curso%Crea%el%sitio%web%de%tu%negocio%como%un%Profesional,%paso%a%paso" target="_blank">Ver Detalles</a>
               </div>
             </div>
           </div>
