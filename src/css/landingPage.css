@@ -40,6 +40,15 @@
   }
 }
 
+@keyframes intermitent {
+  0%, 100% {
+    background: #1F1F1F;
+  }
+  50% {
+    background: #0f1317;
+  }
+}
+
 html,
 body {
   margin: 0;
@@ -48,6 +57,7 @@ body {
   background: #0f1317;
   color: #e0e0e0;
   box-sizing: border-box;
+  animation: intermitent 7s ease-in-out infinite;
 }
 
 body::-webkit-scrollbar {
@@ -290,7 +300,36 @@ h2{
   color: #ddd;
 }
 
+.card {
+  background: #1e1e1e;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 
+  p {
+    font-size: 1rem;
+    color: #ddd;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    color: #FFF;
+    margin-bottom: 10px;
+  }
+
+  img {
+    width: 80px;
+    margin-bottom: 15px;
+  }
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+}
 
 /* ===== Sección: Sin experiencia en programación ===== */
 .no-experience {
@@ -420,10 +459,9 @@ h2{
   background: #018786;
 }
 
-
-
-/* ===== How We Work Section ===== */
-.how-we-work {
+.how-we-work,
+.who-can-learn
+{
   margin: 0 auto 100px;
   max-width: 1264px;
   padding: 50px 20px;
@@ -432,11 +470,12 @@ h2{
   text-align: center;
 }
 
-.how-we-work h2 {
+h2 {
   font-size: 2.2rem;
   margin-bottom: 40px;
 }
 
+.cards-container,
 .work-steps-container {
   display: flex;
   justify-content: center;
@@ -488,44 +527,6 @@ h2{
 .experience h2 {
   font-size: 2.2rem;
   margin-bottom: 40px;
-}
-
-.experience-items-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.experience-item {
-  background: #1e1e1e;
-  padding: 30px;
-  border-radius: 12px;
-  width: 300px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
-}
-
-.experience-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
-}
-
-.experience-item img {
-  width: 80px;
-  margin-bottom: 20px;
-}
-
-.experience-item h3 {
-  font-size: 1.6rem;
-  margin-bottom: 15px;
-  color: #FFF;
-}
-
-.experience-item p {
-  font-size: 1rem;
-  color: #ccc;
 }
 
 /* ===== Footer ===== */

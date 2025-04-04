@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import '../css/manageRecordings.css';
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
@@ -37,7 +38,7 @@ const ManageRecordings = () => {
   const handleAddRecording = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.post(`${API_URL}api/recordings`, newRecording, {
+      await axios.post(`${API_URL}/api/recordings`, newRecording, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchRecordings();
@@ -77,7 +78,7 @@ const ManageRecordings = () => {
   }, []);
 
   return (
-    <div>
+    <section className="manage__recordings">
       <h2>Gestionar Grabaciones</h2>
 
       {/* Formulario para agregar nueva grabación */}
@@ -163,7 +164,7 @@ const ManageRecordings = () => {
           ))}
         </tbody>
       </table>
-    </div>
+    </section>
   );
 };
 

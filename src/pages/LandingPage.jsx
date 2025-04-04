@@ -19,6 +19,9 @@ import iconInstagram from '../assets/img/icons/instagram.svg';
 import iconYoutube from '../assets/img/icons/youtube.svg';
 import iconTwitter from '../assets/img/icons/x-twitter.svg';
 import iconGithub from '../assets/img/icons/github.svg';
+import iconTech from '../assets/img/icons/iconTech.png';
+import iconWork from '../assets/img/icons/iconWork.png';
+import iconBusiness from '../assets/img/icons/iconBusiness.png';
 
 // Íconos para la sección "Tu experiencia de aprendizaje"
 
@@ -30,7 +33,7 @@ const LandingPage = () => {
   return (
     <>
       {/* Sidebar */}
-      <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+      <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
           <img src={logo} alt="" />
           <button className="btn-close" onClick={() => setSidebarOpen(false)}>×</button>
@@ -45,15 +48,15 @@ const LandingPage = () => {
           <Link href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
         </div>
         <section className="sidebar-footer">
-        <section className="social-links">
-              <a><img src={iconFacebook} alt="Facebook icon" /></a>
-              <a><img src={iconInstagram} alt="Instagram icon" /></a>
-              <a><img src={iconYoutube} alt="Youtube icon" /></a>
-              <a><img src={iconTwitter} alt="X Twitter icon" /></a>
-              <a><img src={iconGithub} alt="Github icon" /></a>
-            </section>
+          <section className="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61573641520695"><img src={iconFacebook} alt="Facebook icon" /></a>
+            <a href="https://www.instagram.com/scripteca/"><img src={iconInstagram} alt="Instagram icon" /></a>
+            <a href="https://www.youtube.com/@Scripteca"><img src={iconYoutube} alt="Youtube icon" /></a>
+            <a><img src={iconTwitter} alt="X Twitter icon" /></a>
+            <a><img src={iconGithub} alt="Github icon" /></a>
+          </section>
         </section>
-      </div>
+      </aside>
 
       {/* Header */}
       <div className="pulse-box-shadow" id="inicio">
@@ -98,97 +101,128 @@ const LandingPage = () => {
           </div>
         </section>
 
+        <section className="who-can-learn">
+          <h2>¿Para quién es este curso?</h2>
+          <div className="cards-container">
+
+            <div className="card">
+              <img src={iconTech} alt="Apasionados por la tecnología" />
+              <h3>Para apasionados de la tecnología</h3>
+              <p>Si te encanta la programación y quieres aprender por hobby, aquí tienes un camino claro y estructurado.</p>
+            </div>
+
+            <div className="card">
+              <img src={iconWork} alt="Destacar en el empleo" />
+              <h3>Para mejorar en tu empleo</h3>
+              <p>Domina habilidades clave para destacar en tu trabajo y abrir nuevas oportunidades laborales.</p>
+            </div>
+
+            <div className="card">
+              <img src={iconBusiness} alt="Emprendedores" />
+              <h3>Para emprendedores</h3>
+              <p>Aprende a construir y optimizar un sitio web para tu negocio o proyecto personal.</p>
+            </div>
+
+            <div className="card">
+              <img src={iconCareer} alt="Buscando primer empleo" />
+              <h3>Para quienes buscan su primer empleo en tecnología</h3>
+              <p>Crea un portafolio sólido con proyectos reales y aumenta tus oportunidades laborales.</p>
+            </div>
+
+          </div>
+        </section>
+
         {/* Nueva Sección: Sin experiencia en programación */}
         <section className="no-experience">
           <h2>No necesitas experiencia en programación</h2>
           <p>
             Si nunca has programado, no te preocupes. Nuestros cursos están diseñados para que aprendas desde cero. Con apoyo personalizado, clases interactivas y proyectos prácticos, te llevamos paso a paso al éxito en el mundo digital.
           </p>
-          <div className="no-experience-cards">
-            <div className="card">
+          <section className="no-experience-cards">
+            <article className="card">
               <img src={iconBeginner} alt="Clases para Principiantes" />
               <h3>Clases para Principiantes</h3>
               <p>Descubre el mundo de la programación desde cero, sin requerir conocimientos previos.</p>
-            </div>
-            <div className="card">
+            </article>
+            <article className="card">
               <img src={iconMentor} alt="Mentoría Personalizada" />
               <h3>Mentoría Personalizada</h3>
               <p>Recibe el apoyo de expertos que te guiarán en cada etapa de tu aprendizaje.</p>
-            </div>
-            <div className="card">
+            </article>
+            <article className="card">
               <img src={iconProject} alt="Aprendizaje Práctico" />
               <h3>Aprendizaje Práctico</h3>
               <p>Aplica lo aprendido en proyectos reales desde el primer día.</p>
-            </div>
-          </div>
+            </article>
+          </section>
         </section>
 
         {/* Sección: Nuestros Cursos */}
         <section className="courses" id="cursos">
           <h2>Nuestros Cursos</h2>
-          <div className="courses-container">
-            <div className="course-card">
+          <section className="courses-container">
+            <article className="course-card">
               <img src={sitioWebBanner} alt="Curso de Programación Web" />
-              <div className="course-info">
+              <section className="course-info">
                 <h3>Crea tu sitio web como un profesional, paso a paso</h3>
                 <p>Aprende a desarrollar sitios web modernos desde cero, sin necesidad de experiencia previa.</p>
                 <a href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre%el%curso%Crea%el%sitio%web%de%tu%negocio%como%un%Profesional,%paso%a%paso" target="_blank">Ver Detalles</a>
-              </div>
-            </div>
-          </div>
+              </section>
+            </article>
+          </section>
         </section>
 
         {/* Sección "¿Cómo trabajamos?" */}
         <section className="how-we-work" id="propuesta">
           <h2>¿Qué vas a hacer?</h2>
-          <div className="work-steps-container">
-            <section className="work-step">
+          <section className="work-steps-container">
+            <article className="work-step">
               <img src={iconLearn} alt="Aprende" />
               <h3>Paso 1: Aprende</h3>
               <p>Accede a contenido de alta calidad y estudia a tu ritmo.</p>
-            </section>
-            <section className="work-step">
+            </article>
+            <article className="work-step">
               <img src={iconPractice} alt="Practica" />
               <h3>Paso 2: Practica</h3>
               <p>Aplica lo aprendido con ejercicios prácticos y proyectos reales.</p>
-            </section>
-            <section className="work-step">
+            </article>
+            <article className="work-step">
               <img src={iconCareer} alt="Impulsa tu carrera" />
               <h3>Paso 3: Impulsa tu carrera</h3>
               <p>Comparte tu portafolio y accede a oportunidades laborales.</p>
-            </section>
-          </div>
+            </article>
+          </section>
         </section>
 
         {/* Sección "Tu experiencia de aprendizaje" */}
         <section className="experience">
           <h2>Tu experiencia de aprendizaje</h2>
-          <div className="experience-items-container">
-            <div className="experience-item">
+          <section className="cards-container">
+            <article className="card">
               <img src={iconPlay} alt="Clases en vivo" />
               <h3>Clases en Vivo Intensivas</h3>
               <p>
                 Participa en sesiones en vivo diseñadas para maximizar tu aprendizaje.
                 Interactúa en tiempo real con instructores expertos y resuelve tus dudas al instante.
               </p>
-            </div>
-            <div className="experience-item">
+            </article>
+            <article className="card">
               <img src={iconCode} alt="Proyectos prácticos" />
               <h3>Proyectos Prácticos Reales</h3>
               <p>
                 Desarrolla proyectos prácticos que te permitirán aplicar lo aprendido y
                 construir un portafolio profesional sólido.
               </p>
-            </div>
-            <div className="experience-item">
+            </article>
+            <article className="card">
               <img src={iconAccess} alt="Acceso a grabaciones" />
               <h3>Acceso Ilimitado a Grabaciones</h3>
               <p>
                 Tendrás acceso a una plataforma intuitiva donde podrás revisar las grabaciones de cada sesión y acceder a materiales complementarios,
                 asegurándote de no perder ningún detalle, incluso si no puedes asistir en vivo.
               </p>
-            </div>
-          </div>
+            </article>
+          </section>
         </section>
       </main>
 
@@ -202,9 +236,9 @@ const LandingPage = () => {
               Impulsa tu carrera con nuestros cursos especializados por menos de un café al día.
             </p>
             <section id="social-links">
-              <a><img src={iconFacebook} alt="Facebook icon" /></a>
-              <a><img src={iconInstagram} alt="Instagram icon" /></a>
-              <a><img src={iconYoutube} alt="Youtube icon" /></a>
+              <a href="https://www.facebook.com/profile.php?id=61573641520695"><img src={iconFacebook} alt="Facebook icon" /></a>
+              <a href="https://www.instagram.com/scripteca/"><img src={iconInstagram} alt="Instagram icon" /></a>
+              <a href="https://www.youtube.com/@Scripteca"><img src={iconYoutube} alt="Youtube icon" /></a>
               <a><img src={iconTwitter} alt="X Twitter icon" /></a>
               <a><img src={iconGithub} alt="Github icon" /></a>
             </section>
