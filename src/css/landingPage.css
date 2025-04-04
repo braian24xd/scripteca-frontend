@@ -339,6 +339,8 @@ h2{
   color: #e0e0e0;
 }
 
+.how-we-work h2,
+.who-can-learn h2,
 .no-experience h2 {
   font-size: 2.2rem;
   margin-bottom: 20px;
@@ -462,17 +464,12 @@ h2{
 .how-we-work,
 .who-can-learn
 {
-  margin: 0 auto 100px;
+  margin: 0 auto 50px;
   max-width: 1264px;
   padding: 50px 20px;
   border-radius: 20px;
   /* background: linear-gradient(135deg, #1a1a1a 0%, #333 100%); */
   text-align: center;
-}
-
-h2 {
-  font-size: 2.2rem;
-  margin-bottom: 40px;
 }
 
 .cards-container,
