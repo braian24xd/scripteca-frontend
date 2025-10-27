@@ -8,6 +8,7 @@ import ManageUsers from './pages/ManageUsers';
 import ManageRecordings from './pages/ManageRecordings';
 import Account from './pages/Account';
 import Header from './components/Header';
+import UserDashboardLayout from './layouts/UserDasboardLayout';
 import {jwtDecode} from 'jwt-decode';
 
 const ProtectedRoute = ({ requiredRole, children }) => {
@@ -74,7 +75,8 @@ const App = () => {
           path="/recordings"
           element={
             <ProtectedRoute requiredRole={['student']}>
-              <StudentRecordings />
+              <UserDashboardLayout />
+              {/* <StudentRecordings /> */}
             </ProtectedRoute>
           }
         />

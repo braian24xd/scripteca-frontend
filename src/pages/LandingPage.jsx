@@ -26,6 +26,7 @@ import iconBusiness from '../assets/img/icons/iconBusiness.png';
 // Íconos para la sección "Tu experiencia de aprendizaje"
 
 import sitioWebBanner from '../assets/img/banner-CreaSitioWeb.jpg';
+import CourseCard from "../components/CourseCard";
 
 const LandingPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -161,14 +162,14 @@ const LandingPage = () => {
         <section className="courses" id="cursos">
           <h2>Nuestros Cursos</h2>
           <section className="courses-container">
-            <article className="course-card">
-              <img src={sitioWebBanner} alt="Curso de Programación Web" />
-              <section className="course-info">
-                <h3>Crea tu sitio web como un profesional, paso a paso</h3>
-                <p>Aprende a desarrollar sitios web modernos desde cero, sin necesidad de experiencia previa.</p>
-                <a href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre%el%curso%Crea%el%sitio%web%de%tu%negocio%como%un%Profesional,%paso%a%paso" target="_blank">Ver Detalles</a>
-              </section>
-            </article>
+            <CourseCard
+              img={sitioWebBanner}
+              title="Crea tu sitio web como un profesional, paso a paso"
+              description="
+                Aprende a desarrollar sitios web modernos desde cero, sin necesidad de experiencia previa.
+              "
+              link="localhost:3000"
+            />
           </section>
         </section>
 

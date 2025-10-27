@@ -28,7 +28,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+      const API_URL = import.meta.env.VITE_LOCAL_API_URL || "http://localhost:5000";
       const response = await axios.post(`${API_URL}/api/login`, { email, password });
       const { token, role, user } = response.data;
 
@@ -64,7 +64,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             id="password"
-            required
+            
           />
           <a className="toggle-password" onClick={togglePasswordVisibility}>
             {passwordVisible ? 'Ocultar contraseña' : 'Mostrar contraseña'}
