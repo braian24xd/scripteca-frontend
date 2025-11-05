@@ -1,0 +1,127 @@
+
+
+const PreRegisterPage = () => {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    return (
+        <>
+            {/* Sidebar */}
+            <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+                <div className="sidebar-header">
+                    <img src={logo} alt="" />
+                    <button className="btn-close" onClick={() => setSidebarOpen(false)}>×</button>
+                </div>
+                <nav>
+                    <a href="#inicio">Inicio</a>
+                    <a href="#cursos">Cursos</a>
+                    <a href="#propuesta">Propuesta de aprendizaje</a>
+                </nav>
+                <div className="btn-container">
+                    <Link to="/login">Entrar</Link>
+                    <Link href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
+                </div>
+                <section className="sidebar-footer">
+                    <section className="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61573641520695"><img src={iconFacebook} alt="Facebook icon" /></a>
+                        <a href="https://www.instagram.com/scripteca/"><img src={iconInstagram} alt="Instagram icon" /></a>
+                        <a href="https://www.youtube.com/@Scripteca"><img src={iconYoutube} alt="Youtube icon" /></a>
+                        <a><img src={iconTwitter} alt="X Twitter icon" /></a>
+                        <a><img src={iconGithub} alt="Github icon" /></a>
+                    </section>
+                </section>
+            </aside>
+
+            {/* Header */}
+            <div className="pulse-box-shadow" id="inicio">
+                <header className="landing__header" id="header">
+                    <div className="justify-content-center">
+                        <img src={scripteca} alt="Logo" width="200px" />
+                    </div>
+                    <nav className="desktop-nav">
+                        <a href="#inicio">Inicio</a>
+                        <a href="#cursos">Cursos</a>
+                        <a href="#propuesta">Propuesta de aprendizaje</a>
+                    </nav>
+                    <div className="btn-group-header">
+                        <div className="btn-container">
+                            <Link to="/login" className="btn-login">Entrar</Link>
+                            <Link to="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank" className="btn-contact">Contacto</Link>
+                        </div>
+                        <div className="hamburger" onClick={() => setSidebarOpen(true)}>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <section className="register">
+                <section className="register__banner">
+                    <img className="register__banner--img" src="" alt="" />
+                    <h1 className="register__banner--title">Aprende a crear el sitio web de tu negocio como un profesional</h1>
+                    <p className="register__banner--caption">
+                        Inscríbete al curso práctico donde aprenderás paso a paso a construir tu página web moderna, atractiva y funcional
+                        sin necesidad de experiencia previa
+                    </p>
+                    <button className="register__banner--cta">Pre-registrate grátis</button>
+                </section>
+                <section className="register__benefits">
+                    <h2>Beneficios del curso</h2>
+                    <article className="glassCard--single">
+                        {/**aqui va el icono-componente de fa, lucide, etc */}
+                        <h4>Aprende desde cero</h4>
+                    </article>
+                    <article className="glassCard--single">
+                        {/**aqui va el icono-componente de fa, lucide, etc */}
+                        <h4>Curso 100% práctico</h4>
+                    </article>
+                    <article className="glassCard--single">
+                        {/**aqui va el icono-componente de fa, lucide, etc */}
+                        <h4>Acceso a recursos de aprendizaje</h4>
+                    </article>
+                    <article className="glassCard--single">
+                        {/**aqui va el icono-componente de fa, lucide, etc */}
+                        <h4>Crea tu sitio profesional</h4>
+                    </article>
+                </section>
+                <section className="register__roadmap">
+                    <h2>Qué aprenderás</h2>
+                    <article className="glassCard--single">
+                        <h4>Diseño web moderno</h4>
+                    </article>
+                    <article className="glassCard--single">
+                        <h4>Construcción paso a paso</h4>
+                    </article>
+                    <article className="glassCard--single">
+                        <h4>Optimización y publicación</h4>
+                    </article>
+                    <article className="glassCard--single">
+                        <h4>Branding digital y conversión</h4>
+                    </article>
+                </section>
+                <div className="doubleColumn">
+                    <section className="register__testimonials">
+                        <section className="testimonials__content">
+                            Gracias a este curso, pude lanzar la web de mi negocio en solo 2 semanas
+                        </section>
+                        <section>
+                            <p>Alejandro G.</p>
+                            <small>Estudiante de la Scripteca. Primera Gen.</small>
+                        </section>
+                    </section>
+                    <section className="register__form">
+                        <form>
+                            <input type="text" placeholder="Nombre" />
+                            <input type="text" placeholder="Apellidos" />
+                            <input type="email" placeholder="Correo electrónico" />
+                            <input type="tel" placeholder="Telefono" />
+                            <button>Unirme a la lista de espera</button>
+                        </form>
+                    </section>
+                </div>
+            </section>
+        </>
+    )
+}
+
+export default PreRegisterPage
