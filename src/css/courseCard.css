@@ -1,12 +1,14 @@
 .course {
-    background: #2a2a2a;
+    background-color: rgba(33, 33, 45, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    overflow: hidden;
-    width: 390px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 0 10px inset rgba(255, 255, 255, 0.1);
+    width: 400px;
 
     .course__img {
+        padding: -20px;
         width: 100%;
         height: auto;
         display: block;
