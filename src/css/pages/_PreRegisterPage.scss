@@ -1,0 +1,9 @@
+@use '../abstracts/mixins' as utils;
+
+.register {
+    &__banner {
+        div {
+            @include utils.d-flex();
+        }
+    }
+}

@@ -45,7 +45,7 @@
   }
 }
 
-@keyframes intermitent {
+/* @keyframes intermitent {
 
   0%,
   100% {
@@ -55,7 +55,7 @@
   50% {
     background: #0f1317;
   }
-}
+} */
 
 :root {
   --body-gradient: linear-gradient(225deg, #221E28,10%,  #081421,#11171F, #11171F)

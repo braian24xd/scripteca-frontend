@@ -1,2 +1,24 @@
+/*
+----------------------------------------------
+Estilos globales y variables
+----------------------------------------------
+*/
+
 @use './abstracts/variables' as vars;
+
 @use './components/buttonIcon';
+@use './layout/layout';
+
+/*
+----------------------------------------------
+Aplicacion de estilos por pagina
+----------------------------------------------
+*/
+
+@use './pages/PreRegisterPage'
+
+/*
+----------------------------------------------
+Aplicacion de estilos por componente
+----------------------------------------------
+*/

@@ -1,4 +1,8 @@
+import { useState } from "react";
+import { Link } from "react-router";
 
+import logo from '../../assets/img/logo.png'
+import scripteca from '../../assets/img/scripteca.png';
 
 const PreRegisterPage = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -22,11 +26,11 @@ const PreRegisterPage = () => {
                 </div>
                 <section className="sidebar-footer">
                     <section className="social-links">
-                        <a href="https://www.facebook.com/profile.php?id=61573641520695"><img src={iconFacebook} alt="Facebook icon" /></a>
-                        <a href="https://www.instagram.com/scripteca/"><img src={iconInstagram} alt="Instagram icon" /></a>
-                        <a href="https://www.youtube.com/@Scripteca"><img src={iconYoutube} alt="Youtube icon" /></a>
-                        <a><img src={iconTwitter} alt="X Twitter icon" /></a>
-                        <a><img src={iconGithub} alt="Github icon" /></a>
+                        <a href="https://www.facebook.com/profile.php?id=61573641520695"><img alt="Facebook icon" /></a>
+                        <a href="https://www.instagram.com/scripteca/"><img alt="Instagram icon" /></a>
+                        <a href="https://www.youtube.com/@Scripteca"><img alt="Youtube icon" /></a>
+                        <a><img alt="X Twitter icon" /></a>
+                        <a><img alt="Github icon" /></a>
                     </section>
                 </section>
             </aside>
@@ -55,15 +59,17 @@ const PreRegisterPage = () => {
                     </div>
                 </header>
             </div>
-            <section className="register">
+            <section className="register container">
                 <section className="register__banner">
+                    <div>
+                        <h1 className="register__banner--title">Aprende a crear el sitio web de tu negocio como un profesional</h1>
+                        <p className="register__banner--caption">
+                            Inscríbete al curso práctico donde aprenderás paso a paso a construir tu página web moderna, atractiva y funcional
+                            sin necesidad de experiencia previa
+                        </p>
+                        <button className="register__banner--cta">Pre-registrate grátis</button>
+                    </div>
                     <img className="register__banner--img" src="" alt="" />
-                    <h1 className="register__banner--title">Aprende a crear el sitio web de tu negocio como un profesional</h1>
-                    <p className="register__banner--caption">
-                        Inscríbete al curso práctico donde aprenderás paso a paso a construir tu página web moderna, atractiva y funcional
-                        sin necesidad de experiencia previa
-                    </p>
-                    <button className="register__banner--cta">Pre-registrate grátis</button>
                 </section>
                 <section className="register__benefits">
                     <h2>Beneficios del curso</h2>

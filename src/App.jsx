@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
+import PreRegisterPage from './pages/LandingPages/PreRegisterPage';
 import Login from './pages/Login';
 import StudentRecordings from './pages/StudentRecordings';
 import AdminDashboard from './pages/AdminDashboard';
@@ -68,6 +69,7 @@ const App = () => {
       <Routes>
         {/* Rutas públicas */}
         <Route path="/" element={<LandingPage />}/>
+        <Route path="/BuenFin2025" element={<PreRegisterPage />} />
         <Route path="/login" element={<Login />} />
 
         {/* Rutas para estudiantes */}
