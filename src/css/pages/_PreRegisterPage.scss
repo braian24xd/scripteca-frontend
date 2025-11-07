@@ -2,8 +2,16 @@
 
 .register {
     &__banner {
+        @include utils.d-flex();
+        flex-wrap: nowrap;
         div {
-            @include utils.d-flex();
+            width: 50%;
+        }
+
+        &--img {
+            padding: 30px;
+            display: block;
+            width: 40%;
         }
     }
 }

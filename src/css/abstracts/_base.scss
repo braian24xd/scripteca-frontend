@@ -1,0 +1,17 @@
+@use './variables' as vars;
+
+input {
+    background: transparent;
+    border-color: #555;
+}
+
+button {
+    padding: 15px 40px;
+    border: 0;
+    background: #000;
+    color: vars.$color-white;
+
+    border-image-source: linear-gradient(12deg, vars.$pink-brand, vars.$blue-brand);
+    border-image-slice: 1 1 1 1;
+    border-image-width: 0.1rem;
+}

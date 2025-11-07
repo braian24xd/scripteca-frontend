@@ -5,7 +5,7 @@ Estilos globales y variables
 */
 
 @use './abstracts/variables' as vars;
-
+@use './abstracts/base';
 @use './components/buttonIcon';
 @use './layout/layout';
 

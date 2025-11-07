@@ -69,7 +69,7 @@ const PreRegisterPage = () => {
                         </p>
                         <button className="register__banner--cta">Pre-registrate grátis</button>
                     </div>
-                    <img className="register__banner--img" src="" alt="" />
+                    <img className="register__banner--img" src={logo} alt="" />
                 </section>
                 <section className="register__benefits">
                     <h2>Beneficios del curso</h2>
