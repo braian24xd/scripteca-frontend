@@ -1,5 +1,11 @@
+@use '../abstracts/mixins' as utils;
+
 .container {
     margin: 0 auto;
     padding: 20px 10px;
     max-width: 1264px;
+}
+
+.card__container {
+    @include utils.d-flex($justify-content: center)
 }

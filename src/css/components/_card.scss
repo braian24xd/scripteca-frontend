@@ -1,0 +1,17 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as utils;
+
+.card {
+    width: 200px;
+    background: rgba($color: vars.$cyan-emphasys, $alpha: 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 10px inset rgba(255, 255, 255, 0.1);
+    @include utils.d-flex($flex-direction: column);
+    filter: brightness(300%);
+
+    h4 {
+        font-weight: 600;
+        font-size: 1.1em;
+        text-align: center;
+    }
+}

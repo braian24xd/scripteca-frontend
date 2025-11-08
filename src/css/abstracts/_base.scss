@@ -1,17 +1,63 @@
 @use './variables' as vars;
 
+body {
+    background: radial-gradient(circle at 20% 20%, #0a0516, #05010b) !important;
+}
+
 input {
     background: transparent;
-    border-color: #555;
+    border-color: #333;
+    box-shadow: 0 0 10px inset rgba($color: vars.$cyan-emphasys, $alpha: 0.25);
+    color: vars.$color-white;
 }
 
 button {
+    position: relative;
     padding: 15px 40px;
-    border: 0;
-    background: #000;
-    color: vars.$color-white;
+    background: rgba($color: vars.$color-black, $alpha: 0.6);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    backdrop-filter: blur(6px);
+}
 
-    border-image-source: linear-gradient(12deg, vars.$pink-brand, vars.$blue-brand);
-    border-image-slice: 1 1 1 1;
-    border-image-width: 0.1rem;
+/* capa con el borde difuminado */
+button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    /* grosor del borde */
+    background: linear-gradient(18deg, vars.$pink-brand, vars.$blue-brand);
+    mask:
+        linear-gradient(vars.$color-white 0 0) content-box,
+        linear-gradient(vars.$color-white 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    filter: blur(3px);
+    /* desenfoque del borde */
+    z-index: 0;
+}
+
+/* capa del fondo difuminado */
+button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba($color: vars.$color-white, $alpha: 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: inherit;
+    z-index: 0;
+}
+
+button span {
+    background: linear-gradient(vars.$color-white, vars.$cyan-emphasys);
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    z-index: 2;
 }

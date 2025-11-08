@@ -4,6 +4,20 @@ import { Link } from "react-router";
 import logo from '../../assets/img/logo.png'
 import scripteca from '../../assets/img/scripteca.png';
 
+import {
+    FaFacebook,
+    FaInstagram,
+    FaYoutube,
+    FaGithub
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
+import { FcIdea } from "react-icons/fc";
+
+
+import Card from "../../components/ui/Card";
+
+
 const PreRegisterPage = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -22,11 +36,11 @@ const PreRegisterPage = () => {
                 </nav>
                 <div className="btn-container">
                     <Link to="/login">Entrar</Link>
-                    <Link href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
+                    <Link className="btn-login" href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
                 </div>
                 <section className="sidebar-footer">
                     <section className="social-links">
-                        <a href="https://www.facebook.com/profile.php?id=61573641520695"><img alt="Facebook icon" /></a>
+                        <a href="https://www.facebook.com/profile.php?id=61573641520695"><FaFacebook /></a>
                         <a href="https://www.instagram.com/scripteca/"><img alt="Instagram icon" /></a>
                         <a href="https://www.youtube.com/@Scripteca"><img alt="Youtube icon" /></a>
                         <a><img alt="X Twitter icon" /></a>
@@ -49,7 +63,7 @@ const PreRegisterPage = () => {
                     <div className="btn-group-header">
                         <div className="btn-container">
                             <Link to="/login" className="btn-login">Entrar</Link>
-                            <Link to="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank" className="btn-contact">Contacto</Link>
+                            <Link className="btn-login" to="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
                         </div>
                         <div className="hamburger" onClick={() => setSidebarOpen(true)}>
                             <span></span>
@@ -65,9 +79,11 @@ const PreRegisterPage = () => {
                         <h1 className="register__banner--title">Aprende a crear el sitio web de tu negocio como un profesional</h1>
                         <p className="register__banner--caption">
                             Inscríbete al curso práctico donde aprenderás paso a paso a construir tu página web moderna, atractiva y funcional
-                            sin necesidad de experiencia previa
+                            sin necesidad de experiencia previa 🚀
                         </p>
-                        <button className="register__banner--cta">Pre-registrate grátis</button>
+                        <button className="register__banner--cta">
+                            <span>Pre-registrate grátis</span>
+                        </button>
                     </div>
                     <img className="register__banner--img" src={logo} alt="" />
                 </section>
@@ -92,18 +108,24 @@ const PreRegisterPage = () => {
                 </section>
                 <section className="register__roadmap">
                     <h2>Qué aprenderás</h2>
-                    <article className="glassCard--single">
-                        <h4>Diseño web moderno</h4>
-                    </article>
-                    <article className="glassCard--single">
-                        <h4>Construcción paso a paso</h4>
-                    </article>
-                    <article className="glassCard--single">
-                        <h4>Optimización y publicación</h4>
-                    </article>
-                    <article className="glassCard--single">
-                        <h4>Branding digital y conversión</h4>
-                    </article>
+                    <div className="card__container">
+                        <Card>
+                            <FcIdea />
+                            <h4>Diseño web moderno</h4>
+                        </Card>
+                        <Card>
+                            <FcIdea />
+                            <h4>Construcción paso a paso</h4>
+                        </Card>
+                        <Card>
+                            <FcIdea />
+                            <h4>Optimización y publicación</h4>
+                        </Card>
+                        <Card>
+                            <FcIdea />
+                            <h4>Branding digital y conversión</h4>
+                        </Card>
+                    </div>
                 </section>
                 <div className="doubleColumn">
                     <section className="register__testimonials">
@@ -121,11 +143,54 @@ const PreRegisterPage = () => {
                             <input type="text" placeholder="Apellidos" />
                             <input type="email" placeholder="Correo electrónico" />
                             <input type="tel" placeholder="Telefono" />
-                            <button>Unirme a la lista de espera</button>
+                            <button>
+                                <span>
+                                    Unirme a la lista de espera
+                                </span>
+                            </button>
                         </form>
                     </section>
                 </div>
             </section>
+            {/* Footer */}
+            <footer className="pulse-box-shadow">
+                <section className="footer-content">
+                    <section id="footer-mark">
+                        <img src={logo} alt="logo" width="100px" />
+                        <p>
+                            Educación a tu alcance, donde y cuando quieras.
+                            Impulsa tu carrera con nuestros cursos especializados por menos de un café al día.
+                        </p>
+                        <section id="social-links">
+                            <a href="https://www.facebook.com/profile.php?id=61573641520695"><FaFacebook /></a>
+                            <a href="https://www.instagram.com/scripteca/"><FaInstagram /></a>
+                            <a href="https://www.youtube.com/@Scripteca"><FaYoutube /></a>
+                            <a><FaXTwitter /></a>
+                            <a><FaGithub /></a>
+                        </section>
+                    </section>
+                    <section className="footer-link">
+                        <h2>Navegación</h2>
+                        <a href="#inicio">Inicio</a>
+                        <a href="#cursos">Cursos</a>
+                        <a href="#propuesta">Propuesta de aprendizaje</a>
+                    </section>
+                    <section className="footer-link">
+                        <h2>Sitio</h2>
+                        <a>Contacto</a>
+                        <a>Mapa del sitio</a>
+                    </section>
+                </section>
+                <hr />
+                <section id="footer-copy">
+                    <small>Copyright &copy;2024. Todos los derechos reservados</small>
+                    <small>
+                        <a>Política de privacidad</a>
+                        <a>Aspectos legales</a>
+                        <a>Política de cookies</a>
+                    </small>
+                </section>
+            </footer>
         </>
     )
 }

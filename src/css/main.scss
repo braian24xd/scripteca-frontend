@@ -15,10 +15,12 @@ Aplicacion de estilos por pagina
 ----------------------------------------------
 */
 
-@use './pages/PreRegisterPage'
+@use './pages/PreRegisterPage';
 
 /*
 ----------------------------------------------
 Aplicacion de estilos por componente
 ----------------------------------------------
 */
+
+@use './components/card';

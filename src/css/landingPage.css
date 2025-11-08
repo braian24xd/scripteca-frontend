@@ -22,17 +22,17 @@
   animation: shadowPulse 3s infinite ease-in-out;
 }
 
-.blinking-cursor {
+/* .blinking-cursor {
   display: inline-block;
   width: 30px;
   height: 0.1em;
   background: rgba(255, 255, 255, 0.8);
   margin-left: 5px;
   animation: blink 1s steps(2, start) infinite;
-}
+} */
 
 
-@keyframes blink {
+/* @keyframes blink {
 
   0%,
   50% {
@@ -43,7 +43,7 @@
   100% {
     opacity: 0;
   }
-}
+} */
 
 /* @keyframes intermitent {
 
@@ -57,7 +57,7 @@
   }
 } */
 
-:root {
+/* :root {
   --body-gradient: linear-gradient(225deg, #221E28,10%,  #081421,#11171F, #11171F)
 }
 
@@ -66,14 +66,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  /* background: linear-gradient(135deg, #0a0a0a 0%, #151515 100%) !important;  */
+  background: linear-gradient(135deg, #0a0a0a 0%, #151515 100%) !important;
   background: var(--body-gradient) !important;
   color: #e0e0e0;
   box-sizing: border-box;
-  /* animation: intermitent 7s ease-in-out infinite; */
-}
+  /* animation: intermitent 7s ease-in-out infinite;
+} */
 
-body::-webkit-scrollbar {
+/* body::-webkit-scrollbar {
   width: 5px;
 }
 
@@ -88,13 +88,13 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-thumb:hover {
   background-color: #999;
-}
+} */
 
-h2 {
+/* h2 {
   background: linear-gradient(to right, #13a8fe, #43b5a0, #43b5a0);
   background-clip: text;
   color: transparent;
-}
+} */
 
 .btn-container {
   display: flex;
@@ -112,8 +112,8 @@ h2 {
   :last-child {
     padding: 5px 20px;
     border-radius: 5px;
-    background: linear-gradient(to right, #01c4e7, #2ef8a0);
-    color: #000;
+    /* background: linear-gradient(to right, #01c4e7, #2ef8a0); */
+    color: #FFF;
     text-decoration: none;
   }
 }
@@ -179,7 +179,7 @@ h2 {
   right: -380px;
   width: 380px;
   height: 100%;
-  background: #1e1e1e;
+  /* background: #1e1e1e; */
   transition: right 0.3s ease;
   z-index: 1000;
   padding: 20px;
@@ -218,7 +218,7 @@ h2 {
 
 .sidebar-header .btn-close:hover {
   padding: 10px;
-  background-color: #333;
+  /* background-color: #333; */
 
 }
 
@@ -318,13 +318,14 @@ h2 {
 }
 
 .card {
-    background-color: rgba(33, 33, 45, 0.3);
+    /* background-color: rgba(33, 33, 45, 0.3); */
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     padding: 20px;
     position: relative;
     box-shadow: 0 0 10px inset rgba(255, 255, 255, 0.1);
     width: 400px;
+    filter: brightness(300%);
 
   p {
     font-size: 1rem;
@@ -345,10 +346,10 @@ h2 {
   }
 }
 
-.card:hover {
+/* .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
-}
+} */
 
 /* ===== Sección: Sin experiencia en programación ===== */
 .no-experience {
@@ -380,7 +381,7 @@ h2 {
 }
 
 .no-experience .card {
-  background-color: rgba(33, 33, 45, 0.3);
+  /* background-color: rgba(33, 33, 45, 0.3); */
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     padding: 20px;
@@ -431,7 +432,7 @@ h2 {
 }
 
 .course-card {
-  background: #2a2a2a;
+  /* background: #2a2a2a; */
   border-radius: 12px;
   overflow: hidden;
   width: 390px;
@@ -468,15 +469,15 @@ h2 {
 .course-info a {
   text-decoration: none;
   color: #121212;
-  background: linear-gradient(to right, #01c4e7, #2ef8a0);
+  /* background: linear-gradient(to right, #01c4e7, #2ef8a0); */
   padding: 5px 20px;
   border-radius: 4px;
-  transition: background 0.3s ease;
+  /* transition: background 0.3s ease; */
 }
 
-.course-info a:hover {
+/* .course-info a:hover {
   background: #018786;
-}
+} */
 
 .how-we-work,
 .who-can-learn {
@@ -497,7 +498,7 @@ h2 {
 }
 
 .work-step {
-  background-color: rgba(33, 33, 45, 0.3);
+  /* background-color: rgba(33, 33, 45, 0.3); */
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     padding: 20px;
