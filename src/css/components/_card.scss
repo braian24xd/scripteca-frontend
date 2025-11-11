@@ -9,6 +9,10 @@
     @include utils.d-flex($flex-direction: column);
     filter: brightness(300%);
 
+    &__icon {
+        font-size: 2em;
+    }
+
     h4 {
         font-weight: 600;
         font-size: 1.1em;

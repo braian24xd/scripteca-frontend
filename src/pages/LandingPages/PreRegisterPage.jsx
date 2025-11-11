@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router";
 
 import logo from '../../assets/img/logo.png'
-import scripteca from '../../assets/img/scripteca.png';
+import scripteca from '../../assets/img/scripteca.png'
+import imgbanner from '../../assets/img/webDev.png'
 
 import {
     FaFacebook,
@@ -12,7 +13,12 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
-import { FcIdea } from "react-icons/fc";
+import {
+    FcIdea,
+    FcFlashOn,
+    FcOpenedFolder,
+    FcDeployment
+} from "react-icons/fc";
 
 
 import Card from "../../components/ui/Card";
@@ -35,7 +41,9 @@ const PreRegisterPage = () => {
                     <a href="#propuesta">Propuesta de aprendizaje</a>
                 </nav>
                 <div className="btn-container">
-                    <Link to="/login">Entrar</Link>
+                    <button>
+                        <Link to="/login">Entrar</Link>
+                    </button>
                     <Link className="btn-login" href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
                 </div>
                 <section className="sidebar-footer">
@@ -62,8 +70,10 @@ const PreRegisterPage = () => {
                     </nav>
                     <div className="btn-group-header">
                         <div className="btn-container">
-                            <Link to="/login" className="btn-login">Entrar</Link>
-                            <Link className="btn-login" to="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
+                            <button className="button--main">
+                                <span>Entrar</span>
+                            </button>
+                            <button className="button--sub">Contacto</button>
                         </div>
                         <div className="hamburger" onClick={() => setSidebarOpen(true)}>
                             <span></span>
@@ -81,58 +91,58 @@ const PreRegisterPage = () => {
                             Inscríbete al curso práctico donde aprenderás paso a paso a construir tu página web moderna, atractiva y funcional
                             sin necesidad de experiencia previa 🚀
                         </p>
-                        <button className="register__banner--cta">
+                        <button className="button--main">
                             <span>Pre-registrate grátis</span>
                         </button>
                     </div>
-                    <img className="register__banner--img" src={logo} alt="" />
+                    <Card>
+                        <img className="register__banner--img" src={imgbanner} width="100%" alt="" />
+                    </Card>
                 </section>
                 <section className="register__benefits">
-                    <h2>Beneficios del curso</h2>
-                    <article className="glassCard--single">
-                        {/**aqui va el icono-componente de fa, lucide, etc */}
-                        <h4>Aprende desde cero</h4>
-                    </article>
-                    <article className="glassCard--single">
-                        {/**aqui va el icono-componente de fa, lucide, etc */}
-                        <h4>Curso 100% práctico</h4>
-                    </article>
-                    <article className="glassCard--single">
-                        {/**aqui va el icono-componente de fa, lucide, etc */}
-                        <h4>Acceso a recursos de aprendizaje</h4>
-                    </article>
-                    <article className="glassCard--single">
-                        {/**aqui va el icono-componente de fa, lucide, etc */}
-                        <h4>Crea tu sitio profesional</h4>
-                    </article>
-                </section>
-                <section className="register__roadmap">
-                    <h2>Qué aprenderás</h2>
+                    <h2 className="register__subtitle">Beneficios del curso</h2>
                     <div className="card__container">
                         <Card>
-                            <FcIdea />
+                            <FcIdea className="card__icon" />
+                            <h4>Aprende desde cero</h4>
+                        </Card>
+                        <Card>
+                            <FcFlashOn className="card__icon" />
+                            <h4>Curso 100% práctico</h4>
+                        </Card>
+                        <Card>
+                            <FcOpenedFolder className="card__icon" />
+                            <h4>Acceso a recursos de aprendizaje</h4>
+                        </Card>
+                        <Card>
+                            <FcDeployment className="card__icon" />
+                            <h4>Crea tu sitio profesional</h4>
+                        </Card>
+                    </div>
+                </section>
+                <section className="register__roadmap">
+                    <h2 className="register__subtitle">Qué aprenderás</h2>
+                    <div className="card__container">
+                        <Card>
                             <h4>Diseño web moderno</h4>
                         </Card>
                         <Card>
-                            <FcIdea />
                             <h4>Construcción paso a paso</h4>
                         </Card>
                         <Card>
-                            <FcIdea />
                             <h4>Optimización y publicación</h4>
                         </Card>
                         <Card>
-                            <FcIdea />
                             <h4>Branding digital y conversión</h4>
                         </Card>
                     </div>
                 </section>
-                <div className="doubleColumn">
+                <div className="double__column">
                     <section className="register__testimonials">
-                        <section className="testimonials__content">
-                            Gracias a este curso, pude lanzar la web de mi negocio en solo 2 semanas
-                        </section>
-                        <section>
+                        <span className="register__testimonials__content">
+                            Gracias a este curso, pude lanzar la web de mi negocio en solo 4 semanas
+                        </span>
+                        <section className="register__testimonials__caption">
                             <p>Alejandro G.</p>
                             <small>Estudiante de la Scripteca. Primera Gen.</small>
                         </section>
@@ -143,7 +153,7 @@ const PreRegisterPage = () => {
                             <input type="text" placeholder="Apellidos" />
                             <input type="email" placeholder="Correo electrónico" />
                             <input type="tel" placeholder="Telefono" />
-                            <button>
+                            <button className="button--main register__form--submit">
                                 <span>
                                     Unirme a la lista de espera
                                 </span>

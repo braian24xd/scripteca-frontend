@@ -23,6 +23,13 @@ import iconTech from '../assets/img/icons/iconTech.png';
 import iconWork from '../assets/img/icons/iconWork.png';
 import iconBusiness from '../assets/img/icons/iconBusiness.png';
 
+import {
+  FcSmartphoneTablet,
+  FcBriefcase,
+  FcDebt,
+  FcCollaboration
+} from "react-icons/fc";
+
 // Íconos para la sección "Tu experiencia de aprendizaje"
 
 import sitioWebBanner from '../assets/img/banner-CreaSitioWeb.jpg';
@@ -72,9 +79,13 @@ const LandingPage = () => {
           </nav>
           <div className="btn-group-header">
             <div className="btn-container">
-              <Link to="/login" className="btn-login">Entrar</Link>
-              <Link to="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank" className="btn-contact">Contacto</Link>
-            </div>
+                    <button className="button--main">
+                        <span>
+                            Entrar
+                        </span>
+                    </button>
+                    <Link className="btn-login" href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
+                </div>
             <div className="hamburger" onClick={() => setSidebarOpen(true)}>
               <span></span>
               <span></span>
@@ -97,8 +108,10 @@ const LandingPage = () => {
             por menos de un café al día.
           </p>
           <div className="btn-container">
-            <a href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Más información</a>
-            <a href="#cursos">Todos los cursos</a>
+            <a className="btn-login" href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Más información</a>
+            <button className="button--main">
+              <span>Todos lo cursos</span>
+            </button>
           </div>
         </section>
 
@@ -107,25 +120,25 @@ const LandingPage = () => {
           <div className="cards-container">
 
             <div className="card">
-              <img src={iconTech} alt="Apasionados por la tecnología" />
+              <FcSmartphoneTablet />
               <h3>Para apasionados de la tecnología</h3>
               <p>Si te encanta la programación y quieres aprender por hobby, aquí tienes un camino claro y estructurado.</p>
             </div>
 
             <div className="card">
-              <img src={iconWork} alt="Destacar en el empleo" />
+              <FcBriefcase />
               <h3>Para mejorar en tu empleo</h3>
               <p>Domina habilidades clave para destacar en tu trabajo y abrir nuevas oportunidades laborales.</p>
             </div>
 
             <div className="card">
-              <img src={iconBusiness} alt="Emprendedores" />
+              <FcDebt />
               <h3>Para emprendedores</h3>
               <p>Aprende a construir y optimizar un sitio web para tu negocio o proyecto personal.</p>
             </div>
 
             <div className="card">
-              <img src={iconCareer} alt="Buscando primer empleo" />
+              <FcCollaboration />
               <h3>Para quienes buscan su primer empleo en tecnología</h3>
               <p>Crea un portafolio sólido con proyectos reales y aumenta tus oportunidades laborales.</p>
             </div>

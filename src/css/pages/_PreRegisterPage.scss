@@ -1,30 +1,69 @@
 @use '../abstracts/mixins' as utils;
-
-
+@use '../abstracts/variables' as vars;
 
 .register {
+    &__subtitle {
+        margin-bottom: 30px;
+    }
+
     &__banner {
-        margin: 35px 0;
+        margin: 0px 0 70px;
         @include utils.d-flex();
         flex-wrap: nowrap;
 
         div {
-            width: 100%;
+            width: 50%;
+            @include utils.d-flex($gap: 40px);
+        }
+
+        .card {
+            width: 40%;
         }
 
         &--img {
-            padding: 30px;
-            display: none;
-            width: 40%;
+            display: block;
+            filter: brightness(30%);
         }
     }
 
     &__benefits {
-        margin: 35px 0;
+        margin: 70px 0;
     }
 
     &__roadmap {
-        margin: 35px 0;
+        margin: 70px 0;
+    }
+
+    .double__column {
+        margin: 100px 0 40px;
+    }
+
+    &__testimonials {
+        @include utils.d-flex();
+
+        &__content {
+            max-width: 540px;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        &__caption {
+            @include utils.d-flex($gap: 10px, $align-items: flex-end);
+            p {
+                font-size: 1.2em;
+            }
+
+            small {
+                color: vars.$gray-200;
+            }
+        }
+    }
+
+    &__form {
+        &--submit {
+            margin: 20px auto;
+            display: block;
+        }
     }
 }
 
