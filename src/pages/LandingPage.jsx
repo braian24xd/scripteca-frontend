@@ -1,39 +1,35 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from 'react-router-dom';
 import '../css/landingPage.css'
 
-// Imágenes e íconos (asegúrate de tener estas rutas correctas)
 import scripteca from '../assets/img/scripteca.png';
 import logo from '../assets/img/logo.png';
-import iconPlay from '../assets/img/icons/play.svg';
-import iconCode from '../assets/img/icons/code.svg';
-import iconLearn from '../assets/img/icons/iconLearn.svg';
-import iconPractice from '../assets/img/icons/iconPractice.svg';
-import iconCareer from '../assets/img/icons/iconCareer.svg';
-import iconAccess from '../assets/img/icons/iconAccess.svg';
-import iconBeginner from '../assets/img/icons/iconBeginner.png';
-import iconMentor from '../assets/img/icons/iconMentor.png';
-import iconProject from '../assets/img/icons/iconProject.png';
+
 import iconFacebook from '../assets/img/icons/facebook.svg';
 import iconInstagram from '../assets/img/icons/instagram.svg';
 import iconYoutube from '../assets/img/icons/youtube.svg';
 import iconTwitter from '../assets/img/icons/x-twitter.svg';
 import iconGithub from '../assets/img/icons/github.svg';
-import iconTech from '../assets/img/icons/iconTech.png';
-import iconWork from '../assets/img/icons/iconWork.png';
-import iconBusiness from '../assets/img/icons/iconBusiness.png';
 
 import {
   FcSmartphoneTablet,
   FcBriefcase,
   FcDebt,
-  FcCollaboration
+  FcCollaboration,
+  FcInspection,
+  FcVoicePresentation,
+  FcFlashOn,
+  FcIdea,
+  FcGraduationCap,
+  FcBusinessman,
+  FcVideoCall,
+  FcOpenedFolder,
+  FcStart 
 } from "react-icons/fc";
-
-// Íconos para la sección "Tu experiencia de aprendizaje"
 
 import sitioWebBanner from '../assets/img/banner-CreaSitioWeb.jpg';
 import CourseCard from "../components/CourseCard";
+import Card from '../components/ui/Card';
 
 const LandingPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -84,7 +80,7 @@ const LandingPage = () => {
                             Entrar
                         </span>
                     </button>
-                    <Link className="btn-login" href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
+                    <Link className="btn-login btn-contact" href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
                 </div>
             <div className="hamburger" onClick={() => setSidebarOpen(true)}>
               <span></span>
@@ -154,17 +150,17 @@ const LandingPage = () => {
           </p>
           <section className="no-experience-cards">
             <article className="card">
-              <img src={iconBeginner} alt="Clases para Principiantes" />
+              <FcGraduationCap />
               <h3>Clases para Principiantes</h3>
               <p>Descubre el mundo de la programación desde cero, sin requerir conocimientos previos.</p>
             </article>
             <article className="card">
-              <img src={iconMentor} alt="Mentoría Personalizada" />
+              <FcVoicePresentation />
               <h3>Mentoría Personalizada</h3>
               <p>Recibe el apoyo de expertos que te guiarán en cada etapa de tu aprendizaje.</p>
             </article>
             <article className="card">
-              <img src={iconProject} alt="Aprendizaje Práctico" />
+              <FcFlashOn />
               <h3>Aprendizaje Práctico</h3>
               <p>Aplica lo aprendido en proyectos reales desde el primer día.</p>
             </article>
@@ -190,21 +186,21 @@ const LandingPage = () => {
         <section className="how-we-work" id="propuesta">
           <h2>¿Qué vas a hacer?</h2>
           <section className="work-steps-container">
-            <article className="work-step">
-              <img src={iconLearn} alt="Aprende" />
-              <h3>Paso 1: Aprende</h3>
+            <Card>
+              <FcIdea />
+              <h3>Paso 1: Conéctate</h3>
               <p>Accede a contenido de alta calidad y estudia a tu ritmo.</p>
-            </article>
-            <article className="work-step">
-              <img src={iconPractice} alt="Practica" />
+            </Card>
+            <Card>
+              <FcInspection />
               <h3>Paso 2: Practica</h3>
               <p>Aplica lo aprendido con ejercicios prácticos y proyectos reales.</p>
-            </article>
-            <article className="work-step">
-              <img src={iconCareer} alt="Impulsa tu carrera" />
+            </Card>
+            <Card>
+              <FcBusinessman />
               <h3>Paso 3: Impulsa tu carrera</h3>
               <p>Comparte tu portafolio y accede a oportunidades laborales.</p>
-            </article>
+            </Card>
           </section>
         </section>
 
@@ -213,24 +209,24 @@ const LandingPage = () => {
           <h2>Tu experiencia de aprendizaje</h2>
           <section className="cards-container">
             <article className="card">
-              <img src={iconPlay} alt="Clases en vivo" />
-              <h3>Clases en Vivo Intensivas</h3>
+              <FcVideoCall />
+              <h4>Clases en Vivo Intensivas</h4>
               <p>
                 Participa en sesiones en vivo diseñadas para maximizar tu aprendizaje.
                 Interactúa en tiempo real con instructores expertos y resuelve tus dudas al instante.
               </p>
             </article>
             <article className="card">
-              <img src={iconCode} alt="Proyectos prácticos" />
-              <h3>Proyectos Prácticos Reales</h3>
+              <FcOpenedFolder />
+              <h4>Proyectos Prácticos Reales</h4>
               <p>
                 Desarrolla proyectos prácticos que te permitirán aplicar lo aprendido y
                 construir un portafolio profesional sólido.
               </p>
             </article>
             <article className="card">
-              <img src={iconAccess} alt="Acceso a grabaciones" />
-              <h3>Acceso Ilimitado a Grabaciones</h3>
+              <FcStart />
+              <h4>Acceso Ilimitado a Grabaciones</h4>
               <p>
                 Tendrás acceso a una plataforma intuitiva donde podrás revisar las grabaciones de cada sesión y acceder a materiales complementarios,
                 asegurándote de no perder ningún detalle, incluso si no puedes asistir en vivo.

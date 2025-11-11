@@ -67,7 +67,7 @@
     }
 }
 
-.btn-login {
+.btn__fade {
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -77,6 +77,38 @@
     transition: all 0.3s ease;
 }
 
-.btn-login:hover {
+.btn__fade:hover {
     background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 720px) {
+    .register__banner {
+        div {
+            width: 100%;
+
+            .button--main {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        .card {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 675px) {
+    .double__column {
+        flex-direction: column;
+    }
+
+    .button--sub {
+        display: none;
+    }
+}
+
+@media (max-width: 446px) {
+    .button--main {
+        display: none;
+    }
 }

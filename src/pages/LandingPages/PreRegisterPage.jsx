@@ -41,24 +41,25 @@ const PreRegisterPage = () => {
                     <a href="#propuesta">Propuesta de aprendizaje</a>
                 </nav>
                 <div className="btn-container">
-                    <button>
-                        <Link to="/login">Entrar</Link>
+
+                    <button className="button--main">
+                        <span>Entrar</span>
                     </button>
-                    <Link className="btn-login" href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
+                    <button className="button--sub">Contacto</button>
                 </div>
                 <section className="sidebar-footer">
                     <section className="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61573641520695"><FaFacebook /></a>
-                        <a href="https://www.instagram.com/scripteca/"><img alt="Instagram icon" /></a>
-                        <a href="https://www.youtube.com/@Scripteca"><img alt="Youtube icon" /></a>
-                        <a><img alt="X Twitter icon" /></a>
-                        <a><img alt="Github icon" /></a>
+                        <a href="https://www.instagram.com/scripteca/"><FaInstagram /></a>
+                        <a href="https://www.youtube.com/@Scripteca"><FaYoutube /></a>
+                        <a><FaXTwitter /></a>
+                        <a><FaGithub /></a>
                     </section>
                 </section>
-            </aside>
+            </aside >
 
             {/* Header */}
-            <div className="pulse-box-shadow" id="inicio">
+            < div className="pulse-box-shadow" id="inicio" >
                 <header className="landing__header" id="header">
                     <div className="justify-content-center">
                         <img src={scripteca} alt="Logo" width="200px" />
@@ -82,7 +83,7 @@ const PreRegisterPage = () => {
                         </div>
                     </div>
                 </header>
-            </div>
+            </div >
             <section className="register container">
                 <section className="register__banner">
                     <div>

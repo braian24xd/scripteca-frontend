@@ -140,7 +140,6 @@ body::-webkit-scrollbar-thumb:hover {
   align-items: center;
 }
 
-/* ===== Botón Hamburguesa ===== */
 .hamburger {
   cursor: pointer;
   display: inline-block;
@@ -148,10 +147,15 @@ body::-webkit-scrollbar-thumb:hover {
   height: 25px;
   position: relative;
   margin-left: 20px;
+
+  background: rgba(0, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px inset rgba(255, 255, 255, 0.1);
+  filter: brightness(300%);
 }
 
 .hamburger span {
-  background: #2ef8a0;
+  background: #FFF;
   position: absolute;
   height: 3px;
   width: 100%;
@@ -179,7 +183,7 @@ body::-webkit-scrollbar-thumb:hover {
   right: -380px;
   width: 380px;
   height: 100%;
-  /* background: #1e1e1e; */
+  background: radial-gradient(circle at 20% 20%, #0a0516, #05010b) !important;
   transition: right 0.3s ease;
   z-index: 1000;
   padding: 20px;
@@ -208,7 +212,7 @@ body::-webkit-scrollbar-thumb:hover {
   background: none;
   border: none;
   border-radius: 50%;
-  color: #2ef8a0;
+  color: #FFF;
   font-size: 3rem;
   cursor: pointer;
   display: flex;
@@ -318,14 +322,14 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .card {
-    /* background-color: rgba(33, 33, 45, 0.3); */
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 20px;
-    position: relative;
-    box-shadow: 0 0 10px inset rgba(255, 255, 255, 0.1);
-    width: 400px;
-    filter: brightness(300%);
+  /* background-color: rgba(33, 33, 45, 0.3); */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 0 10px inset rgba(255, 255, 255, 0.1);
+  width: 400px;
+  filter: brightness(300%);
 
   p {
     font-size: 1rem;
@@ -382,12 +386,12 @@ body::-webkit-scrollbar-thumb:hover {
 
 .no-experience .card {
   /* background-color: rgba(33, 33, 45, 0.3); */
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 20px;
-    position: relative;
-    box-shadow: 0 0 10px inset rgba(255, 255, 255, 0.1);
-    width: 400px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 0 10px inset rgba(255, 255, 255, 0.1);
+  width: 400px;
 }
 
 .no-experience .card:hover {
@@ -497,15 +501,15 @@ body::-webkit-scrollbar-thumb:hover {
   flex-wrap: wrap;
 }
 
-.work-step {
-  /* background-color: rgba(33, 33, 45, 0.3); */
+/* .work-step {
+  /* background-color: rgba(33, 33, 45, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     padding: 20px;
     position: relative;
     box-shadow: 0 0 10px inset rgba(255, 255, 255, 0.1);
     width: 400px;
-}
+} */
 
 .work-step:hover {
   transform: translateY(-5px);
@@ -668,7 +672,7 @@ footer hr {
 }
 
 @media (max-width: 428px) {
-  .btn-login {
+  .btn__fade {
     display: none;
   }
 
