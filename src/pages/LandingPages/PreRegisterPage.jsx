@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 import logo from '../../assets/img/logo.png'
 import scripteca from '../../assets/img/scripteca.png'
-import imgbanner from '../../assets/img/webDev.png'
+import imgbanner from '../../assets/img/webDeV.png'
 
 import {
     FaFacebook,
