@@ -95,6 +95,10 @@
             display: none;
         }
     }
+
+    .register__form--submit {
+        display: block;
+    }
 }
 
 @media (max-width: 675px) {
@@ -105,10 +109,17 @@
     .button--sub {
         display: none;
     }
+
+    .register__form--submit {
+        display: block;
+    }
 }
 
 @media (max-width: 446px) {
     .button--main {
         display: none;
+    }
+    .register__form--submit {
+        display: block;
     }
 }

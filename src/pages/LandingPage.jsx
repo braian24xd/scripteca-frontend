@@ -80,7 +80,7 @@ const LandingPage = () => {
                             Entrar
                         </span>
                     </button>
-                    <Link className="btn-login btn-contact" href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
+                    <Link className="button--sub btn-login btn-contact" href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
                 </div>
             <div className="hamburger" onClick={() => setSidebarOpen(true)}>
               <span></span>
@@ -104,9 +104,9 @@ const LandingPage = () => {
             por menos de un café al día.
           </p>
           <div className="btn-container">
-            <a className="btn-login" href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Más información</a>
-            <button className="button--main">
-              <span>Todos lo cursos</span>
+            <a style={{display: "inline-flex"}} className="button--main" href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank"><span style={{fontSize: "1em"}}>WhatsApp</span></a>
+            <button className="button--sub" style={{display: "inline-flex"}}>
+              <span style={{fontSize: "1.2em"}}>Todos los cursos</span>
             </button>
           </div>
         </section>

@@ -27,6 +27,45 @@ import Card from "../../components/ui/Card";
 const PreRegisterPage = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
+    const [formData, setFormData] = useState({
+        name: "",
+        lastName: "",
+        email: "",
+        tel: "",
+        dateBorn: ""
+    });
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const API_URL = import.meta.env.VITE_LOCAL_API_URL || "http://localhost:5000";
+            const response = await fetch(`${API_URL}/api/preregister`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                console.log("Enviado con éxito");
+                setFormData({ name: "", lastName: "", email: "", tel: "", dateBorn: "" });
+            } else {
+                console.error("Error al enviar");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
+
     return (
         <>
             {/* Sidebar */}
@@ -42,10 +81,10 @@ const PreRegisterPage = () => {
                 </nav>
                 <div className="btn-container">
 
-                    <button className="button--main">
-                        <span>Entrar</span>
-                    </button>
-                    <button className="button--sub">Contacto</button>
+                    <Link className="button--main" to="/login">
+                        Entrar
+                    </Link>
+                    <button className="button--sub"><span>Contacto</span></button>
                 </div>
                 <section className="sidebar-footer">
                     <section className="social-links">
@@ -65,7 +104,7 @@ const PreRegisterPage = () => {
                         <img src={scripteca} alt="Logo" width="200px" />
                     </div>
                     <nav className="desktop-nav">
-                        <a href="#inicio">Inicio</a>
+                        <Link to="/">Inicio</Link>
                         <a href="#cursos">Cursos</a>
                         <a href="#propuesta">Propuesta de aprendizaje</a>
                     </nav>
@@ -74,7 +113,7 @@ const PreRegisterPage = () => {
                             <button className="button--main">
                                 <span>Entrar</span>
                             </button>
-                            <button className="button--sub">Contacto</button>
+                            <button className="button--sub"><span>Contacto</span></button>
                         </div>
                         <div className="hamburger" onClick={() => setSidebarOpen(true)}>
                             <span></span>
@@ -92,9 +131,11 @@ const PreRegisterPage = () => {
                             Inscríbete al curso práctico donde aprenderás paso a paso a construir tu página web moderna, atractiva y funcional
                             sin necesidad de experiencia previa 🚀
                         </p>
-                        <button className="button--main">
-                            <span>Pre-registrate grátis</span>
-                        </button>
+                        <a href="#register">
+                            <button className="button--main">
+                                <span>Pre-registrate grátis</span>
+                            </button>
+                        </a>
                     </div>
                     <Card>
                         <img className="register__banner--img" src={imgbanner} width="100%" alt="" />
@@ -138,7 +179,7 @@ const PreRegisterPage = () => {
                         </Card>
                     </div>
                 </section>
-                <div className="double__column">
+                <div className="double__column" id="register">
                     <section className="register__testimonials">
                         <span className="register__testimonials__content">
                             Gracias a este curso, pude lanzar la web de mi negocio en solo 4 semanas
@@ -149,15 +190,45 @@ const PreRegisterPage = () => {
                         </section>
                     </section>
                     <section className="register__form">
-                        <form>
-                            <input type="text" placeholder="Nombre" />
-                            <input type="text" placeholder="Apellidos" />
-                            <input type="email" placeholder="Correo electrónico" />
-                            <input type="tel" placeholder="Telefono" />
-                            <button className="button--main register__form--submit">
-                                <span>
-                                    Unirme a la lista de espera
-                                </span>
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Nombre"
+                                value={formData.name}
+                                onChange={handleChange}
+                            />
+                            <input
+                                type="text"
+                                name="lastName"
+                                placeholder="Apellidos"
+                                value={formData.lastName}
+                                onChange={handleChange}
+                            />
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Correo electrónico"
+                                value={formData.email}
+                                onChange={handleChange}
+                            />
+                            <input
+                                type="tel"
+                                name="tel"
+                                placeholder="Teléfono"
+                                value={formData.tel}
+                                onChange={handleChange}
+                            />
+                            <label htmlFor="dateBorn" style={{ marginBottom: "10px", color: "#999" }}>Fecha de nacimiento</label>
+                            <input
+                                type="date"
+                                name="dateBorn"
+                                id="dateBorn"
+                                value={formData.dateBorn}
+                                onChange={handleChange}
+                            />
+                            <button className="button--main register__form--submit" type="submit">
+                                <span>Unirme a la lista de espera</span>
                             </button>
                         </form>
                     </section>
