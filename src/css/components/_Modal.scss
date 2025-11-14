@@ -1,0 +1,61 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as utils;
+
+.modal {
+    width: 100vw;
+    height: 100vh;
+    background: rgba($color: vars.$color-black, $alpha: 0.6);
+    backdrop-filter: blur(4px);
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    &__window {
+        width: 90%;
+        max-width: 380px;
+        height: 300px;
+        background: radial-gradient(circle at 20% 20%, #0a0516, #05010b);
+        border-radius: 10px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1001;
+        box-shadow: 10px 10px 10px rgba($color: vars.$gray-200, $alpha: 0.2);
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            /* grosor del borde */
+            background: linear-gradient(18deg, vars.$blue-brand, vars.$green-brand);
+            mask:
+                linear-gradient(vars.$color-white 0 0) content-box,
+                linear-gradient(vars.$color-white 0 0);
+            mask-composite: exclude;
+            -webkit-mask-composite: destination-out;
+            filter: blur(3px);
+            /* desenfoque del borde */
+            z-index: 0;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba($color: vars.$color-white, $alpha: 0.03);
+            backdrop-filter: blur(10px);
+            border-radius: inherit;
+            z-index: 0;
+        }
+        section {
+            padding: 20px;
+            position: relative;
+            z-index: 2000;
+        }
+    }
+}

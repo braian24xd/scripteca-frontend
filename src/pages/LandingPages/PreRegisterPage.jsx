@@ -22,6 +22,7 @@ import {
 
 
 import Card from "../../components/ui/Card";
+import Modal from "../../components/ui/Modal";
 
 
 const PreRegisterPage = () => {
@@ -251,6 +252,13 @@ const PreRegisterPage = () => {
                             <a><FaGithub /></a>
                         </section>
                     </section>
+                    <Modal>
+                        <section>
+                            <p>
+                                Pre registro exitoso! En la bandeja de entrada de tu correo encontrás la confirmación y tu guia de inicio
+                            </p>
+                        </section>
+                    </Modal>
                     <section className="footer-link">
                         <h2>Navegación</h2>
                         <a href="#inicio">Inicio</a>
