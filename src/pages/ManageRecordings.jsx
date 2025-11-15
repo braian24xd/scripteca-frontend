@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import '../css/manageRecordings.css';
 
-const API_URL = import.meta.env.VITE_LOCAL_API_URL || "http://localhost:5000";
+const API_URL = import.meta.env.VITE_PRODUCTION_API_URL || "http://localhost:5000";
 
 const ManageRecordings = () => {
   const [recordings, setRecordings] = useState([]);

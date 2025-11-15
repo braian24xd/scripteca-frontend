@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/account.css';
 
-const API_URL = import.meta.env.VITE_LOCAL_API_URL || "http://localhost:5000";
+const API_URL = import.meta.env.VITE_PRODUCTION_API_URL || "http://localhost:5000";
 
 const Account = () => {
   const [user, setUser] = useState({

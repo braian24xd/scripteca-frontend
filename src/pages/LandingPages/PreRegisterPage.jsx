@@ -47,7 +47,7 @@ const PreRegisterPage = () => {
         e.preventDefault();
 
         try {
-            const API_URL = import.meta.env.VITE_LOCAL_API_URL || "http://localhost:5000";
+            const API_URL = import.meta.env.VITE_PRODUCTION_API_URL || "http://localhost:5000";
             const response = await fetch(`${API_URL}/api/preregister`, {
                 method: "POST",
                 headers: {

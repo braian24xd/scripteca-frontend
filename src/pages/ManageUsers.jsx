@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_LOCAL_API_URL || "http://localhost:5000";
+const API_URL = import.meta.env.VITE_PRODUCTION_API_URL || "http://localhost:5000";
 
 const ManageUsers = () => {
   const [users, setUsers] = useState([]);
