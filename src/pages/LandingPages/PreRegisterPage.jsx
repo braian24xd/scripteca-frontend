@@ -252,13 +252,13 @@ const PreRegisterPage = () => {
                             <a><FaGithub /></a>
                         </section>
                     </section>
-                    <Modal>
+                    {/* <Modal>
                         <section>
                             <p>
                                 Pre registro exitoso! En la bandeja de entrada de tu correo encontrás la confirmación y tu guia de inicio
                             </p>
                         </section>
-                    </Modal>
+                    </Modal> */}
                     <section className="footer-link">
                         <h2>Navegación</h2>
                         <a href="#inicio">Inicio</a>
