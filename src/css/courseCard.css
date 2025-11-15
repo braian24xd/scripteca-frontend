@@ -43,3 +43,41 @@
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
     }
 }
+
+.button--main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    /* grosor del bore */
+    background: linear-gradient(18deg, #FD036E, #00B0F0);
+    mask:
+        linear-gradient(#FFF 0 0) content-box,
+        linear-gradient(#FFF 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    filter: blur(3px);
+    /* desenfoque del borde */
+    z-index: 0;
+}
+
+/* capa del fondo difuminado */
+.button--main::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: inherit;
+    z-index: 0;
+}
+
+.button--main span {
+    background: linear-gradient(#FFF, #FF00FF);
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    font-size: 1em;
+    z-index: 2;
+}

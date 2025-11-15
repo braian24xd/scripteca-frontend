@@ -177,7 +177,7 @@ const LandingPage = () => {
               description="
                 Aprende a desarrollar sitios web modernos desde cero, sin necesidad de experiencia previa.
               "
-              link="localhost:3000"
+              link="https://www.scripteca.com/BuenFin2025"
             />
           </section>
         </section>
