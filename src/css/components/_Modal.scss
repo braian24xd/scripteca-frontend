@@ -20,7 +20,7 @@
         width: 90%;
         max-width: 380px;
         height: 260px;
-        background: radial-gradient(circle at 20% 20%, #0a0516, #05010b);
+        background: radial-gradient(circle at 20% 20%, rgba(10, 5, 22, 0.5), rgba(5, 1, 11, 0.1));
         border-radius: 10px;
         position: fixed;
         top: 50%;
@@ -42,7 +42,7 @@
                 linear-gradient(vars.$color-white 0 0);
             mask-composite: exclude;
             -webkit-mask-composite: destination-out;
-            filter: blur(3px);
+            filter: blur(100px);
             /* desenfoque del borde */
             z-index: 0;
         }
@@ -51,7 +51,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba($color: vars.$color-white, $alpha: 0.03);
+            background: rgba($color: vars.$color-white, $alpha: 0.05);
             backdrop-filter: blur(20px);
             border-radius: inherit;
             z-index: 0;
@@ -65,7 +65,9 @@
             p {
                 text-align: center;
             }
-
+            button {
+                display: block !important;
+            }
         }
 
         &--header {

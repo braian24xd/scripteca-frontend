@@ -29,6 +29,7 @@ const PreRegisterPage = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(false)
     const [modalData, setModalData] = useState({})
+    const [isLoading, setIsLoading] = useState(false)
 
     const [formData, setFormData] = useState({
         name: "",
@@ -63,6 +64,7 @@ const PreRegisterPage = () => {
             const response = await request.json()
             if (request.ok) {
                 setFormData({ name: "", lastName: "", email: "", tel: "", dateBorn: "" });
+                setIsLoading(false)
                 setIsVisible(true)
                 setModalData({
                     title: "Pre registro exitoso 🎉",
@@ -70,9 +72,22 @@ const PreRegisterPage = () => {
                 })
             } else {
                 console.error("Error al enviar");
+                setIsLoading(false)
+                setIsVisible(true)
+                setModalData({
+                    title: "¡oh no! :(",
+                    message: response.message
+                })
             }
         } catch (error) {
             console.error("Error:", error);
+            console.error("Error al enviar");
+            setIsLoading(false)
+            setIsVisible(true)
+            setModalData({
+                title: "¡Oh no! :(",
+                message: "Hubo un problema, intentalo más tarde."
+            })
         }
     };
 
@@ -237,8 +252,12 @@ const PreRegisterPage = () => {
                                 value={formData.dateBorn}
                                 onChange={handleChange}
                             />
-                            <button className="button--main register__form--submit" type="submit">
-                                <span>Unirme a la lista de espera</span>
+                            <button 
+                                className="button--main register__form--submit" 
+                                type="submit"
+                                onClick={() => setIsLoading(true)}
+                            >
+                                <span>{isLoading === true ? "Enviando..." : "Unirme a la lista de espera"}</span>
                             </button>
                             {isVisible && (
                                 <Modal title={modalData.title}>
@@ -246,10 +265,10 @@ const PreRegisterPage = () => {
                                         <p>
                                             {modalData.message}
                                         </p>
-                                        <button className="button--main" onClick={() => { 
-                                            setIsVisible(false) 
-                                            setModalData({}) 
-                                            }}><span>Aceptar</span>
+                                        <button className="button--main" onClick={() => {
+                                            setIsVisible(false)
+                                            setModalData({})
+                                        }}><span>Aceptar</span>
                                         </button>
                                     </section>
                                 </Modal>
