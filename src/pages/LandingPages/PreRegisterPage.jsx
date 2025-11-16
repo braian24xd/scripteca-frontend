@@ -27,6 +27,8 @@ import Modal from "../../components/ui/Modal";
 
 const PreRegisterPage = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [isVisible, setIsVisible] = useState(false)
+    const [modalData, setModalData] = useState({})
 
     const [formData, setFormData] = useState({
         name: "",
@@ -35,6 +37,8 @@ const PreRegisterPage = () => {
         tel: "",
         dateBorn: ""
     });
+
+
 
     const handleChange = (e) => {
         setFormData({
@@ -48,7 +52,7 @@ const PreRegisterPage = () => {
 
         try {
             const API_URL = import.meta.env.VITE_PRODUCTION_API_URL || "http://localhost:5000";
-            const response = await fetch(`${API_URL}/api/preregister`, {
+            const request = await fetch(`${API_URL}/api/preregister`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -56,9 +60,14 @@ const PreRegisterPage = () => {
                 body: JSON.stringify(formData),
             });
 
-            if (response.ok) {
-                console.log("Enviado con éxito");
+            const response = await request.json()
+            if (request.ok) {
                 setFormData({ name: "", lastName: "", email: "", tel: "", dateBorn: "" });
+                setIsVisible(true)
+                setModalData({
+                    title: "Pre registro exitoso 🎉",
+                    message: response.message
+                })
             } else {
                 console.error("Error al enviar");
             }
@@ -231,6 +240,20 @@ const PreRegisterPage = () => {
                             <button className="button--main register__form--submit" type="submit">
                                 <span>Unirme a la lista de espera</span>
                             </button>
+                            {isVisible && (
+                                <Modal title={modalData.title}>
+                                    <section>
+                                        <p>
+                                            {modalData.message}
+                                        </p>
+                                        <button className="button--main" onClick={() => { 
+                                            setIsVisible(false) 
+                                            setModalData({}) 
+                                            }}><span>Aceptar</span>
+                                        </button>
+                                    </section>
+                                </Modal>
+                            )}
                         </form>
                     </section>
                 </div>
@@ -252,13 +275,6 @@ const PreRegisterPage = () => {
                             <a><FaGithub /></a>
                         </section>
                     </section>
-                    {/* <Modal>
-                        <section>
-                            <p>
-                                Pre registro exitoso! En la bandeja de entrada de tu correo encontrás la confirmación y tu guia de inicio
-                            </p>
-                        </section>
-                    </Modal> */}
                     <section className="footer-link">
                         <h2>Navegación</h2>
                         <a href="#inicio">Inicio</a>
