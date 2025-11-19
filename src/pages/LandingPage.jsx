@@ -112,30 +112,30 @@ const LandingPage = () => {
         </section>
 
         <section className="who-can-learn">
-          <h2>¿Para quién es este curso?</h2>
+          <h2>¿Quienes son nuestros alumnos?</h2>
           <div className="cards-container">
 
             <div className="card">
               <FcSmartphoneTablet />
-              <h3>Para apasionados de la tecnología</h3>
+              <h3>Apasionados de la tecnología</h3>
               <p>Si te encanta la programación y quieres aprender por hobby, aquí tienes un camino claro y estructurado.</p>
             </div>
 
             <div className="card">
               <FcBriefcase />
-              <h3>Para mejorar en tu empleo</h3>
+              <h3>Quienes quieren mejorar su empleo</h3>
               <p>Domina habilidades clave para destacar en tu trabajo y abrir nuevas oportunidades laborales.</p>
             </div>
 
             <div className="card">
               <FcDebt />
-              <h3>Para emprendedores</h3>
+              <h3>Emprendedores</h3>
               <p>Aprende a construir y optimizar un sitio web para tu negocio o proyecto personal.</p>
             </div>
 
             <div className="card">
               <FcCollaboration />
-              <h3>Para quienes buscan su primer empleo en tecnología</h3>
+              <h3>Quienes buscan su primer empleo en tecnología</h3>
               <p>Crea un portafolio sólido con proyectos reales y aumenta tus oportunidades laborales.</p>
             </div>
 
