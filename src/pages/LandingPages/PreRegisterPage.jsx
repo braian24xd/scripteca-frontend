@@ -166,16 +166,90 @@ const PreRegisterPage = () => {
                         <img className="register__banner--img" src={imgbanner} width="100%" alt="" />
                     </Card>
                 </section>
+                <section>
+                    <h2>Desacripcion del curso</h2>
+                    <div className="card__containe">
+                        <p>
+                            ¿Quieres tener una página web que se vea moderna, profesional y alineada con tu negocio… pero no sabes por dónde empezar?
+                        </p><br />
+                        <p>
+                            Este curso está diseñado especialmente para ti
+                        </p><br />
+                        <p>
+                            En Crea tu Página Web Desde Cero aprenderás de forma sencilla y práctica cómo funcionan las páginas web y cómo crear la tuya desde cero utilizando herramientas accesibles y estructuradas para principiantes.
+                        </p><br />
+                        <p>
+                            A lo largo del curso aprenderás a:
+                        </p>
+                        <section className="card__container">
+                            <Card>
+                                <h4>Entender qué es HTML, CSS y JavaScript (y cómo se combinan para crear cualquier sitio web).</h4>
+                            </Card>
+                            <Card>
+                                <h4>Diseñar una página atractiva y visualmente profesional, aunque no tengas experiencia en diseño.</h4>
+                            </Card>
+                            <Card>
+                                <h4>Construir paso a paso las secciones esenciales de cualquier sitio moderno.</h4>
+                            </Card>
+                            <Card>
+                                <h4>Optimizar tu sitio para que cargue rápido y se vea bien en computadora y celular.</h4>
+                            </Card>
+                            <Card>
+                                <h4>Publicar tu página en internet y configurarla para que tus clientes puedan encontrarte.</h4>
+                            </Card>
+                        </section>
+                        <p>
+                            Al terminar el curso tendrás tu propia página web, totalmente funcional, hecha por ti, y con los conocimientos para seguir mejorándola.
+                        </p><br />
+                        <p>
+                            Es el primer paso perfecto si quieres emprender, ofrecer tus servicios, posicionarte como profesional o simplemente aprender una habilidad poderosa para el mundo digital actual.
+                        </p>
+                    </div>
+                </section>
+                <section className="register__roadmap">
+                    <h2 className="register__subtitle">Qué aprenderás</h2>
+                    <div className="card__container">
+                        <Card>
+                            <h4>Crearás tu propia página paso a paso</h4>
+                        </Card>
+                        <Card>
+                            <h4>Conocerás las herramientas esenciales del desarrollo web</h4>
+                        </Card>
+                        <Card>
+                            <h4>Diseñarás un sitio moderno y funcional</h4>
+                        </Card>
+                        <Card>
+                            <h4>Publicarás tu web en internet</h4>
+                        </Card>
+                    </div>
+                </section>
+                <section>
+                    <h2>Este curso es para ti si...</h2>
+                    <div className="card__container">
+                        <Card>
+                            <h4>No sabes programación pero quieres crear tu web</h4>
+                        </Card>
+                        <Card>
+                            <h4>Tienes un negocio y necesitas presencia digital</h4>
+                        </Card>
+                        <Card>
+                            <h4>Has intentado construir tu web pero te confundiste</h4>
+                        </Card>
+                        <Card>
+                            <h4>Quieres una guía clara, desde cero, sin complicaciones</h4>
+                        </Card>
+                    </div>
+                </section>
                 <section className="register__benefits">
-                    <h2 className="register__subtitle">Beneficios del curso</h2>
+                    <h2 className="register__subtitle">La Scripteca te ofrece:</h2>
                     <div className="card__container">
                         <Card>
                             <FcIdea className="card__icon" />
-                            <h4>Aprende desde cero</h4>
+                            <h4>Aprendizaje desde cero</h4>
                         </Card>
                         <Card>
                             <FcFlashOn className="card__icon" />
-                            <h4>Curso 100% práctico</h4>
+                            <h4>Cursos 100% práctico</h4>
                         </Card>
                         <Card>
                             <FcOpenedFolder className="card__icon" />
@@ -183,24 +257,7 @@ const PreRegisterPage = () => {
                         </Card>
                         <Card>
                             <FcDeployment className="card__icon" />
-                            <h4>Crea tu sitio profesional</h4>
-                        </Card>
-                    </div>
-                </section>
-                <section className="register__roadmap">
-                    <h2 className="register__subtitle">Qué aprenderás</h2>
-                    <div className="card__container">
-                        <Card>
-                            <h4>Diseño web moderno</h4>
-                        </Card>
-                        <Card>
-                            <h4>Construcción paso a paso</h4>
-                        </Card>
-                        <Card>
-                            <h4>Optimización y publicación</h4>
-                        </Card>
-                        <Card>
-                            <h4>Branding digital y conversión</h4>
+                            <h4>Crea tu proyectos profesionales</h4>
                         </Card>
                     </div>
                 </section>
@@ -252,8 +309,8 @@ const PreRegisterPage = () => {
                                 value={formData.dateBorn}
                                 onChange={handleChange}
                             />
-                            <button 
-                                className="button--main register__form--submit" 
+                            <button
+                                className="button--main register__form--submit"
                                 type="submit"
                                 onClick={() => setIsLoading(true)}
                             >
