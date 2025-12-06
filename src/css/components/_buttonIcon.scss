@@ -1,4 +1,6 @@
+@use '../abstracts/mixins' as utils;
+
 .buttonIcon {
     padding: 5px 10px;
-    gap: 10px;
+    @include utils.d-flex($justify-content: start)
 }

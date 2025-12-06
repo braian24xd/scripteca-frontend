@@ -12,18 +12,26 @@ header {
     .user-menu {
         position: relative;
         margin-right: 20px;
-        .btn-user{
-            padding: 0;
-            width: auto;
-            background-color: transparent;
+
+        .btn-user {
+            padding: 0px;
+            width: 55px;
+            height: 55px;
             border: none;
-            color: #FFF;
-            font-size: 1.3em;
+            border-radius: 50%;
+            font-size: 1em;
             font-weight: 500;
             cursor: pointer;
+            background: radial-gradient(circle at 80% 80%,#9445F0, #DB299B);
+            transition: 200ms ease-out;
         }
 
-        .dropdown-menu{
+        .btn-user:hover {
+            filter: brightness(110%);
+            transition: 200ms ease;
+        }
+
+        .dropdown-menu {
             margin: 0;
             padding: 5px;
             width: 170px;
@@ -33,29 +41,29 @@ header {
             right: 0;
             background: rgb(35, 35, 35);
             list-style: none;
-            box-shadow: 7px 8px 10px rgba(0,0,0,0.2);
+            box-shadow: 7px 8px 10px rgba(0, 0, 0, 0.2);
             font-weight: 300;
             color: #eee;
             z-index: 2;
 
-            .userName{
+            .userName {
                 font-size: 0.85em;
                 font-weight: 500;
                 text-align: center;
             }
 
-            .logout{
+            .logout {
                 border-radius: 5px;
                 background-color: rgba(255, 255, 255, 0.1);
                 text-align: center;
             }
-            
-            li{
+
+            li {
                 cursor: pointer;
                 padding: 5px;
             }
 
-            hr{
+            hr {
                 margin: 5px 0;
                 border-color: #555;
             }
