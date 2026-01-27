@@ -1,6 +1,6 @@
 import Button from '../ui/Button'
 import logo from '@assets/img/scripteca.png'
-import '@styles/components/layouts/AppHeader.scss'
+import '@styles/components/layouts/appHeader.scss'
 import { FaUser } from "react-icons/fa";
 
 const AppHeader = () => {
