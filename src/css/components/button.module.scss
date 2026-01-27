@@ -82,7 +82,7 @@
 .button--ghost {
     background: rgba(255, 255, 255, 0.1);
     border: 0px solid rgba(255, 255, 255, 0.1);
-    color: vars.$pink-brand;
+    color: #FFF;
     @extend %button;
 }
 
