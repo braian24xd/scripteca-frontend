@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 // import '../css/header.css';
 import logo from '../assets/img/scripteca.png';
+import { FaUserAlt } from "react-icons/fa";
+
 
 const Header = ({ user, logout }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,7 +31,7 @@ const Header = ({ user, logout }) => {
           className="btn-user"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          ¡Hola {user.name}!
+          <FaUserAlt size="1.5em" color="#FFFFFF" />
         </button>
         {menuOpen && (
           <ul className="dropdown-menu">

@@ -1,0 +1,25 @@
+@use '../abstracts/mixins' as utils;
+@use '../abstracts/variables' as vars;
+
+.sidebarStudent {
+    max-width: 240px;
+    background: vars.$gray-900;
+    height: 100vh;
+    
+    &__body {
+        &--options {
+            @include utils.d-flex($flex-direction: column, $justify-content: start, $align-items: stretch, $gap: 0);
+
+            .buttonIcon {
+                padding: 15px ;
+                font-size: 1em;
+                font-weight: 500;
+                color: vars.$gray-100;
+                background: transparent;
+                gap: 10px;
+                border: none;
+
+            }
+        }
+    }
+}

@@ -2,6 +2,14 @@ import ButtonIcon from '../ButtonIcon'
 import logo from '../../assets/img/scripteca.png'
 
 import { LuLayoutDashboard } from "react-icons/lu";
+import {
+    FaUsers,
+    FaFileVideo,
+    FaLaptop,
+    FaCreditCard
+} from "react-icons/fa";
+
+import { VscFileSubmodule } from "react-icons/vsc";
 
 const SidebarStudent = () => {
 
@@ -15,6 +23,26 @@ const SidebarStudent = () => {
                     <ButtonIcon
                         icon={<LuLayoutDashboard />}
                         caption="Tablero"
+                     />
+                     <ButtonIcon
+                        icon={<FaUsers />}
+                        caption="Usuarios"
+                     />
+                     <ButtonIcon
+                        icon={<FaFileVideo />}
+                        caption="Grabaciones"
+                     />
+                     <ButtonIcon
+                        icon={<FaLaptop />}
+                        caption="Cursos"
+                     />
+                     <ButtonIcon
+                        icon={<VscFileSubmodule />}
+                        caption="Modulos"
+                     />
+                     <ButtonIcon
+                        icon={<FaCreditCard />}
+                        caption="Pagos"
                      />
                 </section>
             </section>
