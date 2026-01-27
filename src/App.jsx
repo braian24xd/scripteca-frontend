@@ -11,6 +11,7 @@ import Account from './pages/Account';
 import Header from './components/Header';
 import UserDashboardLayout from './layouts/UserDasboardLayout';
 import {jwtDecode} from 'jwt-decode';
+import './css/main.scss'
 
 const ProtectedRoute = ({ requiredRole, children }) => {
   const token = localStorage.getItem('token'); // Obtener el token
@@ -64,7 +65,7 @@ const App = () => {
   return (
     <Router>
       {/* Renderiza el Header solo si el usuario está autenticado */}
-      {user && <Header user={user} logout={logout} />}
+      {/* {user && <Header user={user} logout={logout} />} */}
 
       <Routes>
         {/* Rutas públicas */}
@@ -122,4 +123,3 @@ const App = () => {
 };
 
 export default App;
-// nuevo codigo

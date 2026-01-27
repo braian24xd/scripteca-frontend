@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import '../css/landingPage.css'
+import PublicHeader from "@components/layout/PublicHeader";
 
 import scripteca from '../assets/img/scripteca.png';
 import logo from '../assets/img/logo.png';
@@ -24,46 +25,20 @@ import {
   FcBusinessman,
   FcVideoCall,
   FcOpenedFolder,
-  FcStart 
+  FcStart
 } from "react-icons/fc";
 
 import sitioWebBanner from '../assets/img/banner-CreaSitioWeb.jpg';
 import CourseCard from "../components/CourseCard";
 import Card from '../components/ui/Card';
+import Button from "@components/ui/Button";
 
 const LandingPage = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <>
-      {/* Sidebar */}
-      <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
-        <div className="sidebar-header">
-          <img src={logo} alt="" />
-          <button className="btn-close" onClick={() => setSidebarOpen(false)}>×</button>
-        </div>
-        <nav>
-          <a href="#inicio">Inicio</a>
-          <a href="#cursos">Cursos</a>
-          <a href="#propuesta">Propuesta de aprendizaje</a>
-        </nav>
-        <div className="btn-container">
-          <Link to="/login">Entrar</Link>
-          <Link href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
-        </div>
-        <section className="sidebar-footer">
-          <section className="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61573641520695"><img src={iconFacebook} alt="Facebook icon" /></a>
-            <a href="https://www.instagram.com/scripteca/"><img src={iconInstagram} alt="Instagram icon" /></a>
-            <a href="https://www.youtube.com/@Scripteca"><img src={iconYoutube} alt="Youtube icon" /></a>
-            <a><img src={iconTwitter} alt="X Twitter icon" /></a>
-            <a><img src={iconGithub} alt="Github icon" /></a>
-          </section>
-        </section>
-      </aside>
-
       {/* Header */}
-      <div className="pulse-box-shadow" id="inicio">
+      {/* <div className="pulse-box-shadow" id="inicio">
         <header className="landing__header" id="header">
           <div className="justify-content-center">
             <img src={scripteca} alt="Logo" width="200px" />
@@ -75,21 +50,28 @@ const LandingPage = () => {
           </nav>
           <div className="btn-group-header">
             <div className="btn-container">
-                    <button className="button--main">
-                        <span>
-                            Entrar
-                        </span>
-                    </button>
-                    <Link className="button--sub btn-login btn-contact" href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank">Contacto</Link>
-                </div>
-            <div className="hamburger" onClick={() => setSidebarOpen(true)}>
+              <Button>
+                <Link to="/login">
+                  Entrar
+                </Link>
+              </Button>
+              <a
+                href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..."
+                target="_blank">
+                <Button variant="sub">
+                  Contacto
+                </Button>
+              </a>
+            </div>
+            <div className="hamburger">
               <span></span>
               <span></span>
               <span></span>
             </div>
           </div>
         </header>
-      </div>
+      </div> */}
+      <PublicHeader />
 
       {/* Main Content */}
       <main className="landing__main">
@@ -104,10 +86,16 @@ const LandingPage = () => {
             por menos de un café al día.
           </p>
           <div className="btn-container">
-            <a style={{display: "inline-flex"}} className="button--main" href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..." target="_blank"><span style={{fontSize: "1em"}}>WhatsApp</span></a>
-            <button className="button--sub" style={{display: "inline-flex"}}>
-              <span style={{fontSize: "1.2em"}}>Todos los cursos</span>
-            </button>
+            <a
+                href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..."
+                target="_blank">
+                <Button variant="classic">
+                  Contacto
+                </Button>
+              </a>
+            <Button variant="sub" style={{ display: "inline-flex", fontWeight: 400 }}>
+              Todos los cursos
+            </Button>
           </div>
         </section>
 

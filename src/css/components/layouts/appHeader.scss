@@ -1,0 +1,16 @@
+@use '../../abstracts/mixins' as utils;
+
+.appHeader {
+
+    .container {
+        @include utils.d-flex()
+    }
+
+    &__logo {
+        width: 180px;
+    }
+
+    &__user {
+        
+    }
+}

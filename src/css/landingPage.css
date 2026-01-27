@@ -22,17 +22,17 @@
   animation: shadowPulse 3s infinite ease-in-out;
 }
 
-/* .blinking-cursor {
+.blinking-cursor {
   display: inline-block;
   width: 30px;
-  height: 0.1em;
+  height: 0.05em;
   background: rgba(255, 255, 255, 0.8);
   margin-left: 5px;
   animation: blink 1s steps(2, start) infinite;
-} */
+} 
 
 
-/* @keyframes blink {
+@keyframes blink {
 
   0%,
   50% {
@@ -43,7 +43,7 @@
   100% {
     opacity: 0;
   }
-} */
+}
 
 /* @keyframes intermitent {
 
@@ -288,17 +288,7 @@ body::-webkit-scrollbar-thumb:hover {
   text-align: center;
 }
 
-.hero__banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* background: rgba(0, 0, 0, 0.5); */
-  /* Superposición oscura */
-  z-index: 0;
-}
+
 
 .hero__banner__title,
 .hero__banner p,
@@ -329,7 +319,6 @@ body::-webkit-scrollbar-thumb:hover {
   position: relative;
   box-shadow: 0 0 10px inset rgba(255, 255, 255, 0.1);
   width: 400px;
-  filter: brightness(300%);
 
   p {
     font-size: 1rem;

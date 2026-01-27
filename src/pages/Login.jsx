@@ -4,6 +4,8 @@ import axios from 'axios';
 import '../css/login.css';
 import '../css/styles.css';
 import logo from '../assets/img/scripteca.png';
+import Card from '../components/ui/Card';
+import Button from '../components/ui/Button';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -12,7 +14,6 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  // Verificar si ya hay una sesión activa
   useEffect(() => {
     const token = localStorage.getItem('token');
     const role = localStorage.getItem('role');
@@ -34,7 +35,7 @@ const Login = () => {
 
       localStorage.setItem('token', token);
       localStorage.setItem('role', role);
-      localStorage.setItem('user', JSON.stringify(user)); // Guarda info del usuario
+      localStorage.setItem('user', JSON.stringify(user));
 
       window.location.href = role === 'student' ? '/recordings' : '/admin';
     } catch (err) {
@@ -44,10 +45,19 @@ const Login = () => {
 
   return (
     <main className="main__login">
-      <section className="login">
-        <img src={logo} alt="" />
+      <Card className="login" style={{ margin: "20px" }}>
+        <img src={logo} alt="" width="200px" />
         <h1>Iniciar Sesión</h1>
-        <form className="login__form" onSubmit={handleLogin}>
+        <form
+          className="login__form"
+          onSubmit={handleLogin}
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "stretch",
+          }}
+        >
           <label htmlFor="email">Correo electrónico</label>
           <input
             type="email"
@@ -64,17 +74,20 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             id="password"
-            
+
           />
           <a className="toggle-password" onClick={togglePasswordVisibility}>
             {passwordVisible ? 'Ocultar contraseña' : 'Mostrar contraseña'}
           </a>
           <br />
-          <button className="btn" type="submit">Ingresar</button>
+          <Button variant="classic">
+            Ingresar
+          </Button>
+
         </form>
         <br />
         {error && <p className="error">{error}</p>}
-      </section>
+      </Card>
     </main>
   );
 };

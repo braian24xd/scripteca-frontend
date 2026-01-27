@@ -1,0 +1,104 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as utils;
+
+%button {
+    padding: 10px 18px;
+    height: 41px;
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    a {
+        text-decoration: none;
+        color: currentColor;
+    }
+
+    span {
+        font-size: 1.2em;
+        font-weight: 500;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.button--classic {
+    position: relative;
+    background: rgba($color: vars.$color-black, $alpha: 0.6);
+    border: none;
+    overflow: hidden;
+    z-index: 1;
+    @extend %button;
+
+    &:hover {
+        background: rgba($color: vars.$color-black, $alpha: 0.2);
+    }
+}
+
+.button--classic::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(18deg, vars.$pink-brand, vars.$blue-brand);
+    mask:
+        linear-gradient(vars.$color-white 0 0) content-box,
+        linear-gradient(vars.$color-white 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    filter: blur(3px);
+    z-index: 0;
+}
+
+.button--classic::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba($color: vars.$color-white, $alpha: 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: inherit;
+    z-index: 0;
+}
+
+.button--classic span {
+    background: linear-gradient(vars.$color-white, vars.$cyan-emphasys);
+    background-clip: text;
+    color: transparent;
+    font-weight: 500;
+}
+
+.button--sub {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    @extend %button;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+}
+
+.button--ghost {
+    background: rgba(255, 255, 255, 0.1);
+    border: 0px solid rgba(255, 255, 255, 0.1);
+    color: vars.$pink-brand;
+    @extend %button;
+}
+
+
+
+.icon {
+    padding: 5px;
+
+    span {
+        @include utils.d-flex($justify-content: center, $align-items: center);
+    }
+}
+
+.rounded {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    @include utils.d-flex($justify-content: center, $align-items: center);
+}

@@ -17,13 +17,18 @@ import {
     FcIdea,
     FcFlashOn,
     FcOpenedFolder,
-    FcDeployment
+    FcDeployment,
+    FcGlobe,
+    FcMultipleDevices,
+    FcTodoList,
+    FcFrame,
 } from "react-icons/fc";
 
 
+import PublicHeader from "@components/layout/PublicHeader";
 import Card from "../../components/ui/Card";
 import Modal from "../../components/ui/Modal";
-
+import Button from "@components/ui/Button";
 
 const PreRegisterPage = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -93,61 +98,7 @@ const PreRegisterPage = () => {
 
     return (
         <>
-            {/* Sidebar */}
-            <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
-                <div className="sidebar-header">
-                    <img src={logo} alt="" />
-                    <button className="btn-close" onClick={() => setSidebarOpen(false)}>×</button>
-                </div>
-                <nav>
-                    <a href="#inicio">Inicio</a>
-                    <a href="#cursos">Cursos</a>
-                    <a href="#propuesta">Propuesta de aprendizaje</a>
-                </nav>
-                <div className="btn-container">
-
-                    <Link className="button--main" to="/login">
-                        Entrar
-                    </Link>
-                    <button className="button--sub"><span>Contacto</span></button>
-                </div>
-                <section className="sidebar-footer">
-                    <section className="social-links">
-                        <a href="https://www.facebook.com/profile.php?id=61573641520695"><FaFacebook /></a>
-                        <a href="https://www.instagram.com/scripteca/"><FaInstagram /></a>
-                        <a href="https://www.youtube.com/@Scripteca"><FaYoutube /></a>
-                        <a><FaXTwitter /></a>
-                        <a><FaGithub /></a>
-                    </section>
-                </section>
-            </aside >
-
-            {/* Header */}
-            < div className="pulse-box-shadow" id="inicio" >
-                <header className="landing__header" id="header">
-                    <div className="justify-content-center">
-                        <img src={scripteca} alt="Logo" width="200px" />
-                    </div>
-                    <nav className="desktop-nav">
-                        <Link to="/">Inicio</Link>
-                        <a href="#cursos">Cursos</a>
-                        <a href="#propuesta">Propuesta de aprendizaje</a>
-                    </nav>
-                    <div className="btn-group-header">
-                        <div className="btn-container">
-                            <button className="button--main">
-                                <span>Entrar</span>
-                            </button>
-                            <button className="button--sub"><span>Contacto</span></button>
-                        </div>
-                        <div className="hamburger" onClick={() => setSidebarOpen(true)}>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                </header>
-            </div >
+            <PublicHeader />
             <section className="register container">
                 <section className="register__banner">
                     <div>
@@ -157,9 +108,9 @@ const PreRegisterPage = () => {
                             sin necesidad de experiencia previa 🚀
                         </p>
                         <a href="#register">
-                            <button className="button--main">
-                                <span>Pre-registrate grátis</span>
-                            </button>
+                            <Button variant="classic">
+                                Pre-registrate grátis
+                            </Button>
                         </a>
                     </div>
                     <Card>
@@ -167,34 +118,35 @@ const PreRegisterPage = () => {
                     </Card>
                 </section>
                 <section>
-                    <h2>Desacripcion del curso</h2>
-                    <div className="card__containe">
+                    <h2>Descripcion del curso</h2>
+                    <br />
+                    <div className="card__containe" style={{ textAlign: "justify" }}>
                         <p>
-                            ¿Quieres tener una página web que se vea moderna, profesional y alineada con tu negocio… pero no sabes por dónde empezar?
+                            Aprende a crear tu página web desde cero, aunque no tengas experiencia.
+                            En este curso descubrirás cómo funcionan las páginas web y construirás la tuya paso a paso, con diseño moderno, buena estructura y lista para publicar.
+                            Ideal si quieres impulsar tu negocio, ofrecer tus servicios o empezar en el mundo del desarrollo web.
                         </p><br />
                         <p>
-                            Este curso está diseñado especialmente para ti
-                        </p><br />
-                        <p>
-                            En Crea tu Página Web Desde Cero aprenderás de forma sencilla y práctica cómo funcionan las páginas web y cómo crear la tuya desde cero utilizando herramientas accesibles y estructuradas para principiantes.
-                        </p><br />
-                        <p>
-                            A lo largo del curso aprenderás a:
-                        </p>
+                            A lo largo del curso aprenderás a: </p> <br />
                         <section className="card__container">
                             <Card>
+                                <FcIdea className="card__icon" />
                                 <h4>Entender qué es HTML, CSS y JavaScript (y cómo se combinan para crear cualquier sitio web).</h4>
                             </Card>
                             <Card>
+                                <FcFrame className="card__icon" />
                                 <h4>Diseñar una página atractiva y visualmente profesional, aunque no tengas experiencia en diseño.</h4>
                             </Card>
                             <Card>
+                                <FcTodoList className="card__icon" />
                                 <h4>Construir paso a paso las secciones esenciales de cualquier sitio moderno.</h4>
                             </Card>
                             <Card>
+                                <FcMultipleDevices className="card__icon" />
                                 <h4>Optimizar tu sitio para que cargue rápido y se vea bien en computadora y celular.</h4>
                             </Card>
                             <Card>
+                                <FcGlobe className="card__icon" />
                                 <h4>Publicar tu página en internet y configurarla para que tus clientes puedan encontrarte.</h4>
                             </Card>
                         </section>
@@ -224,7 +176,7 @@ const PreRegisterPage = () => {
                     </div>
                 </section>
                 <section>
-                    <h2>Este curso es para ti si...</h2>
+                    <h2>Este curso es para ti si...</h2><br />
                     <div className="card__container">
                         <Card>
                             <h4>No sabes programación pero quieres crear tu web</h4>
@@ -309,13 +261,14 @@ const PreRegisterPage = () => {
                                 value={formData.dateBorn}
                                 onChange={handleChange}
                             />
-                            <button
-                                className="button--main register__form--submit"
+                            <Button 
+                                variant="classic"
                                 type="submit"
                                 onClick={() => setIsLoading(true)}
+                                style={{margin: "0 auto", display: "block"}}
                             >
-                                <span>{isLoading === true ? "Enviando..." : "Unirme a la lista de espera"}</span>
-                            </button>
+                                {isLoading === true ? "Enviando..." : "Unirme a la lista de espera"}
+                            </Button>
                             {isVisible && (
                                 <Modal title={modalData.title}>
                                     <section>

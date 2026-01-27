@@ -1,15 +1,14 @@
-.main__login {
+ .main__login {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
+/*
 .login {
     padding: 30px;
     width: 400px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.05);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,10 +44,6 @@
         cursor: pointer;
         align-self: flex-end;
     }
-
-    button {
-        width: 100%;
-    }
 }
 
 .password-group {
@@ -63,4 +58,4 @@
     .login{
         background-color: transparent;
     }
-}
+} */

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
-import '../css/header.css';
+// import '../css/header.css';
 import logo from '../assets/img/scripteca.png';
 
 const Header = ({ user, logout }) => {

@@ -8,84 +8,99 @@
     color: vars.$color-white;
 }
 
+html,
 body {
-    background: radial-gradient(circle at 20% 20%, #0a0516, #05010b) !important;
+    position: relative;
+}
+
+body::before {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #1A073D,#0A0516,#05010B);
+  position: fixed;
+  z-index: -1;
 }
 
 input {
-    background: transparent;
+    margin: 10px 0;
+    background: rgba(5, 1, 11, 0.3);
     border-color: #333;
-    box-shadow: 0 0 10px inset rgba($color: vars.$cyan-emphasys, $alpha: 0.25);
+    box-shadow: 0 0 10px inset rgba($color: vars.$cyan-emphasys, $alpha: 0.1);
     color: vars.$color-white;
 }
 
-.button--main {
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1264px;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+/* Contenedor principal con el resplandor de fondo (glow) */
+  .profile-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    padding: 12px 40px;
-    background: rgba($color: vars.$color-black, $alpha: 0.6);
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    overflow: hidden;
+    background: rgba(147, 51, 234, 0.2);
     cursor: pointer;
-    z-index: 1;
-    backdrop-filter: blur(6px);
-    transition: all 0.3s ease;
+    /* Animación de la luz de fondo (tenue a fuerte) */
+    animation: breathing-glow 3s ease-in-out infinite;
+  }
 
-    &:hover {
-        background: rgba($color: vars.$color-black, $alpha: 0.2);
-    }
-}
-
-/* capa con el borde difuminado */
-.button--main::before {
-    content: "";
+  /* El borde giratorio compuesto por gradientes */
+  .profile-button::before {
+    content: '';
     position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 2px;
-    /* grosor del borde */
-    background: linear-gradient(18deg, vars.$pink-brand, vars.$blue-brand);
-    mask:
-        linear-gradient(vars.$color-white 0 0) content-box,
-        linear-gradient(vars.$color-white 0 0);
+    inset: -3px; /* Grosor del borde */
+    border-radius: 50%;
+    padding: 3px; 
+    background: conic-gradient(from var(--angle), 
+      #7c83ff, 
+      #9333ea, 
+      #bd68ff, 
+      #7c83ff);
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
     mask-composite: exclude;
-    -webkit-mask-composite: destination-out;
-    filter: blur(3px);
-    /* desenfoque del borde */
-    z-index: 0;
-}
+    /* Animación del giro */
+    animation: rotate-gradient 4s linear infinite;
+  }
 
-/* capa del fondo difuminado */
-.button--main::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba($color: vars.$color-white, $alpha: 0.05);
-    backdrop-filter: blur(10px);
-    border-radius: inherit;
-    z-index: 0;
-}
+  @keyframes rotate-gradient {
+    to { --angle: 360deg; }
+  }
 
-.button--main span {
-    background: linear-gradient(vars.$color-white, vars.$cyan-emphasys);
-    background-clip: text;
-    color: transparent;
-    position: relative;
-    font-size: 1.2em;
+  @keyframes breathing-glow {
+    0%, 100% { box-shadow: 0 0 15px rgba(147, 51, 234, 0.2); }
+    50% { box-shadow: 0 0 35px rgba(124, 131, 255, 0.5); }
+  }
+
+  .icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     z-index: 2;
-}
 
-.button--sub {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    padding: 10px 18px;
-    border-radius: 12px;
-    backdrop-filter: blur(8px);
-    transition: all 0.3s ease;
-
-    &:hover {
-        background: rgba(255, 255, 255, 0.15);
+    span {
+      font-weight: 700;
+      font-size: 1.5em;
+      background: linear-gradient(#00B0F0, #7c83ff, #7c83ff);
+      background-clip: text;
+      color: transparent;
     }
-}
+  }

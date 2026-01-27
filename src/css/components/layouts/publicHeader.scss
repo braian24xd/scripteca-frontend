@@ -1,0 +1,91 @@
+@use '../../abstracts/variables' as vars;
+@use '../../abstracts/mixins' as utils;
+
+.header {
+
+    .container {
+
+        @include utils.d-flex();
+    }
+
+    &__logo {
+        width: 180px;
+    }
+
+    &__nav {
+        width: 65%;
+        @include utils.d-flex();
+
+        &__navigation {
+            @include utils.d-flex($flex-wrap: no-wrap);
+        }
+
+        &__actions {
+            @include utils.d-flex($flex-wrap: no-wrap, $gap: 10px);
+
+        }
+    }
+
+    &__menu {
+        display: none;
+    }
+}
+
+@media (max-width: 999px) {
+    .header {
+        position: relative;
+        z-index: 10;
+
+        .container {
+            position: relative;
+            z-index: 10;
+        }
+
+        &__nav {
+
+            padding: 20px;
+            width: 95%;
+            border-radius: 10px;
+            position: absolute;
+            top: -500px;
+            z-index: 2;
+            backdrop-filter: blur(7px);
+            
+            &--active {
+                @include utils.d-flex($flex-direction: column, $align-items: start, $gap: 40px);
+                top: 100px;
+            }
+            
+            &::before {
+                content: "";
+                width: 100vw;
+                height: 224px;
+                position: absolute;
+                inset: 0;
+                background: #1A073D;
+                opacity: 0.8;
+                z-index: -1;
+            }
+
+
+            &__navigation {
+                @include utils.d-flex($flex-direction: column, $align-items: start);
+            }
+
+            &__actions {
+                width: 100%;
+                @include utils.d-flex($justify-content: center);
+
+                button {
+                    padding-left: 40px;
+                    padding-right: 40px;
+                }
+            }
+        }
+
+        &__menu {
+            display: block;
+        }
+
+    }
+}
