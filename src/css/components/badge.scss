@@ -1,0 +1,10 @@
+@use '../abstracts/variables' as vars;
+
+.badge {
+    padding: 5px 10px;
+    background: rgba($color: vars.$purple-secondary-200, $alpha: 0.3);
+    border-radius: 10px;
+    font-size: 0.7em;
+    font-weight: 300;
+    display: inline;
+}

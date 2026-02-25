@@ -1,9 +1,9 @@
 
 
-const Card = ({ children }) => {
+const Card = ({ children, className }) => {
 
     return (
-        <article className="card">
+        <article className={`card ${className}`}>
             {children}
         </article>
     )

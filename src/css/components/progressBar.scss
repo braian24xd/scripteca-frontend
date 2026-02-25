@@ -1,0 +1,31 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as utils;
+
+.progress-bar {
+    margin-bottom: 20px;
+    padding: 0 15px 0 10px;
+    width: 100%;
+    height: 30px;
+    background: rgba($color: vars.$color-white, $alpha: 0.05);
+    border: 1px solid rgba($color: vars.$color-white, $alpha: 0.05);
+    border-radius: 10px;
+    @include utils.d-flex($flex-wrap: nowrap, $gap: 10px, $justify-content: center, $align-items: center);
+
+    div {
+        width: 100%;
+    }
+
+    &__indicator {
+        padding: 0 5px;
+        width: 68%;
+        height: 10px;
+        background: rgba($color: vars.$pink-emphasys, $alpha: 1);
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba($color: vars.$pink-emphasys, $alpha: 0.5);
+    }
+
+    &__percent {
+        font-size: 0.85em;
+        font-weight: 300;
+    }
+}
