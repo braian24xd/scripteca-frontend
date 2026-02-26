@@ -9,9 +9,11 @@ import ManageUsers from './pages/ManageUsers';
 import ManageRecordings from './pages/ManageRecordings';
 import Account from './pages/Account';
 import Header from './components/Header';
-import UserDashboardLayout from './layouts/UserDasboardLayout';
+import UserLayout from './layouts/UserLayout';
 import {jwtDecode} from 'jwt-decode';
 import './css/main.scss'
+import StudentDashboardPage from './pages/StudentDashboardPage';
+import CoursePage from './pages/CoursePage';
 
 const ProtectedRoute = ({ requiredRole, children }) => {
   const token = localStorage.getItem('token'); // Obtener el token
@@ -33,7 +35,7 @@ const ProtectedRoute = ({ requiredRole, children }) => {
   if (!requiredRole.includes(user.role)) {
     // Si el rol no coincide, redirigir según el rol del usuario
     return user.role === 'student' ? (
-      <Navigate to="/recordings" />
+      <Navigate to="/dashboard" />
     ) : (
       <Navigate to="/login" />
     );
@@ -58,31 +60,28 @@ const App = () => {
   }, []);
 
   const logout = () => {
-    localStorage.removeItem('token'); // Limpiar el token del almacenamiento local
-    setUser(null); // Actualizar el estado del usuario
+    localStorage.removeItem('token');
+    setUser(null);
   };
 
   return (
     <Router>
-      {/* Renderiza el Header solo si el usuario está autenticado */}
-      {/* {user && <Header user={user} logout={logout} />} */}
-
       <Routes>
-        {/* Rutas públicas */}
         <Route path="/" element={<LandingPage />}/>
         <Route path="/BuenFin2025" element={<PreRegisterPage />} />
         <Route path="/login" element={<Login />} />
 
         {/* Rutas para estudiantes */}
         <Route
-          path="/recordings"
           element={
             <ProtectedRoute requiredRole={['student']}>
-              <UserDashboardLayout />
-              {/* <StudentRecordings /> */}
+              <UserLayout />
             </ProtectedRoute>
           }
-        />
+        >
+          <Route path="/dashboard" element={<StudentDashboardPage />} />
+          <Route path="/course/:id" element={<CoursePage />} /> 
+        </Route>
         <Route
           path="/account"
           element={

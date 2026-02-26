@@ -1,8 +1,8 @@
-import ContinueLearning from "./ContinueLearning"
+import ContinueLearning from "../components/ContinueLearning"
 import '../css/layout/studentDashboard.scss'
 import Card from '@components/ui/Card'
-import Badge from "./ui/Badge";
-import Button from "./ui/Button";
+import Badge from "../components/ui/Badge";
+import Button from "../components/ui/Button";
 import { PiGraduationCapDuotone } from "react-icons/pi";
 import { BsDisplay } from "react-icons/bs";
 import { IoCodeSlashOutline } from "react-icons/io5";
@@ -15,9 +15,9 @@ import { TbBrandMongodb } from "react-icons/tb";
 import bannerCourseWebSite from "@assets/img/banner-CreaSitioWeb.jpg"
 import bannerCourseCyberSecurity from "@assets/img/banner-EspecialidadCiberseguridad.png"
 import bannerCourseFullStackJS from "@assets/img/banner-FullStackJavaScript.png"
-import RadialProgress from "./ui/RadialProgress";
+import RadialProgress from "../components/ui/RadialProgress";
 
-const studentDashboard = () => {
+const StudentDashboardPage = () => {
 
     return (
         <div className="container">
@@ -212,4 +212,4 @@ const studentDashboard = () => {
     )
 }
 
-export default studentDashboard
+export default StudentDashboardPage
