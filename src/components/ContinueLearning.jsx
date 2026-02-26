@@ -1,6 +1,6 @@
 import Button from './ui/Button'
 import '../css/components/continueLearning.scss'
-import imageSection from "@assets/img/ContinueLearningImage.png"
+import imageSection from "@assets/img/ContinuelearningImage.png"
 import ProgressBar from './ui/ProgressBar'
 import Badge from './ui/Badge'
 import { FaPlay } from "react-icons/fa";
