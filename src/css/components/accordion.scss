@@ -1,0 +1,56 @@
+@use '../abstracts/mixins' as utils;
+@use '../abstracts/variables' as vars;
+
+.accordion {
+
+    &__trigger {
+        padding: 20px;
+        background: rgba($color: vars.$color-white, $alpha: 0.04);
+        border: 1px solid rgba($color: vars.$color-white, $alpha: 0.08);
+        border-radius: 10px;
+        backdrop-filter: blur(20px);
+        display: grid;
+        grid-template-columns: 1fr 40px;
+        gap: 20px;
+        cursor: pointer;
+
+        &--caption {
+            @include utils.d-flex($justify-content: start)
+        }
+
+        &--icon {
+            @include utils.d-flex($justify-content: center);
+
+            transition: transform 0.2s ease-in;
+
+            &.rotate {
+                transform: rotate(90deg);
+            }
+        }
+
+        &:active {
+            scale: 0.98;
+        }
+
+    }
+
+    &__content {
+        padding: 0 20px;
+        height: 0;
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.2s ease-out, opacity 0.2s ease-out, padding 0.2s ease-out;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+
+        &--open {
+            padding: 20px;
+            height: auto;
+            grid-template-rows: 1fr;
+            opacity: 1;
+            visibility: visible;
+        }
+
+    }
+}
