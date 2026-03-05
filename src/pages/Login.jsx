@@ -18,7 +18,7 @@ const Login = () => {
     const token = localStorage.getItem('token');
     const role = localStorage.getItem('role');
     if (token && role) {
-      navigate(role === 'student' ? '/recordings' : '/admin');
+      navigate(role === 'student' ? '/dashboard' : '/admin');
     }
   }, [navigate]);
 
