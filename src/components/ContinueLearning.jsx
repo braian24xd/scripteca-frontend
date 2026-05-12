@@ -1,6 +1,5 @@
 import Button from './ui/Button'
 import '../css/components/continueLearning.scss'
-import imageSection from "@assets/img/ContinuelearningImage.png"
 import ProgressBar from './ui/ProgressBar'
 import Badge from './ui/Badge'
 import { FaPlay } from "react-icons/fa";
@@ -17,15 +16,13 @@ const ContinueLearning = () => {
                     <span>Clase 5</span>
                 </div>
                 <div className="continueLearning__caption--details">
-                    <Badge>1 Mes</Badge>
-                    <Badge>Curso Practico</Badge>
-                    <Badge>Acceso de por vida</Badge>
+                    <Badge>Curso en progreso</Badge>
                 </div>
-                <ProgressBar />
-                <Button variant="ghost"><FaPlay size="0.9em" />Continuar</Button>
+                <ProgressBar value={63} />
+                <Button variant="glow"><FaPlay size="0.9em" />Continuar</Button>
             </div>
             <div className="continueLearning__img">
-                <img src={imageSection} />
+                <img />
             </div>
         </article>
     )

@@ -3,11 +3,12 @@
 .appHeader {
 
     .container {
+        padding: 10px 20px;
         @include utils.d-flex()
     }
 
     &__logo {
-        width: 180px;
+        width: 160px;
     }
 
     &__buttons {
@@ -22,7 +23,7 @@
     // &__user {}
 }
 
-@media (max-width: 728px) {
+@media (max-width: 945px) {
     .appHeader {
         &__logo {
             width: 140px;
@@ -30,5 +31,11 @@
         .text {
             display: none;
         }
+    }
+}
+
+@media (max-width: 728px) {
+    .profile-button.header__userButton {
+        display: none
     }
 }

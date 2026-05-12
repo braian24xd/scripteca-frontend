@@ -1,0 +1,152 @@
+// FeaturesImpact.scss
+@import '../abstracts/variables'; // Asegúrate de que apunte a tu archivo de colores
+
+.features-impact {
+    position: relative;
+    //background-color: $background-900;
+    padding-bottom: 100px;
+    overflow: hidden;
+
+    // 1. Ticker de impacto rápido
+    .impact-ticker {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        background: transparent;
+        border-top: 0px solid rgba($cyan-emphasys, 0.1);
+        border-bottom: 0px solid rgba($cyan-emphasys, 0.1);
+        padding: 15px 0;
+        margin-bottom: 80px;
+        backdrop-filter: blur(10px);
+
+        .ticker-item {
+            color: $gray-100;
+            font-family: 'JetBrains Mono', monospace; // Un toque "coder"
+            font-size: 1.1rem;
+            font-weight: 500;
+
+            span {
+                color: $cyan-emphasys;
+                font-weight: 800;
+                text-shadow: 0 0 10px rgba($cyan-emphasys, 0.5);
+            }
+        }
+
+        .ticker-divider {
+            width: 1px;
+            height: 20px;
+            background: rgba($gray-500, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            gap: 15px;
+
+            .ticker-divider {
+                display: none;
+            }
+        }
+    }
+
+    // Header de la sección
+    .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+
+        .subtitle {
+            color: $purple-secondary-500;
+            letter-spacing: 4px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: $color-white;
+            font-size: 2.8rem;
+        }
+    }
+
+    .pillars-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+
+        @media (max-width: 992px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .pillar-card {
+        position: relative;
+        background: linear-gradient(145deg, rgba($background-800, 0.9) 0%, rgba($background-900, 0.9) 100%);
+        border: 1px solid rgba($color-white, 0.05);
+        border-radius: 24px;
+        padding: 40px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        overflow: hidden;
+
+        .pillar-icon {
+            font-family: 'Fira Code', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        h3 {
+            color: $color-white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: $gray-200;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        // Variaciones de color Neón
+        &--green {
+            &:hover {
+                border-color: $green-brand;
+                box-shadow: 0 0 30px rgba($green-brand, 0.15);
+
+                .pillar-icon {
+                    color: $green-brand;
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        &--blue {
+            &:hover {
+                border-color: $blue-brand;
+                box-shadow: 0 0 30px rgba($blue-brand, 0.15);
+
+                .pillar-icon {
+                    color: $blue-brand;
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        &--pink {
+            &:hover {
+                border-color: $pink-brand;
+                box-shadow: 0 0 30px rgba($purple-brand, 0.15);
+
+                .pillar-icon {
+                    color: $pink-brand;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}

@@ -1,26 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import '../css/login.css';
+import '@styles/pages/login.scss'
 import '../css/styles.css';
 import logo from '../assets/img/scripteca.png';
-import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
+import useAuth from '../hooks/useAuth';
+import { FaBolt, FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { login, user } = useAuth()
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    const role = localStorage.getItem('role');
-    if (token && role) {
-      navigate(role === 'student' ? '/dashboard' : '/admin');
-    }
-  }, [navigate]);
+    if (user) navigate('/dashboard')
+  }, [user, navigate]);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -28,35 +25,25 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
     try {
-      const API_URL = import.meta.env.VITE_PRODUCTION_API_URL || "http://localhost:5000";
-      const response = await axios.post(`${API_URL}/api/login`, { email, password });
-      const { token, role, user } = response.data;
-
-      localStorage.setItem('token', token);
-      localStorage.setItem('role', role);
-      localStorage.setItem('user', JSON.stringify(user));
-
-      window.location.href = role === 'student' ? '/recordings' : '/admin';
+      await login({ email, password })
+      navigate('/dashboard')
     } catch (err) {
-      setError('Credenciales inválidas');
+      setError(err.response.data.message)
+      console.error(err)
     }
-  };
+  }
 
   return (
-    <main className="main__login">
-      <Card className="login" style={{ margin: "20px" }}>
-        <img src={logo} alt="" width="200px" />
-        <h1>Iniciar Sesión</h1>
+    <main className="login">
+      <section className="login__credentials">
+        <img className="login__credentials--img" src={logo} alt="Logo de Scripteca" />
+        <h1>Inicio de Sesión</h1>
+        <p>Ingresa tus credenciales</p>
         <form
           className="login__form"
           onSubmit={handleLogin}
-          style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "stretch",
-          }}
         >
           <label htmlFor="email">Correo electrónico</label>
           <input
@@ -69,25 +56,35 @@ const Login = () => {
           />
           <br />
           <label htmlFor="password">Contraseña</label>
-          <input
+          <div className="password-container">
+            <input
             type={passwordVisible ? 'text' : 'password'}
+            placeholder="••••••••"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             id="password"
 
           />
-          <a className="toggle-password" onClick={togglePasswordVisibility}>
-            {passwordVisible ? 'Ocultar contraseña' : 'Mostrar contraseña'}
+          <span onClick={togglePasswordVisibility}>
+            {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+          </span>
+          </div>
+          <a className="reset-password">
+            ¿Olvidaste tu contraseña?
           </a>
           <br />
-          <Button variant="classic">
-            Ingresar
-          </Button>
-
+            <button type="submit" className="login-btn">
+              EJECUTAR ACCESO <FaBolt />
+            </button>
+          <br />
+          <p>¿Sin cuenta? <a href="#">Registrate aquí</a></p>
         </form>
-        <br />
-        {error && <p className="error">{error}</p>}
-      </Card>
+        {
+          error ? <p className="login__credentials--error">{error}</p> : null
+        }
+      </section>
+      <div className="bg-glow-1"></div>
+      <div className="bg-glow-2"></div>
     </main>
   );
 };

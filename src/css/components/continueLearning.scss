@@ -7,7 +7,22 @@
     border: 1px solid rgba($color: vars.$color-white, $alpha: 0.08);
     border-radius: 10px;
     backdrop-filter: blur(20px);
+    position: relative;
     @include utils.d-flex($gap: 10px, $flex-wrap: nowrap);
+
+    &::before {
+        content: "";
+        margin-top: -30px;
+        width: 100%;
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-image: url('../../assets/img/ContinueLearning.png');
+        background-size: 50%;
+        background-repeat: no-repeat;
+        background-position: 100% 0;
+        filter: opacity(0.3);
+    }
 
     &__caption {
         width: 70%;
@@ -36,7 +51,7 @@
     &__img {
         padding: 10px;
         width: 30%;
-        opacity: 0.6;
+        //opacity: 0.6;
     }
 
     img {
@@ -44,44 +59,35 @@
     }
 
     button {
-        margin-top: 10px;
-        padding: 10px 28px;
-        background: rgba($color: vars.$purple-secondary-500, $alpha: 1);
-        border-radius: 12px;
-        color: white;
-        font-weight: 600;
-        box-shadow:
-            0 0 0 rgba(0, 0, 0, 0),
-            0 8px 24px rgba(124, 58, 237, 0.35);
-        transition: all 0.25s ease;
+        margin-top: 20px;
+        padding: 10px 38px;
+    }
 
-        span {
-            @include utils.d-flex($justify-content: center, $gap: 7px);
-        }
+}
 
-
-        &:hover {
-            transform: translateY(-2px);
-            box-shadow:
-                0 0 0 rgba(0, 0, 0, 0),
-                0 12px 32px rgba(124, 58, 237, 0.35);
-
-        }
+@media (max-width: 1024px) {
+    .continueLearning {
+        &::before {
+            margin: 0;
+        }     
     }
 }
 
-// @media (max-width: 810px) {
-//     .continueLearning {
-//         &__img {
-//             display: none;
-//         }
-//     }
-// }
-
 @media (max-width: 810px) {
     .continueLearning {
+
+        &::before {
+            margin: 0;
+            background-position: 100% 0px;
+            filter: opacity(0.3);
+        }
+        
         &__caption {
             width: 100%;
+
+            &--title {
+                width: 80%;
+            }
 
             button {
                 width: 100%;

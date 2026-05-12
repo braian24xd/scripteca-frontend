@@ -29,7 +29,7 @@ const AppHeader = () => {
                         <IoNotifications />
                     </Button>
                     <span className="header__divisor text"></span>
-                    <UserButton  initialLetter='B'/>
+                    <UserButton className="header__userButton"/>
                 </div>
             </div>
         </header>

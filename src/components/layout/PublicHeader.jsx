@@ -25,7 +25,7 @@ const PublicHeader = () => {
                     </nav>
                     <div className="header__nav__actions">
                         <Link to="/login">
-                            <Button type="single" variant="classic">
+                            <Button type="single" variant="glow">
                                 Entrar
                             </Button>
                         </Link>

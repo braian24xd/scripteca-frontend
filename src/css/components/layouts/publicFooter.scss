@@ -1,0 +1,99 @@
+@use '../../abstracts/variables' as vars;
+
+footer {
+    color: #e0e0e0;
+    padding: 40px 20px;
+}
+
+footer hr {
+    margin: 20px auto;
+    max-width: 1264px;
+    border-color: vars.$gray-200;
+}
+
+.footer-content {
+    margin: 0 auto;
+    max-width: 1264px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#footer-mark {
+    max-width: 400px;
+}
+
+#footer-mark img {
+    margin-bottom: 20px;
+}
+
+#footer-mark p {
+    color: #ccc;
+    line-height: 1.5;
+}
+
+#social-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#social-links img {
+    width: 20px;
+}
+
+.footer-link {
+    margin: 20px;
+    text-align: left;
+}
+
+.footer-link h2 {
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: vars.$purple-brand;
+}
+
+.footer-link a {
+    margin-bottom: 5px;
+    font-weight: 400;
+    color: vars.$gray-100;
+    text-decoration: none;
+    display: block;
+    text-indent: 10px;
+    transition: color 0.2s ease-in;
+    cursor: pointer;
+
+    &:hover {
+        color: vars.$cyan-emphasys;
+    }
+}
+
+#footer-copy {
+    margin: 20px auto 0;
+    max-width: 1264px;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+#footer-copy a {
+    margin-right: 10px;
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+@media (max-width: 502px) {
+    #footer-mark {
+        max-width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #footer-mark p {
+        text-align: center;
+    }
+}

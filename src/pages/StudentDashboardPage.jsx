@@ -39,7 +39,7 @@ const StudentDashboardPage = () => {
                             <p>
                                 Más de 120 alumnos ya descubrieron su ruta ideal.
                             </p>
-                            <Button variant="ghost">
+                            <Button variant="glow">
                                 Realizar diagnostico (3 min)
                             </Button>
                         </section>
@@ -66,7 +66,7 @@ const StudentDashboardPage = () => {
                                     </small>
                                 </section>
                                 <section className="new-course__footer">
-                                    <Button variant="ghost">
+                                    <Button variant="glow">
                                         Ver curso
                                     </Button>
                                 </section>
@@ -89,7 +89,7 @@ const StudentDashboardPage = () => {
                                     </small>
                                 </section>
                                 <section className="new-course__footer">
-                                    <Button variant="ghost">
+                                    <Button variant="glow">
                                         Ver curso
                                     </Button>
                                 </section>
@@ -112,7 +112,7 @@ const StudentDashboardPage = () => {
                                     </small>
                                 </section>
                                 <section className="new-course__footer">
-                                    <Button variant="ghost">
+                                    <Button variant="glow">
                                         Ver curso
                                     </Button>
                                 </section>

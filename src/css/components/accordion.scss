@@ -5,8 +5,11 @@
 
     &__trigger {
         padding: 20px;
-        background: rgba($color: vars.$color-white, $alpha: 0.04);
-        border: 1px solid rgba($color: vars.$color-white, $alpha: 0.08);
+        //background: rgba($color: vars.$color-white, $alpha: 0.04);
+        //border: 1px solid rgba($color: vars.$color-white, $alpha: 0.08);
+
+        background: rgba(vars.$background-800, 0.4);
+        border: 1px solid rgba(vars.$color-white, 0.1);
         border-radius: 10px;
         backdrop-filter: blur(20px);
         display: grid;

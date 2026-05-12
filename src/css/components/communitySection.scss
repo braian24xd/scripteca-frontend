@@ -1,0 +1,182 @@
+@use '../abstracts/variables' as vars;
+
+.student-bento {
+  padding: 120px 0;
+  //background: vars.$background-900;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    .subtitle {
+      color: vars.$cyan-emphasys;
+      letter-spacing: 3px;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+    h2 {
+      color: vars.$color-white;
+      font-size: 2.8rem;
+      margin-top: 10px;
+    }
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 240px;
+    gap: 24px;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+    }
+  }
+
+  .bento-card {
+    position: relative;
+    background: rgba(vars.$background-800, 0.4);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(vars.$color-white, 0.05);
+    border-radius: 32px;
+    padding: 40px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-8px);
+      background: rgba(vars.$background-800, 0.6);
+      border-color: rgba(vars.$color-white, 0.2);
+    }
+
+    .bento-content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      z-index: 3;
+
+      .icon-box {
+        font-size: 2.5rem;
+      }
+      h3 {
+        color: vars.$color-white;
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+      }
+      p {
+        color: vars.$gray-400;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+    }
+
+    .bento-tag {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      background: rgba(vars.$blue-brand, 0.15);
+      color: vars.$blue-brand;
+      padding: 5px 14px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      border: 1px solid rgba(vars.$blue-brand, 0.3);
+      z-index: 4;
+    }
+
+    // --- VARIACIONES DE TAMAÑO ---
+    &--large {
+      grid-column: span 2;
+      grid-row: span 2;
+
+      .bento-content {
+        justify-content: flex-start;
+        gap: 40px;
+      }
+      .text-box {
+        margin-top: auto;
+      } // Empuja el texto al fondo
+      h3 {
+        font-size: 2.2rem;
+      }
+
+      // EL RELLENO DEL ESPACIO VACÍO (Blueprint)
+      .bento-blueprint-bg {
+        display: block;
+        position: absolute;
+        bottom: -10%;
+        right: -5%;
+        width: 70%;
+        height: 70%;
+        background-image: linear-gradient(
+            rgba(vars.$blue-brand, 0.2) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(vars.$blue-brand, 0.2) 1px, transparent 1px);
+        background-size: 30px 30px; // Crea una malla de diseño
+        mask-image: radial-gradient(
+          circle at bottom right,
+          black,
+          transparent 80%
+        );
+        pointer-events: none;
+        &::after {
+          content: "{ UI_UX_BUILDER }";
+          position: absolute;
+          bottom: 40px;
+          right: 40px;
+          font-family: "JetBrains Mono", monospace;
+          color: rgba(vars.$blue-brand, 0.2);
+          font-size: 2rem;
+          font-weight: 900;
+        }
+      }
+    }
+
+    &--wide {
+      grid-column: span 2;
+      @media (max-width: 992px) {
+        grid-column: span 1;
+      }
+    }
+
+    // --- COLORES DE ACENTO EN HOVER ---
+    &--blue:hover {
+      border-color: vars.$blue-brand;
+      box-shadow: 0 10px 40px rgba(vars.$blue-brand, 0.15);
+    }
+    &--green:hover {
+      border-color: vars.$green-brand;
+      box-shadow: 0 10px 40px rgba(vars.$green-brand, 0.15);
+    }
+    &--purple:hover {
+      border-color: vars.$purple-brand;
+      box-shadow: 0 10px 40px rgba(vars.$purple-brand, 0.15);
+    }
+    &--cyan:hover {
+      border-color: vars.$cyan-emphasys;
+      box-shadow: 0 10px 40px rgba(vars.$cyan-emphasys, 0.15);
+    }
+  }
+
+  // Ocultar blueprint en cards que no son la grande
+  .bento-blueprint-bg {
+    display: none;
+  }
+
+  @media (max-width: 600px) {
+    .bento-card--large,
+    .bento-card--wide {
+      grid-column: span 1;
+    }
+
+    .bento-card--large {
+      grid-row: auto;
+    }
+  }
+}

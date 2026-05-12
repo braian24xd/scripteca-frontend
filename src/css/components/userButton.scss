@@ -1,3 +1,6 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as utils;
+
 @property --angle {
   syntax: '<angle>';
   initial-value: 0deg;
@@ -5,41 +8,127 @@
 }
 
 .profile-button {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  background: rgba(147, 51, 234, 0.2);
+  @include utils.d-flex($gap: 15px);
   cursor: pointer;
-  /* Animación de la luz de fondo (tenue a fuerte) */
-  animation: breathing-glow 3s ease-in-out infinite;
+
+  &__avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    @include utils.d-flex($justify-content: center);
+    position: relative;
+    background: rgba(147, 51, 234, 0.2);
+    animation: breathing-glow 3s ease-in-out infinite;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      padding: 3px;
+      background: conic-gradient(from var(--angle),
+          #7c83ff,
+          #9333ea,
+          #bd68ff,
+          #7c83ff);
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      /* Animación del giro */
+      animation: rotate-gradient 4s linear infinite;
+    }
+
+  }
+
+  &__user {
+    &--name {
+      font-size: 0.85em;
+      font-weight: 600;
+    }
+
+    &--email {
+      font-size: 0.7em;
+      color: vars.$gray-200;
+    }
+  }
+
+  &__icon {
+    transition: 0.3s ease-in;
+
+    &.rotate {
+      transform: rotate(-180deg);
+    }
+  }
 }
 
-.profile-button::before {
-  content: '';
+.dropdown-button {
+  padding: 10px;
+  width: 180px;
+  background: rgba($color: #05010B, $alpha: 0.5);
+  backdrop-filter: blur(40px);
+  border: 2px solid rgba($color: vars.$color-white, $alpha: 0.15);
+  border-radius: 8px;
   position: absolute;
-  inset: -3px;
-  /* Grosor del borde */
-  border-radius: 50%;
-  padding: 3px;
-  background: conic-gradient(from var(--angle),
-      #7c83ff,
-      #9333ea,
-      #bd68ff,
-      #7c83ff);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  /* Animación del giro */
-  animation: rotate-gradient 4s linear infinite;
+  right: 20px;
+  top: 90px;
+  z-index: 1000;
+
+  &__items {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+    color: vars.$gray-100;
+    list-style: none;
+    @include utils.d-flex($justify-content: start, $gap: 10px);
+
+    &--email,
+    &--name,
+    &--line {
+      display: none;
+    }
+
+    &--profile {
+      background: rgba($color: vars.$purple-secondary-200, $alpha: 0.2);
+      font-size: 0.9em;
+      color: vars.$purple-secondary-200;
+
+      &:hover {
+        background: rgba($color: vars.$purple-secondary-200, $alpha: 0.3);
+      }
+    }
+
+    a {
+      font-size: 0.9em;
+      font-weight: 300;
+      color: vars.$gray-100;
+    }
+
+    &:hover {
+      background: rgba($color: vars.$color-white, $alpha: 0.15);
+    }
+  }
+
+  hr {
+    margin: 10px 0 10px;
+    border: 1px solid rgba($color: vars.$gray-500, $alpha: 0.5);
+  }
+
+  button {
+    margin: 0 auto;
+    width: 100%;
+    display: block;
+
+    span {
+      font-size: 0.9em !important;
+      @include utils.d-flex($justify-content: center, $gap: 10px)
+    }
+
+  }
 }
 
 @keyframes rotate-gradient {
@@ -57,5 +146,43 @@
 
   50% {
     box-shadow: 0 0 35px rgba(124, 131, 255, 0.5);
+  }
+}
+
+@media (max-width: 728px) {
+  .profile-button {
+
+    &__user,
+    &__icon {
+      display: none;
+    }
+  }
+
+  .dropdown-button {
+    width: auto;
+    font-size: 1.4em;
+    top: auto;
+    right: 0px;
+    bottom: 80px;
+    background: rgba($color: #05010B, $alpha: 0.9);
+
+    &__items {
+
+      padding: 15px 10px;
+
+      &--email,
+      &--name,
+      &--line {
+        display: block;
+      }
+
+      &--name {
+        font-weight: 600;
+      }
+
+      &--email {
+        font-size: 0.7em;
+      }
+    }
   }
 }

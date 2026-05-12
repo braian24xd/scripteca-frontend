@@ -3,80 +3,26 @@ import { Link } from 'react-router-dom';
 import '../css/landingPage.css'
 import PublicHeader from "@components/layout/PublicHeader";
 
-import scripteca from '../assets/img/scripteca.png';
-import logo from '../assets/img/logo.png';
+import AtomicHero from "../components/HeroBanner";
+import LearningExperience from "../components/LearningExperience";
+import FeaturesImpact from "../components/FeaturesImpact";
+import CourseSection from "../components/Coursesection";
+import RoadmapSection from "../components/RoadmapSection";
+import CommunitySection from "../components/ComunitySection";
+import FaqSection from "../components/FaqSection";
 
-import iconFacebook from '../assets/img/icons/facebook.svg';
-import iconInstagram from '../assets/img/icons/instagram.svg';
-import iconYoutube from '../assets/img/icons/youtube.svg';
-import iconTwitter from '../assets/img/icons/x-twitter.svg';
-import iconGithub from '../assets/img/icons/github.svg';
-
-import {
-  FcSmartphoneTablet,
-  FcBriefcase,
-  FcDebt,
-  FcCollaboration,
-  FcInspection,
-  FcVoicePresentation,
-  FcFlashOn,
-  FcIdea,
-  FcGraduationCap,
-  FcBusinessman,
-  FcVideoCall,
-  FcOpenedFolder,
-  FcStart
-} from "react-icons/fc";
-
-import sitioWebBanner from '../assets/img/banner-CreaSitioWeb.jpg';
-import CourseCard from "../components/CourseCard";
-import Card from '../components/ui/Card';
-import Button from "@components/ui/Button";
+import PublicFooter from "../components/layout/PublicFooter";
 
 const LandingPage = () => {
 
   return (
     <>
-      {/* Header */}
-      {/* <div className="pulse-box-shadow" id="inicio">
-        <header className="landing__header" id="header">
-          <div className="justify-content-center">
-            <img src={scripteca} alt="Logo" width="200px" />
-          </div>
-          <nav className="desktop-nav">
-            <a href="#inicio">Inicio</a>
-            <a href="#cursos">Cursos</a>
-            <a href="#propuesta">Propuesta de aprendizaje</a>
-          </nav>
-          <div className="btn-group-header">
-            <div className="btn-container">
-              <Button>
-                <Link to="/login">
-                  Entrar
-                </Link>
-              </Button>
-              <a
-                href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..."
-                target="_blank">
-                <Button variant="sub">
-                  Contacto
-                </Button>
-              </a>
-            </div>
-            <div className="hamburger">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-        </header>
-      </div> */}
       <PublicHeader />
 
       {/* Main Content */}
       <main className="landing__main">
         {/* Hero Banner */}
-        <section className="hero__banner">
+        {/* <section className="hero__banner">
           <h1 className="hero__banner__title">
             Aprende hoy:<br />Lidera mañana<span className="blinking-cursor"></span>
           </h1>
@@ -89,7 +35,7 @@ const LandingPage = () => {
             <a
                 href="https://wa.me/525536647556/?text=Hola%deseo%recibir%informacion%sobre..."
                 target="_blank">
-                <Button variant="classic">
+                <Button variant="glow">
                   Contacto
                 </Button>
               </a>
@@ -97,172 +43,24 @@ const LandingPage = () => {
               Todos los cursos
             </Button>
           </div>
-        </section>
+        </section> */}
 
-        <section className="who-can-learn">
-          <h2>¿Quienes son nuestros alumnos?</h2>
-          <div className="cards-container">
+        <AtomicHero />
 
-            <div className="card">
-              <FcSmartphoneTablet />
-              <h3>Apasionados de la tecnología</h3>
-              <p>Si te encanta la programación y quieres aprender por hobby, aquí tienes un camino claro y estructurado.</p>
-            </div>
+        <FeaturesImpact />
 
-            <div className="card">
-              <FcBriefcase />
-              <h3>Quienes quieren mejorar su empleo</h3>
-              <p>Domina habilidades clave para destacar en tu trabajo y abrir nuevas oportunidades laborales.</p>
-            </div>
+        <CourseSection />
 
-            <div className="card">
-              <FcDebt />
-              <h3>Emprendedores</h3>
-              <p>Aprende a construir y optimizar un sitio web para tu negocio o proyecto personal.</p>
-            </div>
+        <RoadmapSection />
 
-            <div className="card">
-              <FcCollaboration />
-              <h3>Quienes buscan su primer empleo en tecnología</h3>
-              <p>Crea un portafolio sólido con proyectos reales y aumenta tus oportunidades laborales.</p>
-            </div>
+        <CommunitySection />
 
-          </div>
-        </section>
+        <LearningExperience />
 
-        {/* Nueva Sección: Sin experiencia en programación */}
-        <section className="no-experience">
-          <h2>No necesitas experiencia en programación</h2>
-          <p>
-            Si nunca has programado, no te preocupes. Nuestros cursos están diseñados para que aprendas desde cero. Con apoyo personalizado, clases interactivas y proyectos prácticos, te llevamos paso a paso al éxito en el mundo digital.
-          </p>
-          <section className="no-experience-cards">
-            <article className="card">
-              <FcGraduationCap />
-              <h3>Clases para Principiantes</h3>
-              <p>Descubre el mundo de la programación desde cero, sin requerir conocimientos previos.</p>
-            </article>
-            <article className="card">
-              <FcVoicePresentation />
-              <h3>Mentoría Personalizada</h3>
-              <p>Recibe el apoyo de expertos que te guiarán en cada etapa de tu aprendizaje.</p>
-            </article>
-            <article className="card">
-              <FcFlashOn />
-              <h3>Aprendizaje Práctico</h3>
-              <p>Aplica lo aprendido en proyectos reales desde el primer día.</p>
-            </article>
-          </section>
-        </section>
-
-        {/* Sección: Nuestros Cursos */}
-        <section className="courses" id="cursos">
-          <h2>Nuestros Cursos</h2>
-          <section className="courses-container">
-            <CourseCard
-              img={sitioWebBanner}
-              title="Crea tu sitio web como un profesional, paso a paso"
-              description="
-                Aprende a desarrollar sitios web modernos desde cero, sin necesidad de experiencia previa.
-              "
-              link="https://www.scripteca.com/BuenFin2025"
-            />
-          </section>
-        </section>
-
-        {/* Sección "¿Cómo trabajamos?" */}
-        <section className="how-we-work" id="propuesta">
-          <h2>¿Qué vas a hacer?</h2>
-          <section className="work-steps-container">
-            <Card>
-              <FcIdea />
-              <h3>Paso 1: Conéctate</h3>
-              <p>Accede a contenido de alta calidad y estudia a tu ritmo.</p>
-            </Card>
-            <Card>
-              <FcInspection />
-              <h3>Paso 2: Practica</h3>
-              <p>Aplica lo aprendido con ejercicios prácticos y proyectos reales.</p>
-            </Card>
-            <Card>
-              <FcBusinessman />
-              <h3>Paso 3: Impulsa tu carrera</h3>
-              <p>Comparte tu portafolio y accede a oportunidades laborales.</p>
-            </Card>
-          </section>
-        </section>
-
-        {/* Sección "Tu experiencia de aprendizaje" */}
-        <section className="experience">
-          <h2>Tu experiencia de aprendizaje</h2>
-          <section className="cards-container">
-            <article className="card">
-              <FcVideoCall />
-              <h4>Clases en Vivo Intensivas</h4>
-              <p>
-                Participa en sesiones en vivo diseñadas para maximizar tu aprendizaje.
-                Interactúa en tiempo real con instructores expertos y resuelve tus dudas al instante.
-              </p>
-            </article>
-            <article className="card">
-              <FcOpenedFolder />
-              <h4>Proyectos Prácticos Reales</h4>
-              <p>
-                Desarrolla proyectos prácticos que te permitirán aplicar lo aprendido y
-                construir un portafolio profesional sólido.
-              </p>
-            </article>
-            <article className="card">
-              <FcStart />
-              <h4>Acceso Ilimitado a Grabaciones</h4>
-              <p>
-                Tendrás acceso a una plataforma intuitiva donde podrás revisar las grabaciones de cada sesión y acceder a materiales complementarios,
-                asegurándote de no perder ningún detalle, incluso si no puedes asistir en vivo.
-              </p>
-            </article>
-          </section>
-        </section>
+        <FaqSection />
       </main>
 
-      {/* Footer */}
-      <footer className="pulse-box-shadow">
-        <section className="footer-content">
-          <section id="footer-mark">
-            <img src={logo} alt="logo" width="100px" />
-            <p>
-              Educación a tu alcance, donde y cuando quieras.
-              Impulsa tu carrera con nuestros cursos especializados por menos de un café al día.
-            </p>
-            <section id="social-links">
-              <a href="https://www.facebook.com/profile.php?id=61573641520695"><img src={iconFacebook} alt="Facebook icon" /></a>
-              <a href="https://www.instagram.com/scripteca/"><img src={iconInstagram} alt="Instagram icon" /></a>
-              <a href="https://www.youtube.com/@Scripteca"><img src={iconYoutube} alt="Youtube icon" /></a>
-              <a><img src={iconTwitter} alt="X Twitter icon" /></a>
-              <a><img src={iconGithub} alt="Github icon" /></a>
-            </section>
-          </section>
-          <section className="footer-link">
-            <h2>Navegación</h2>
-            <a href="#inicio">Inicio</a>
-            <a href="#cursos">Cursos</a>
-            <a href="#propuesta">Propuesta de aprendizaje</a>
-          </section>
-          <section className="footer-link">
-            <h2>Sitio</h2>
-            <a>Contacto</a>
-            <a>Mapa del sitio</a>
-          </section>
-        </section>
-        <hr />
-        <section id="footer-copy">
-          <small>Copyright &copy;2024. Todos los derechos reservados</small>
-          <small>
-            <a>Política de privacidad</a>
-            <a>Aspectos legales</a>
-            <a>Política de cookies</a>
-          </small>
-        </section>
-      </footer>
+      <PublicFooter />
     </>
   );
 }

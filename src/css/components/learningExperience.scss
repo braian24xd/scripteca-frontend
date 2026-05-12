@@ -1,0 +1,135 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as utils;
+
+.learning-experience {
+    padding: 80px 0;
+    position: relative;
+
+    .dashboard-preview {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 40px;
+        align-items: center;
+        margin-top: 40px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .preview-container {
+        background: vars.$background-800;
+        border: 1px solid rgba(vars.$color-white, 0.1);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        position: relative;
+
+        .browser-header {
+            background: rgba(vars.$color-white, 0.05);
+            padding: 10px;
+            display: flex;
+            gap: 6px;
+
+            .dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+
+                &--red {
+                    background: vars.$color-danger;
+                }
+
+                &--yellow {
+                    background: vars.$color-warning;
+                }
+
+                &--green {
+                    background: vars.$color-success;
+                }
+            }
+        }
+
+        .preview-content {
+            padding: 30px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+
+            .code-editor {
+                .keyword {
+                    color: vars.$pink-brand;
+                }
+                .string {
+                    color: vars.$yellow-brand;
+                }
+                .method {
+                    color: vars.$cyan-emphasys;
+                }
+                .indent {
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+
+    .benefit-item {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        transition: background 0.3s ease;
+
+        &:hover {
+            background: rgba(vars.$blue-brand, 0.05);
+
+            .icon {
+                transform: scale(1.1);
+            }
+        }
+
+        .icon {
+            font-size: 24px;
+            transition: transform 0.3s ease;
+
+            &--green {
+                color: vars.$green-brand;
+            }
+
+            &--blue {
+                color: vars.$blue-brand;
+            }
+
+            &--yellow {
+                color: vars.$yellow-brand;
+            }
+        }
+
+        h3 {
+            color: vars.$color-white;
+            margin-bottom: 5px;
+        }
+
+        p {
+            color: vars.$gray-200;
+            font-size: 0.9rem;
+        }
+    }
+
+    .floating-badge {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background: vars.$background-900;
+        border: 1px solid vars.$cyan-emphasys;
+        padding: 10px 15px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 0 15px rgba(vars.$cyan-emphasys, 0.3);
+        color: vars.$color-white;
+        font-weight: bold;
+    }
+}

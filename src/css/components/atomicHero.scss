@@ -1,0 +1,233 @@
+@use '../abstracts/mixins' as utils;
+@use '../abstracts/variables' as vars;
+
+.atomic-hero {
+    padding: 20px;
+    position: relative;
+    height: 600px;
+    //background: radial-gradient(circle, $background-700 0%, $background-900 100%);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    overflow: hidden;
+
+    .hero-content {
+        position: relative;
+        z-index: 100;
+        @include utils.d-flex($flex-direction: column, $align-items: start);
+
+        .text-display {
+            font-size: 3.3em;
+            font-weight: 700;
+            filter: drop-shadow(0 0 30px vars.$purple-secondary-900);
+        }
+
+        .text-body {
+            margin: 10px 0;
+            font-size: 1.3em;
+        }
+
+        button {
+            padding: 10px 40px;
+            filter: drop-shadow(0 0 5px vars.$purple-secondary-900);
+        }
+    }
+
+    .atomic-container {
+        opacity: 0.9;
+        position: absolute;
+        top: -20;
+        right: -40px;
+        width: 750px;
+        height: 750px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nucleus {
+        position: relative;
+        z-index: 10;
+        width: 120px;
+
+        &__logo {
+            width: 100%;
+            filter: drop-shadow(0 0 20px vars.$blue-primary-500);
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        &__glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            background: vars.$blue-brand;
+            filter: blur(80px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+    }
+
+    .orbit {
+        position: absolute;
+        border: 1px solid rgba(vars.$cyan-emphasys, 0.15);
+        border-radius: 50%;
+
+        &--1 {
+            width: 300px;
+            height: 150px;
+            transform: rotate(45deg);
+            animation: rotateOrbit 10s linear infinite;
+        }
+
+        &--2 {
+            width: 450px;
+            height: 200px;
+            transform: rotate(-45deg);
+            animation: rotateOrbit 15s linear infinite reverse;
+        }
+
+        &--3 {
+            width: 600px;
+            height: 250px;
+            transform: rotate(90deg);
+            animation: rotateOrbit 20s linear infinite;
+        }
+
+        &--4 {
+            width: 650px;
+            height: 300px;
+            transform: rotate(180deg);
+            animation: rotateOrbit 25s linear infinite reverse;
+        }
+
+        &--5 {
+            width: 400px;
+            height: 150px;
+            transform: rotate(120deg);
+            animation: rotateOrbit 10s linear infinite reverse;
+        }
+
+        &--6 {
+            width: 550px;
+            height: 200px;
+            transform: rotate(185deg);
+            animation: rotateOrbit 15s linear infinite;
+        }
+    }
+
+    .electron {
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+        border: 2px solid vars.$cyan-emphasys;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: vars.$cyan-emphasys;
+        box-shadow: 0 0 15px vars.$cyan-emphasys;
+        backdrop-filter: blur(20px);
+
+        &--react {
+            animation: counterRotate 10s linear infinite reverse;
+        }
+
+        &--js {
+            color: vars.$yellow-brand;
+            border-color: vars.$yellow-brand;
+            box-shadow: 0 0 15px vars.$yellow-brand;
+            animation: rotateOrbit 15s linear infinite;
+        }
+
+        &--node {
+            border-color: vars.$green-brand;
+            color: vars.$green-brand;
+            box-shadow: 0 0 15px vars.$green-brand;
+            animation: rotateOrbit 20s linear infinite reverse;
+        }
+
+        &--sass {
+            border-color: vars.$pink-brand;
+            color: vars.$pink-brand;
+            box-shadow: 0 0 15px vars.$pink-brand;
+            animation: rotateOrbit 25s linear infinite;
+        }
+
+        &--html {
+            border-color: vars.$orange-brand;
+            color: vars.$orange-brand;
+            box-shadow: 0 0 15px vars.$orange-brand;
+            animation: rotateOrbit 10s linear infinite;
+            right: 0;
+        }
+
+        &--css {
+            border-color: vars.$blue-brand;
+            color: vars.$blue-brand;
+            box-shadow: 0 0 15px vars.$blue-brand;
+            animation: rotateOrbit 15s linear infinite reverse;
+            right: 0;
+        }
+    }
+}
+
+@keyframes rotateOrbit {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .atomic-hero {
+        .atomic-container {
+            right: -200px;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .atomic-hero {
+        .atomic-container {
+            right: -200px;
+        }
+    }
+}
+
+@media (max-width: 670px) {
+    .atomic-hero {
+        .atomic-container {
+            right: -300px;
+        }
+    }
+}
+
+@media (max-width: 505px) {
+    .atomic-hero {
+        .atomic-container {
+            opacity: 0.7;
+        }
+    }
+}
