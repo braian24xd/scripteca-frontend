@@ -1,5 +1,5 @@
 import Button from "./ui/Button"
-import '@styles/components/CourseSection.scss'
+import '@styles/components/courseSection.scss'
 import { FaCheck } from "react-icons/fa";
 
 const CourseSection = () => {

@@ -1,7 +1,7 @@
 import clsx from "clsx"
 import Accordion from "./ui/Accordion"
 import ProgressBar from "./ui/ProgressBar"
-import '@styles/components/CourseModule.scss'
+import '@styles/components/courseModule.scss'
 import { FaCheckCircle } from "react-icons/fa"
 import { RiProgress8Fill } from "react-icons/ri";
 import { TbLock } from "react-icons/tb";

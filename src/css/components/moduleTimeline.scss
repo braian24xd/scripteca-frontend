@@ -1,12 +1,4 @@
-@import '../abstracts/variables';
-
-$background-800: #0f172a !default;
-$cyan-emphasys: #00f3ff !default;
-$purple-brand: #bc00ff !default;
-$gray-300: #cbd5e1 !default;
-$gray-500: #64748b !default;
-$gray-600: #475569 !default;
-$color-white: #ffffff !default;
+@use '../abstracts/variables' as vars;
 
 .module-timeline-container {
   width: 100%;
@@ -18,7 +10,7 @@ $color-white: #ffffff !default;
     position: relative;
     padding: 24px 0;
     margin-bottom: 48px;
-    border-bottom: 1px solid rgba($color-white, 0.05);
+    border-bottom: 1px solid rgba(vars.$color-white, 0.05);
 
     &::before {
       content: '';
@@ -27,7 +19,7 @@ $color-white: #ffffff !default;
       left: 0;
       width: 100%;
       height: 2px;
-      background: rgba($cyan-emphasys, 0.15);
+      background: rgba(vars.$cyan-emphasys, 0.15);
       z-index: 0;
     }
 
@@ -35,10 +27,10 @@ $color-white: #ffffff !default;
       position: relative;
       z-index: 1;
       width: 45%;
-      background: rgba($background-800, 0.4);
+      background: rgba(vars.$background-800, 0.4);
       padding: 16px 24px;
       border-radius: 16px;
-      border: 1px solid rgba($color-white, 0.05);
+      border: 1px solid rgba(vars.$color-white, 0.05);
       cursor: pointer;
       transition: all 0.3s;
       display: flex;
@@ -48,38 +40,38 @@ $color-white: #ffffff !default;
       .node-marker {
         width: 16px;
         height: 16px;
-        background: rgba($cyan-emphasys, 0.3);
-        border: 4px solid $background-800;
+        background: rgba(vars.$cyan-emphasys, 0.3);
+        border: 4px solid vars.$background-800;
         border-radius: 50%;
-        box-shadow: 0 0 10px $cyan-emphasys;
+        box-shadow: 0 0 10px vars.$cyan-emphasys;
       }
 
       .node-info {
         .node-title {
           font-weight: 700;
-          color: $gray-300;
+          color: vars.$gray-300;
           display: block;
           margin-bottom: 4px;
         }
 
         p {
           font-size: 0.75rem;
-          color: $gray-600;
+          color: vars.$gray-600;
           margin: 0;
         }
       }
 
       &:hover, &.active {
-        background: rgba($cyan-emphasys, 0.03);
-        border-color: $cyan-emphasys;
-        box-shadow: 0 0 20px rgba($cyan-emphasys, 0.05);
+        background: rgba(vars.$cyan-emphasys, 0.03);
+        border-color: vars.$cyan-emphasys;
+        box-shadow: 0 0 20px rgba(vars.$cyan-emphasys, 0.05);
 
         .node-marker {
-          background: $cyan-emphasys;
+          background: vars.$cyan-emphasys;
         }
 
         .node-title {
-          color: $cyan-emphasys;
+          color: vars.$cyan-emphasys;
         }
       }
     }
@@ -92,15 +84,15 @@ $color-white: #ffffff !default;
     min-height: 450px;
 
     .video-selector-list {
-      background: rgba($background-800, 0.6);
-      border: 1px solid rgba($color-white, 0.05);
+      background: rgba(vars.$background-800, 0.6);
+      border: 1px solid rgba(vars.$color-white, 0.05);
       border-radius: 28px;
       padding: 32px;
       backdrop-filter: blur(16px);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 
       h3 {
-        color: $cyan-emphasys;
+        color: vars.$cyan-emphasys;
         font-size: 1.2rem;
         font-weight: 700;
         margin-bottom: 24px;
@@ -118,8 +110,8 @@ $color-white: #ffffff !default;
           display: flex;
           align-items: center;
           gap: 20px;
-          background: rgba($color-white, 0.02);
-          border: 1px solid rgba($color-white, 0.04);
+          background: rgba(vars.$color-white, 0.02);
+          border: 1px solid rgba(vars.$color-white, 0.04);
           border-radius: 18px;
           padding: 20px;
           cursor: pointer;
@@ -127,21 +119,21 @@ $color-white: #ffffff !default;
 
           .video-icon {
             font-size: 1.8rem;
-            color: $gray-600;
+            color: vars.$gray-600;
             display: flex;
           }
 
           .video-details {
             h4 {
               font-size: 0.95rem;
-              color: $gray-300;
+              color: vars.$gray-300;
               margin-bottom: 6px;
             }
 
             span {
               font-size: 0.75rem;
               font-family: 'JetBrains Mono', monospace;
-              color: $purple-brand;
+              color: vars.$purple-brand;
               display: flex;
               align-items: center;
               gap: 6px;
@@ -149,17 +141,17 @@ $color-white: #ffffff !default;
           }
 
           &:hover, &.active {
-            background: rgba($purple-brand, 0.08);
-            border-color: rgba($purple-brand, 0.4);
+            background: rgba(vars.$purple-brand, 0.08);
+            border-color: rgba(vars.$purple-brand, 0.4);
             transform: translateX(4px);
 
             .video-icon {
-              color: $purple-brand;
-              filter: drop-shadow(0 0 6px rgba($purple-brand, 0.4));
+              color: vars.$purple-brand;
+              filter: drop-shadow(0 0 6px rgba(vars.$purple-brand, 0.4));
             }
 
             h4 {
-              color: $color-white;
+              color: vars.$color-white;
             }
           }
         }
@@ -167,8 +159,8 @@ $color-white: #ffffff !default;
     }
 
     .video-player-wrapper {
-      background: rgba($background-800, 0.6);
-      border: 1px solid rgba($color-white, 0.05);
+      background: rgba(vars.$background-800, 0.6);
+      border: 1px solid rgba(vars.$color-white, 0.05);
       border-radius: 28px;
       padding: 32px;
       backdrop-filter: blur(16px);
@@ -192,24 +184,24 @@ $color-white: #ffffff !default;
 
           h3 {
             font-size: 1.2rem;
-            color: $color-white;
+            color: vars.$color-white;
           }
 
           .badge {
-            background: rgba($purple-brand, 0.15);
-            color: $purple-brand;
+            background: rgba(vars.$purple-brand, 0.15);
+            color: vars.$purple-brand;
             font-size: 0.7rem;
             font-weight: 800;
             padding: 6px 12px;
             border-radius: 12px;
-            border: 1px solid rgba($purple-brand, 0.3);
+            border: 1px solid rgba(vars.$purple-brand, 0.3);
             font-family: 'JetBrains Mono', monospace;
           }
         }
 
         .player-screen {
           background: rgba(0, 0, 0, 0.4);
-          border: 1px solid rgba($cyan-emphasys, 0.1);
+          border: 1px solid rgba(vars.$cyan-emphasys, 0.1);
           border-radius: 20px;
           height: 240px;
           display: flex;
@@ -220,10 +212,10 @@ $color-white: #ffffff !default;
 
           .play-icon {
             font-size: 4rem;
-            color: $cyan-emphasys;
+            color: vars.$cyan-emphasys;
             cursor: pointer;
             transition: all 0.2s;
-            filter: drop-shadow(0 0 12px rgba($cyan-emphasys, 0.4));
+            filter: drop-shadow(0 0 12px rgba(vars.$cyan-emphasys, 0.4));
 
             &:hover {
               transform: scale(1.08);
@@ -231,7 +223,7 @@ $color-white: #ffffff !default;
           }
 
           p {
-            color: $gray-500;
+            color: vars.$gray-500;
             font-size: 0.85rem;
             font-family: 'JetBrains Mono', monospace;
             margin: 0;
@@ -245,9 +237,9 @@ $color-white: #ffffff !default;
           margin-top: 24px;
 
           button {
-            background: rgba($cyan-emphasys, 0.05);
-            border: 1px solid rgba($cyan-emphasys, 0.2);
-            color: $color-white;
+            background: rgba(vars.$cyan-emphasys, 0.05);
+            border: 1px solid rgba(vars.$cyan-emphasys, 0.2);
+            color: vars.$color-white;
             padding: 12px 20px;
             border-radius: 14px;
             font-size: 0.85rem;
@@ -259,19 +251,19 @@ $color-white: #ffffff !default;
             gap: 10px;
 
             &:hover {
-              background: $cyan-emphasys;
+              background: vars.$cyan-emphasys;
               color: #000000;
-              box-shadow: 0 0 15px rgba($cyan-emphasys, 0.2);
+              box-shadow: 0 0 15px rgba(vars.$cyan-emphasys, 0.2);
             }
 
             &.btn-resource {
-              background: rgba($purple-brand, 0.05);
-              border-color: rgba($purple-brand, 0.2);
+              background: rgba(vars.$purple-brand, 0.05);
+              border-color: rgba(vars.$purple-brand, 0.2);
 
               &:hover {
-                background: $purple-brand;
-                color: $color-white;
-                box-shadow: 0 0 15px rgba($purple-brand, 0.2);
+                background: vars.$purple-brand;
+                color: vars.$color-white;
+                box-shadow: 0 0 15px rgba(vars.$purple-brand, 0.2);
               }
             }
           }
@@ -280,12 +272,12 @@ $color-white: #ffffff !default;
 
       .empty-player {
         text-align: center;
-        color: $gray-500;
+        color: vars.$gray-500;
 
         i {
           font-size: 3rem;
           margin-bottom: 16px;
-          color: $cyan-emphasys;
+          color: vars.$cyan-emphasys;
           opacity: 0.6;
         }
 

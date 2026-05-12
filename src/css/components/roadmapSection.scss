@@ -1,4 +1,4 @@
-@import '../abstracts/variables';
+@use '../abstracts/variables' as vars;
 
 .roadmap {
     margin: 80px 0 !important;
@@ -37,9 +37,9 @@
         .node-number {
             width: 60px;
             height: 60px;
-            background: $background-800;
-            border: 2px solid $cyan-emphasys;
-            color: $cyan-emphasys;
+            background: vars.$background-800;
+            border: 2px solid vars.$cyan-emphasys;
+            color: vars.$cyan-emphasys;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -48,18 +48,18 @@
             font-weight: 800;
             font-size: 1.2rem;
             margin-bottom: 20px;
-            box-shadow: 0 0 20px rgba($cyan-emphasys, 0.3);
+            box-shadow: 0 0 20px rgba(vars.$cyan-emphasys, 0.3);
             z-index: 2;
         }
 
         .node-content {
             h3 {
-                color: $color-white;
+                color: vars.$color-white;
                 margin-bottom: 10px;
             }
 
             p {
-                color: $gray-200;
+                color: vars.$gray-200;
                 font-size: 0.9rem;
                 max-width: 200px;
             }
@@ -71,7 +71,7 @@
             left: calc(50% + 30px);
             width: calc(100% - 60px);
             height: 2px;
-            background: linear-gradient(90deg, $cyan-emphasys, $purple-brand);
+            background: linear-gradient(90deg, vars.$cyan-emphasys, vars.$purple-brand);
             opacity: 0.3;
             z-index: 1;
 
