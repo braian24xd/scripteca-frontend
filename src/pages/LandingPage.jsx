@@ -6,7 +6,7 @@ import PublicHeader from "@components/layout/PublicHeader";
 import AtomicHero from "../components/HeroBanner";
 import LearningExperience from "../components/LearningExperience";
 import FeaturesImpact from "../components/FeaturesImpact";
-import CourseSection from "../components/Coursesection";
+import CourseSection from "../components/CourseSection";
 import RoadmapSection from "../components/RoadmapSection";
 import CommunitySection from "../components/ComunitySection";
 import FaqSection from "../components/FaqSection";
