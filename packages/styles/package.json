@@ -1,0 +1,10 @@
+{
+  "name": "@scripteca/styles",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./variables": { "sass": "./src/_variables.scss" },
+    "./mixins": { "sass": "./src/_mixins.scss" },
+    "./base": { "sass": "./src/_base.scss" }
+  }
+}

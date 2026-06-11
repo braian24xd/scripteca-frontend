@@ -1,0 +1,62 @@
+@use 'pkg:@scripteca/styles/variables' as vars;
+
+.badge {
+    padding: 5px 12px;
+    min-width: fit-content;
+    background: rgba($color: vars.$purple-secondary-200, $alpha: 0.3);
+    border-radius: 999px;
+    font-family: vars.$font-mono;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: vars.$text-primary;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+}
+
+.badge--success {
+    background: rgba($color: vars.$color-success, $alpha: 0.15);
+    border: 1px solid rgba($color: vars.$color-success, $alpha: 0.15);
+    color: vars.$color-success;
+}
+
+.badge--info {
+    background: rgba($color: vars.$color-info, $alpha: 0.15);
+    border: 1px solid rgba($color: vars.$color-info, $alpha: 0.15);
+    color: vars.$color-info;
+}
+
+.badge--warning {
+    background: rgba($color: vars.$color-warning, $alpha: 0.15);
+    border: 1px solid rgba($color: vars.$color-warning, $alpha: 0.15);
+    color: vars.$color-warning;
+}
+
+.badge--danger {
+    background: rgba($color: vars.$color-danger, $alpha: 0.15);
+    border: 1px solid rgba($color: vars.$color-danger, $alpha: 0.15);
+    color: vars.$color-danger;
+}
+
+.badge--disabled {
+    background: rgba(vars.$gray-500, 0.15);
+    border: 1px solid rgba(vars.$gray-400, 0.3);
+    color: vars.$gray-400;
+}
+
+.badge--purple {
+    background: rgba(vars.$purple-brand, 0.15);
+    border: 1px solid rgba(vars.$purple-brand, 0.3);
+    color: vars.$purple-secondary-200;
+}
+
+.badge--blue {
+    background: rgba($color: vars.$blue-primary-200, $alpha: 0.15);
+    border: 1px solid rgba($color: vars.$blue-primary-200, $alpha: 0.15);
+    color: vars.$blue-primary-200;
+}
+
+.badge--cyan {
+    background: rgba($color: vars.$cyan-emphasys, $alpha: 0.15);
+    border: 1px solid rgba($color: vars.$cyan-emphasys, $alpha: 0.15);
+    color: vars.$cyan-emphasys;
+}

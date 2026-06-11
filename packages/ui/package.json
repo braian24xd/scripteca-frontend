@@ -1,0 +1,17 @@
+{
+  "name": "@scripteca/ui",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./Button": "./Button/Button.jsx",
+    "./Badge": "./Badge/Badge.jsx"
+  },
+  "dependencies": {
+    "@scripteca/styles": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "clsx": "catalog:"
+  }
+}

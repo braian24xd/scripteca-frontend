@@ -1,0 +1,64 @@
+@mixin d-flex (
+    $flex-direction: row, 
+    $flex-wrap: wrap,
+    $gap: 20px,
+    $justify-content: space-between,
+    $align-items: center
+) {
+    display: flex;
+    flex-direction: $flex-direction;
+    flex-wrap: $flex-wrap;
+    gap: $gap;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+// ─── Layout ─────────────────────────────────────────────────
+// @mixin d-flex(
+//     $flex-direction: row,
+//     $align-items: center,
+//     $justify-content: flex-start,
+//     $gap: 0
+// ) {
+//     display: flex;
+//     flex-direction: $flex-direction;
+//     align-items: $align-items;
+//     justify-content: $justify-content;
+//     @if $gap != 0 { gap: $gap; }
+// }
+
+// ─── Typography ─────────────────────────────────────────────
+@mixin font-mono($size: 0.85rem, $weight: 400) {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+// ─── Responsive breakpoints ──────────────────────────────────
+@mixin bp($breakpoint) {
+    @if $breakpoint == xl    { @media (max-width: 1200px) { @content; } }
+    @else if $breakpoint == lg { @media (max-width: 991px)  { @content; } }
+    @else if $breakpoint == md { @media (max-width: 768px)  { @content; } }
+    @else if $breakpoint == sm { @media (max-width: 600px)  { @content; } }
+    @else if $breakpoint == xs { @media (max-width: 420px)  { @content; } }
+}
+
+// ─── Glow effect ─────────────────────────────────────────────
+@mixin glow($color, $spread: 12px) {
+    box-shadow: 0 0 $spread rgba($color, 0.35);
+}
+
+// ─── Electron base ───────────────────────────────────────────
+@mixin electron-base($color) {
+    background: rgba($color, 0.08);
+    border-color: $color;
+    color: $color;
+    box-shadow: 0 0 12px rgba($color, 0.30);
+
+    &::after { border-color: rgba($color, 0.4); }
+
+    &:hover {
+        background: rgba($color, 0.15);
+        box-shadow: 0 0 20px rgba($color, 0.45);
+    }
+}

@@ -1,0 +1,102 @@
+@use './variables' as vars;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: vars.$font-inter;
+}
+
+html,
+body {
+  position: relative;
+}
+
+body::before {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #1A073D, #0A0516, #05010B);
+  position: fixed;
+  z-index: -1;
+}
+
+a {
+  color: vars.$color-white;
+  text-decoration: none;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1264px;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+
+  span {
+    font-weight: 700;
+    font-size: 1.3em;
+    background: linear-gradient(#00B0F0, #7c83ff, #7c83ff);
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.header__divisor {
+  width: 2px;
+  height: 30px;
+  background: vars.$gray-600;
+}
+
+.bg {
+  &--success {
+    background: vars.$color-success !important;
+  }
+  &--info {
+    background: vars.$color-info !important;
+  }
+  &--danger {
+    background: vars.$color-danger !important;
+  }
+  &--warning {
+    background: vars.$color-warning !important;
+  }
+  &--purple-200 {
+    background: vars.$purple-secondary-200 !important;
+  }
+  &--purple-500 {
+    background: vars.$purple-secondary-500 !important;
+  }
+  &--purple-900 {
+    background: vars.$purple-secondary-900 !important;
+  }
+  &--blue-200 {
+    background: vars.$blue-primary-200 !important;
+  }
+  &--blue-500 {
+    background: vars.$blue-primary-500 !important;
+  }
+  &--blue-900 {
+    background: vars.$blue-primary-900 !important;
+  }
+}
+
+.box-shadow {
+  &--success {
+    box-shadow: 0 0 15px rgba($color: vars.$color-success, $alpha: 0.5) !important;
+  }
+  &--info {
+    box-shadow: 0 0 15px rgba($color: vars.$color-info, $alpha: 0.5) !important;
+  }
+  &--danger {
+    box-shadow: 0 0 15px rgba($color: vars.$color-danger, $alpha: 0.5) !important;
+  }
+  &--warning {
+    box-shadow: 0 0 15px rgba($color: vars.$color-warning, $alpha: 0.5) !important;
+  }
+}

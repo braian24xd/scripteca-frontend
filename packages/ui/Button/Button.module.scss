@@ -1,0 +1,154 @@
+@use "pkg:@scripteca/styles/variables" as vars;
+@use "pkg:@scripteca/styles/mixins" as utils;
+
+%button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    a {
+        text-decoration: none;
+        color: currentColor;
+    }
+
+    span {
+        font-size: 1.1em;
+        font-weight: 700;
+        color: #FFF;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.button--classic {
+    position: relative;
+    background: rgba($color: vars.$color-black, $alpha: 0.6);
+    border: none;
+    overflow: hidden;
+    z-index: 1;
+    @extend %button;
+
+    &:hover {
+        background: rgba($color: vars.$color-black, $alpha: 0.2);
+    }
+}
+
+.button--classic::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(18deg, vars.$pink-brand, vars.$blue-brand);
+    mask:
+        linear-gradient(vars.$color-white 0 0) content-box,
+        linear-gradient(vars.$color-white 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    filter: blur(3px);
+    z-index: 0;
+}
+
+.button--classic::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba($color: vars.$color-white, $alpha: 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: inherit;
+    z-index: 0;
+}
+
+.button--classic span {
+    background: linear-gradient(vars.$color-white, vars.$cyan-emphasys);
+    background-clip: text;
+    color: transparent;
+    font-weight: 500;
+}
+
+.button--glow {
+    background: rgba($color: vars.$purple-secondary-200, $alpha: 1);
+    box-shadow:
+        0 0 0 rgba(0, 0, 0, 0),
+        0 8px 24px rgba(124, 58, 237, 0.35);
+    transition: 0.25s ease;
+    @extend %button;
+
+    span {
+        @include utils.d-flex($justify-content: center, $gap: 7px);
+    }
+
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow:
+            0 0 0 rgba(0, 0, 0, 0),
+            0 12px 32px rgba(124, 58, 237, 0.35);
+
+    }
+}
+
+.button--beam {
+    @extend %button;
+    background: linear-gradient(135deg,
+            vars.$cyan-emphasys,
+            vars.$blue-primary-500 );
+    span {
+        color: vars.$color-black;
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(vars.$cyan-emphasys, 0.25);
+    }
+}
+
+.button--sub {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    @extend %button;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+}
+
+.button--ghost {
+    background: rgba(255, 255, 255, 0.1);
+    border: 0px solid rgba(255, 255, 255, 0.1);
+    color: #FFF;
+    @extend %button;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
+
+.button--plain {
+    padding: 5px;
+    background: transparent;
+    border: transparent;
+    color: vars.$color-white;
+    @extend %button;
+}
+
+
+
+.icon {
+    padding: 5px;
+
+    span {
+        @include utils.d-flex($justify-content: center, $align-items: center);
+    }
+}
+
+.rounded {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    @include utils.d-flex($justify-content: center, $align-items: center);
+}
