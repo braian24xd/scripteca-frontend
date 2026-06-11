@@ -1,9 +1,6 @@
 # Ignora la carpeta node_modules
 node_modules
 
-# Ignora todos los archivos de texto
-*.txt
-
 # Ignora los archivos relacionados a API keys
 .env
 
@@ -17,3 +14,9 @@ node_modules
 .env.production.local
 .env.local
 .env.*.local
+
+dist
+build
+.turbo
+*.local
+.DS_Store

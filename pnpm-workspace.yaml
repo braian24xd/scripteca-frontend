@@ -1,0 +1,11 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+allowBuilds:
+  '@parcel/watcher': false
+  esbuild: true
+catalog:
+  react-router-dom: ^7.1.1
+  sass-embedded: ^1.100.0
+  react-icons: ^5.5.0
+  clsx: ^2.1.1
