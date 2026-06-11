@@ -1,0 +1,35 @@
+{
+  "name": "@scripteca/landing",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite-react-ssg build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@scripteca/styles": "workspace:*",
+    "@scripteca/ui": "workspace:*",
+    "clsx": "catalog:",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-icons": "catalog:",
+    "react-router-dom": "catalog:",
+    "vite-react-ssg": "0.9.1-beta.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^10.3.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.6.0",
+    "sass": "^1.100.0",
+    "sass-embedded": "catalog:",
+    "vite": "^8.0.12"
+  }
+}
