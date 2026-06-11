@@ -1,0 +1,425 @@
+@use 'pkg:@scripteca/styles/variables' as vars;
+@use 'pkg:@scripteca/styles/mixins' as utils;
+
+// footer {
+//     color: #e0e0e0;
+//     padding: 40px 20px;
+// }
+
+// footer hr {
+//     margin: 20px auto;
+//     max-width: 1264px;
+//     border-color: vars.$gray-200;
+// }
+
+// .footer-content {
+//     margin: 0 auto;
+//     max-width: 1264px;
+//     display: flex;
+//     justify-content: space-between;
+//     flex-wrap: wrap;
+// }
+
+// #footer-mark {
+//     max-width: 400px;
+// }
+
+// #footer-mark img {
+//     margin-bottom: 20px;
+// }
+
+// #footer-mark p {
+//     color: #ccc;
+//     line-height: 1.5;
+// }
+
+// #social-links {
+//     display: flex;
+//     gap: 10px;
+//     margin-top: 20px;
+// }
+
+// #social-links img {
+//     width: 20px;
+// }
+
+// .footer-link {
+//     margin: 20px;
+//     text-align: left;
+// }
+
+// .footer-link h2 {
+//     margin-bottom: 15px;
+//     letter-spacing: 3px;
+//     font-size: 1.3rem;
+//     font-weight: 800;
+//     color: vars.$purple-brand;
+// }
+
+// .footer-link a {
+//     margin-bottom: 5px;
+//     font-weight: 400;
+//     color: vars.$gray-100;
+//     text-decoration: none;
+//     display: block;
+//     text-indent: 10px;
+//     transition: color 0.2s ease-in;
+//     cursor: pointer;
+
+//     &:hover {
+//         color: vars.$cyan-emphasys;
+//     }
+// }
+
+// #footer-copy {
+//     margin: 20px auto 0;
+//     max-width: 1264px;
+//     font-size: 0.8rem;
+//     display: flex;
+//     justify-content: space-between;
+//     gap: 5px;
+// }
+
+// #footer-copy a {
+//     margin-right: 10px;
+//     color: #e0e0e0;
+//     text-decoration: none;
+// }
+
+// @media (max-width: 502px) {
+//     #footer-mark {
+//         max-width: 100vw;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//     }
+
+//     #footer-mark p {
+//         text-align: center;
+//     }
+// }
+
+
+@keyframes statusPulse {
+    0%, 100% { opacity: 1;   transform: scale(1);    }
+    50%       { opacity: 0.4; transform: scale(0.85); }
+}
+
+// ─── Footer ──────────────────────────────────────────────────
+.footer {
+    position: relative;
+    padding: 80px 0 40px;
+
+    // ─── Franja de captura ───────────────────────────────────
+    .footer-capture {
+        position: relative;
+        @include utils.d-flex($align-items: center, $justify-content: space-between, $gap: 20px);
+        flex-wrap: wrap;
+        background: vars.$card-surface;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid vars.$border-medium;
+        border-radius: 20px;
+        padding: 28px 32px;
+        margin-bottom: 48px;
+        overflow: hidden;
+
+        // Accent line — patrón del sistema
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 30%;
+            right: 30%;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                vars.$cyan-emphasys,
+                transparent
+            );
+            opacity: 0.5;
+        }
+
+        &__glow {
+            position: absolute;
+            top: -80px;
+            right: -40px;
+            width: 280px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(vars.$cyan-emphasys, 0.06) 0%,
+                transparent 70%
+            );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        &__text {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            min-width: 220px;
+        }
+
+        &__title {
+            font-family: vars.$font-display;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: vars.$text-primary;
+            margin: 0 0 4px;
+        }
+
+        &__desc {
+            font-size: 0.82rem;
+            color: vars.$text-secondary;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        &__form {
+            position: relative;
+            z-index: 1;
+            @include utils.d-flex($align-items: center, $gap: 8px);
+            flex-wrap: wrap;
+        }
+
+        &__input {
+            background: rgba(vars.$background-900, 0.6);
+            border: 1px solid vars.$border-medium;
+            border-radius: 10px;
+            padding: 11px 16px;
+            @include utils.font-mono(0.82rem);
+            color: vars.$text-primary;
+            min-width: 220px;
+            transition: border-color 0.2s ease;
+
+            &::placeholder { color: vars.$text-muted; }
+
+            &:focus {
+                outline: none;
+                border-color: rgba(vars.$cyan-emphasys, 0.5);
+            }
+
+            &--error {
+                border-color: rgba(vars.$pink-brand, 0.6);
+            }
+        }
+
+        &__btn {
+            background: vars.$cyan-emphasys;
+            color: vars.$background-900;
+            font-family: vars.$font-display;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 11px 22px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: opacity 0.2s ease, transform 0.15s ease;
+
+            &:hover:not(:disabled) { opacity: 0.9; transform: translateY(-1px); }
+            &:disabled { opacity: 0.6; cursor: default; }
+        }
+
+        &__success {
+            @include utils.d-flex($align-items: center, $gap: 8px);
+            @include utils.font-mono(0.85rem, 500);
+            color: vars.$green-brand;
+            padding: 11px 4px;
+
+            svg { font-size: 0.85rem; }
+        }
+    }
+
+    // ─── Grid principal ──────────────────────────────────────
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        gap: 32px;
+        margin-bottom: 32px;
+
+        @include utils.bp(lg) {
+            grid-template-columns: 1fr 1fr;
+            gap: 32px 24px;
+        }
+
+        @include utils.bp(sm) {
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+    }
+
+    // ── Marca ──
+    .footer-brand {
+        &__logo {
+            @include utils.d-flex($align-items: center, $gap: 8px);
+            text-decoration: none;
+            margin-bottom: 16px;
+            width: fit-content;
+        }
+
+        &__mark {
+            @include utils.d-flex($align-items: center, $justify-content: center);
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, vars.$cyan-emphasys, vars.$purple-secondary-200, vars.$pink-brand);
+            font-family: vars.$font-display;
+            font-weight: 700;
+            font-size: 1rem;
+            color: vars.$background-900;
+            flex-shrink: 0;
+        }
+
+        &__name {
+            font-family: vars.$font-display;
+            font-size: 1rem;
+            font-weight: 600;
+            color: vars.$text-primary;
+
+            span {
+                @include utils.font-mono(0.62rem);
+                color: vars.$text-muted;
+                letter-spacing: 0.1em;
+                margin-left: 2px;
+            }
+        }
+
+        &__desc {
+            font-size: 0.8rem;
+            line-height: 1.65;
+            color: vars.$text-secondary;
+            margin: 0 0 18px;
+            max-width: 340px;
+        }
+
+        &__social {
+            @include utils.d-flex($gap: 8px);
+            flex-wrap: wrap;
+        }
+    }
+
+    .footer-social-icon {
+        @include utils.d-flex($align-items: center, $justify-content: center);
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        border: 1px solid vars.$border-subtle;
+        background: rgba(255, 255, 255, 0.03);
+        color: vars.$text-secondary;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+
+        &:hover {
+            color: vars.$cyan-emphasys;
+            border-color: rgba(vars.$cyan-emphasys, 0.3);
+            background: rgba(vars.$cyan-emphasys, 0.06);
+        }
+    }
+
+    // ── Columnas ──
+    .footer-col {
+        &__title {
+            @include utils.d-flex($justify-content: start, $align-items: center, $gap: 6px);
+            @include utils.font-mono(0.68rem, 500);
+            color: vars.$text-muted;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin: 0 0 16px;
+
+            svg { color: vars.$cyan-emphasys; font-size: 0.72rem; }
+        }
+
+        &__links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    .footer-link {
+        @include utils.d-flex($align-items: center, $gap: 6px);
+        font-size: 0.85rem;
+        color: vars.$text-secondary;
+        text-decoration: none;
+        transition: color 0.2s ease, transform 0.2s ease;
+        width: fit-content;
+
+        &:hover {
+            color: vars.$text-primary;
+            transform: translateX(2px);
+        }
+
+        &__icon {
+            font-size: 0.82rem;
+            color: vars.$text-muted;
+            @include utils.d-flex($align-items: center);
+        }
+    }
+
+    .footer-badge {
+        @include utils.font-mono(0.58rem, 500);
+        padding: 1px 7px;
+        border-radius: 999px;
+        background: rgba(vars.$green-brand, 0.12);
+        color: vars.$green-brand;
+        border: 1px solid rgba(vars.$green-brand, 0.25);
+        margin-left: 2px;
+    }
+
+    // ─── Divider ──
+    .footer-divider {
+        height: 1px;
+        background: vars.$border-subtle;
+        margin-bottom: 20px;
+    }
+
+    // ─── Barra inferior ──
+    .footer-bottom {
+        @include utils.d-flex($align-items: center, $justify-content: space-between, $gap: 12px);
+        flex-wrap: wrap;
+
+        @include utils.bp(sm) {
+            justify-content: center;
+            text-align: center;
+        }
+    }
+
+    .footer-copy {
+        @include utils.font-mono(0.68rem);
+        color: vars.$text-muted;
+    }
+
+    .footer-status {
+        @include utils.d-flex($align-items: center, $gap: 5px);
+        @include utils.font-mono(0.68rem);
+        color: vars.$green-brand;
+
+        &__dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: vars.$green-brand;
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+    }
+
+    .footer-legal {
+        @include utils.d-flex($gap: 18px);
+        flex-wrap: wrap;
+
+        a {
+            @include utils.font-mono(0.68rem);
+            color: vars.$text-muted;
+            text-decoration: none;
+            transition: color 0.2s ease;
+
+            &:hover { color: vars.$text-secondary; }
+        }
+    }
+}

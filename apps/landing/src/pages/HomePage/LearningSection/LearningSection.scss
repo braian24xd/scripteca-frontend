@@ -1,0 +1,282 @@
+@use 'pkg:@scripteca/styles/variables' as vars;
+@use 'pkg:@scripteca/styles/mixins' as utils;
+
+@keyframes accessFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// ─── Section ─────────────────────────────────────────────────
+.access-section {
+    position: relative;
+    padding: 50px 0;
+
+    &__header {
+        text-align: left; // alineado a la izquierda
+        margin-bottom: 56px;
+    }
+
+    &__subtitle {
+        display: block;
+        @include utils.font-mono(0.72rem, 500);
+        color: vars.$purple-secondary-200;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+
+    &__title {
+        font-family: vars.$font-display;
+        font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+        font-weight: 700;
+        color: vars.$text-primary;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin-bottom: 12px;
+    }
+
+    &__desc {
+        font-size: 0.95rem;
+        color: vars.$text-secondary;
+    }
+
+    &__grid {
+        //max-width: 900px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 28px;
+        align-items: center;
+
+        @include utils.bp(lg) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.platform-preview {
+    margin: 0 auto;
+    max-width: 545px;
+    background: vars.$card-surface;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid vars.$border-subtle;
+    border-radius: 20px;
+    overflow: hidden;
+    animation: accessFadeUp 0.6s ease both;
+
+    // ── Top bar ──
+    &__top {
+        @include utils.d-flex($align-items: center, $justify-content: space-between);
+        padding: 10px 16px;
+        border-bottom: 1px solid vars.$border-subtle;
+        background: rgba(vars.$background-900, 0.6);
+    }
+
+    &__course {
+        font-family: vars.$font-display;
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: vars.$text-primary;
+    }
+
+    &__progress {
+        @include utils.d-flex($align-items: center, $gap: 8px);
+    }
+
+    &__progress-text {
+        @include utils.font-mono(0.62rem, 500);
+        color: vars.$cyan-emphasys;
+    }
+
+    &__progress-bar {
+        width: 60px;
+        height: 4px;
+        border-radius: 2px;
+        background: vars.$border-subtle;
+        overflow: hidden;
+    }
+
+    &__progress-fill {
+        height: 100%;
+        background: vars.$cyan-emphasys;
+        border-radius: 2px;
+    }
+
+    // ── Body ──
+    &__body {
+        display: grid;
+        grid-template-columns: 38% 1fr;
+        min-height: 210px;
+
+        @include utils.bp(sm) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    // ── Módulos sidebar ──
+    &__modules {
+        border-right: 1px solid vars.$border-subtle;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        @include utils.bp(sm) {
+            border-right: none;
+            border-bottom: 1px solid vars.$border-subtle;
+        }
+    }
+
+    // ── Player ──
+    &__player {
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__screen {
+        flex: 1;
+        @include utils.d-flex($align-items: center, $justify-content: center);
+        border-radius: 8px;
+        border: 1px solid vars.$border-subtle;
+        background: rgba(vars.$background-900, 0.5);
+        min-height: 120px;
+    }
+
+    &__play {
+        @include utils.d-flex($align-items: center, $justify-content: center);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(vars.$cyan-emphasys, 0.12);
+        border: 1.5px solid vars.$cyan-emphasys;
+        color: vars.$cyan-emphasys;
+        font-size: 0.9rem;
+        padding-left: 3px; // centrado óptico del play
+    }
+
+    &__lesson-info {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    &__lesson {
+        font-family: vars.$font-display;
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: vars.$text-primary;
+    }
+
+    &__lesson-meta {
+        @include utils.font-mono(0.62rem);
+        color: vars.$text-muted;
+    }
+}
+
+.modules-item {
+    @include utils.d-flex($justify-content: start, $align-items: center, $gap: 7px);
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    transition: background 0.2s ease;
+
+    &--active {
+        background: rgba(vars.$cyan-emphasys, 0.08);
+    }
+
+    &__icon {
+        @include utils.d-flex($justify-content: center, $align-items: center);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        font-size: 0.55rem;
+        flex-shrink: 0;
+
+        &--done {
+            background: rgba(vars.$green-brand, 0.15);
+            color: vars.$green-brand;
+        }
+
+        &--active {
+            border: 1.5px solid vars.$cyan-emphasys;
+            color: vars.$cyan-emphasys;
+        }
+
+        &--locked {
+            border: 1px solid vars.$border-medium;
+            color: vars.$text-muted;
+        }
+    }
+
+    &__label {
+        color: vars.$text-secondary;
+
+        &--locked {
+            color: vars.$text-muted;
+        }
+    }
+
+    &--active &__label {
+        color: vars.$text-primary;
+        font-weight: 500;
+    }
+}
+
+// ─── Benefits ────────────────────────────────────────────────
+.access-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.benefit {
+    @include utils.d-flex($align-items: flex-start, $gap: 12px);
+    animation: accessFadeUp 0.5s ease both;
+
+    &__icon {
+        @include utils.d-flex($align-items: center, $justify-content: center);
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid vars.$border-subtle;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--b-color, vars.$text-primary);
+        font-size: 1rem;
+        flex-shrink: 0;
+        transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    &:hover &__icon {
+        border-color: rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    &__content {
+        flex: 1;
+    }
+
+    &__title {
+        font-family: vars.$font-display;
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: vars.$text-primary;
+        margin: 0 0 2px;
+    }
+
+    &__desc {
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: vars.$text-secondary;
+        margin: 0;
+    }
+}

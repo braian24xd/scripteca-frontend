@@ -1,0 +1,437 @@
+@use 'pkg:@scripteca/styles/variables' as vars;
+@use 'pkg:@scripteca/styles/mixins' as utils;
+
+$bento-colors: (
+    'green': vars.$green-brand,
+    'blue': vars.$blue-primary-500,
+    'pink': vars.$lilac-brand,
+);
+
+@keyframes bentofadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes folderIn {
+    from {
+        opacity: 0;
+        transform: translateX(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes threadIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes terminalLine {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cursorPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+// ─── Section ─────────────────────────────────────────────────
+.features-impact {
+    position: relative;
+    padding: 50px 0;
+
+    // ── Header ──
+    &__header {
+        text-align: center;
+        margin-bottom: 64px;
+    }
+
+    &__subtitle {
+        display: block;
+        @include utils.font-mono(0.72rem, 500);
+        color: vars.$purple-secondary-200;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+
+    &__title {
+        font-family: vars.$font-display;
+        font-size: clamp(2rem, 3.5vw, 2.8rem);
+        font-weight: 700;
+        color: vars.$text-primary;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        margin-bottom: 16px;
+    }
+
+    &__desc {
+        font-size: 1rem;
+        color: vars.$text-muted;
+        @include utils.font-mono(0.88rem);
+    }
+
+    // ─── Bento grid ──────────────────────────────────────────
+    .bento-grid {
+        display: grid;
+        grid-template-columns: 1.55fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 20px;
+
+        @include utils.bp(lg) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    // ─── Bento card base ─────────────────────────────────────
+    .bento-card {
+        position: relative;
+        background: vars.$card-surface;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid vars.$border-subtle;
+        border-radius: 20px;
+        padding: 28px;
+        overflow: hidden;
+        animation: bentofadeUp 0.6s ease both;
+        transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+        }
+
+        // Card grande: ocupa ambas filas
+        &--main {
+            grid-row: 1 / 3;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            @include utils.bp(lg) {
+                grid-row: auto;
+            }
+        }
+
+        // Cards pequeñas
+        &--sm {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            &:nth-child(2) {
+                animation-delay: 0.1s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 0.2s;
+            }
+        }
+
+        // Glow de fondo
+        &__glow {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        &:hover &__glow {
+            opacity: 1;
+        }
+
+        // Label de pillar
+        &__label {
+            @include utils.d-flex($align-items: center, $gap: 8px);
+            @include utils.font-mono(0.72rem, 600);
+            color: vars.$text-muted;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            z-index: 1;
+        }
+
+        &__tag {
+            @include utils.font-mono(0.65rem, 700);
+            padding: 2px 7px;
+            border-radius: 4px;
+            background: vars.$border-subtle;
+            color: vars.$text-secondary;
+        }
+
+        &__title {
+            font-family: vars.$font-display;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: vars.$text-primary;
+            letter-spacing: -0.01em;
+            position: relative;
+            z-index: 1;
+            margin-top: auto;
+        }
+
+        &__body {
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: vars.$text-secondary;
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    // ─── Color modifiers ─────────────────────────────────────
+    @each $name, $color in $bento-colors {
+        .bento-card--#{$name} {
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 20px;
+                right: 20px;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, $color, transparent);
+                opacity: 0.6;
+            }
+
+            .bento-card__glow {
+                background: radial-gradient(circle, rgba($color, 0.14) 0%, transparent 70%);
+            }
+
+            .bento-card__tag {
+                color: $color;
+            }
+
+            &:hover {
+                border-color: rgba($color, 0.35);
+                box-shadow: 0 8px 40px rgba($color, 0.08), 0 0 0 1px rgba($color, 0.08);
+            }
+        }
+    }
+
+    // ─── Terminal ────────────────────────────────────────────
+    .bento-card__terminal {
+        background: rgba(vars.$background-900, 0.7);
+        border: 1px solid vars.$border-subtle;
+        border-radius: 12px;
+        overflow: hidden;
+        flex-grow: 1;
+        position: relative;
+        z-index: 1;
+        min-height: 220px;
+    }
+
+    .terminal {
+        &__bar-left {
+            @include utils.d-flex($justify-content: start, $align-items: center, $gap: 8px);
+        }
+
+        &__bar {
+            @include utils.d-flex($justify-content: space-between, $align-items: center, $gap: 6px);
+            padding: 10px 14px;
+            background: rgba(vars.$background-900, 0.8);
+            border-bottom: 1px solid vars.$border-subtle;
+        }
+
+        &__dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+
+            &--red {
+                background: #FF5F57;
+            }
+
+            &--yellow {
+                background: #FFBD2E;
+            }
+
+            &--green {
+                background: #28C840;
+            }
+        }
+
+        &__bar-title {
+            @include utils.font-mono(0.7rem);
+            color: vars.$text-muted;
+            margin-left: 6px;
+        }
+
+        &__output {
+            padding: 16px 18px;
+            height: 85%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        // Líneas generadas por JS — colores via clase
+        &__line {
+            @include utils.font-mono(0.8rem);
+            line-height: 1.7;
+            animation: terminalLine 0.15s ease both;
+            white-space: pre;
+
+            &--text-primary {
+                color: vars.$text-primary;
+            }
+
+            &--text-green {
+                color: vars.$green-brand;
+            }
+
+            &--text-cyan {
+                color: vars.$cyan-emphasys;
+            }
+
+            &--text-purple {
+                color: vars.$purple-secondary-200;
+            }
+
+            &--text-muted {
+                color: vars.$text-muted;
+            }
+        }
+
+        &__cursor {
+            width: 8px;
+            height: 14px;
+            background: vars.$cyan-emphasys;
+            border-radius: 1px;
+            margin: 4px 18px;
+            animation: cursorPulse 1s step-end infinite;
+            animation-delay: 4.8s;
+            opacity: 0;
+
+            @at-root .bento-card__terminal:has(.terminal__line:last-child) & {
+                opacity: 1;
+            }
+        }
+    }
+
+    .folder-tree {
+        background: rgba(vars.$background-900, 0.6);
+        border: 1px solid vars.$border-subtle;
+        border-radius: 10px;
+        padding: 14px 16px;
+        position: relative;
+        z-index: 1;
+
+        &__item {
+            @include utils.d-flex($justify-content: start, $align-items: center, $gap: 6px);
+            padding: 3px 0;
+            animation: folderIn 0.3s ease both;
+
+            &--folder .folder-tree__name {
+                color: vars.$blue-primary-200;
+                font-weight: 500;
+            }
+
+            &--file .folder-tree__name {
+                color: vars.$text-secondary;
+            }
+        }
+
+        &__icon {
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        &__name {
+            @include utils.font-mono(0.75rem);
+            letter-spacing: 0.02em;
+        }
+    }
+
+    // ─── Community thread ─────────────────────────────────────
+    .thread {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+        z-index: 1;
+
+        &__msg {
+            @include utils.d-flex($align-items: flex-start, $gap: 8px);
+            animation: threadIn 0.3s ease both;
+        }
+
+        &__avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid;
+            @include utils.d-flex($align-items: center, $justify-content: center);
+            font-family: vars.$font-display;
+            font-size: 0.7rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        &__content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        &__meta {
+            @include utils.d-flex($align-items: center, $gap: 6px);
+            margin-bottom: 2px;
+        }
+
+        &__name {
+            font-family: vars.$font-display;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        &__time {
+            @include utils.font-mono(0.62rem);
+            color: vars.$text-muted;
+        }
+
+        &__text {
+            font-size: 0.8rem;
+            line-height: 1.55;
+            color: vars.$text-secondary;
+        }
+    }
+}

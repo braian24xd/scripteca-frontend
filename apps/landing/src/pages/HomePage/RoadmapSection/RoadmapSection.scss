@@ -1,0 +1,235 @@
+@use 'pkg:@scripteca/styles/variables' as vars;
+@use 'pkg:@scripteca/styles/mixins' as utils;
+
+@keyframes roadmapFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.roadmap-section {
+    position: relative;
+    padding: 50px 0;
+
+    &__header {
+        text-align: center;
+        margin-bottom: 52px;
+    }
+
+    &__subtitle {
+        display: block;
+        @include utils.font-mono(0.72rem, 500);
+        color: vars.$purple-secondary-200;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+
+    &__title {
+        font-family: vars.$font-display;
+        font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+        font-weight: 700;
+        color: vars.$text-primary;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin-bottom: 14px;
+    }
+
+    &__desc {
+        @include utils.font-mono(0.88rem);
+        color: vars.$text-muted;
+    }
+}
+
+// ─── Timeline ────────────────────────────────────────────────
+.roadmap-timeline {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+// ─── Step ────────────────────────────────────────────────────
+.roadmap-step {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 0 16px;
+    animation: roadmapFadeUp 0.5s ease both;
+
+    // ── Columna izquierda ──
+    &__left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    // ── Nodo ──
+    &__node {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1.5px solid;
+        @include utils.d-flex($align-items: center, $justify-content: center);
+        @include utils.font-mono(0.68rem, 600);
+        background: vars.$card-surface;
+        backdrop-filter: blur(8px);
+        flex-shrink: 0;
+        z-index: 1;
+
+        // Progresión de color cyan según el nivel — la intensidad
+        // crece conforme avanza el roadmap (data-level 1→5)
+        &[data-level="1"] {
+            border-color: rgba(vars.$cyan-emphasys, 0.12);
+            color: vars.$text-muted;
+        }
+
+        &[data-level="2"] {
+            border-color: rgba(vars.$cyan-emphasys, 0.20);
+            color: rgba(vars.$cyan-emphasys, 0.5);
+        }
+
+        &[data-level="3"] {
+            border-color: rgba(vars.$cyan-emphasys, 0.35);
+            color: rgba(vars.$cyan-emphasys, 0.7);
+        }
+
+        &[data-level="4"] {
+            border-color: rgba(vars.$cyan-emphasys, 0.55);
+            color: vars.$cyan-emphasys;
+        }
+
+        &[data-level="5"] {
+            border-color: rgba(vars.$cyan-emphasys, 0.75);
+            color: vars.$cyan-emphasys;
+        }
+
+        // El nivel 6 (final) se sobreescribe abajo en --final
+    }
+
+    // ── Línea conectora ──
+    &__line {
+        width: 1.5px;
+        flex: 1;
+        min-height: 16px;
+        background: vars.$border-subtle;
+        margin: 0 auto;
+    }
+
+    // ── Card ──
+    &__card {
+        position: relative;
+        background: vars.$card-surface;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid vars.$border-subtle;
+        border-radius: 20px;
+        padding: 20px 28px;
+        margin-bottom: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        overflow: hidden;
+        transition: border-color 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+            transform: translateX(3px);
+        }
+
+        // Accent line top — patrón del sistema (gradiente, no sólido)
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20%;
+            right: 20%;
+            height: 1px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    vars.$cyan-emphasys,
+                    transparent);
+            opacity: 0.3;
+        }
+    }
+
+    // ── Week label ──
+    &__week {
+        @include utils.font-mono(0.68rem);
+        color: vars.$text-muted;
+    }
+
+    // ── Title ──
+    &__title {
+        font-family: vars.$font-display;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: vars.$text-primary;
+        letter-spacing: -0.01em;
+        margin: 0;
+    }
+
+    // ── Desc ──
+    &__desc {
+        font-size: 0.88rem;
+        line-height: 1.6;
+        color: vars.$text-secondary;
+        margin: 0;
+    }
+
+    // ── Tag deliverable ──
+    &__tag {
+        @include utils.d-flex($align-items: center, $gap: 5px);
+        @include utils.font-mono(0.68rem);
+        display: inline-flex;
+        width: fit-content;
+        padding: 3px 12px;
+        border-radius: 999px;
+        margin-top: 2px;
+        background: rgba(vars.$purple-secondary-200, 0.10);
+        border: 1px solid rgba(vars.$purple-secondary-200, 0.25);
+        color: vars.$purple-secondary-200;
+
+        svg {
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+    }
+
+    // ─── Step final (semana 6) ───────────────────────────────
+    &--final {
+        .roadmap-step__node {
+            border-color: vars.$green-brand;
+            color: vars.$green-brand;
+            background: rgba(vars.$green-brand, 0.08);
+        }
+
+        .roadmap-step__card {
+            border-color: rgba(vars.$green-brand, 0.30);
+
+            &::before {
+                background: linear-gradient(90deg,
+                        transparent,
+                        vars.$green-brand,
+                        transparent);
+                opacity: 0.5;
+                left: 10%;
+                right: 10%;
+            }
+        }
+
+        .roadmap-step__week {
+            color: vars.$green-brand;
+        }
+
+        .roadmap-step__tag {
+            background: rgba(vars.$green-brand, 0.10);
+            border-color: rgba(vars.$green-brand, 0.30);
+            color: vars.$green-brand;
+        }
+    }
+}

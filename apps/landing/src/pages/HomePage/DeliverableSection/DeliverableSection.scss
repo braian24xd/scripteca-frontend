@@ -1,0 +1,453 @@
+@use 'pkg:@scripteca/styles/variables' as vars;
+@use 'pkg:@scripteca/styles/mixins' as utils;
+
+@keyframes delivFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.deliverable-section {
+    padding: 50px 0;
+
+    &__header {
+        margin-bottom: 24px;
+        text-align: center;
+
+        &__subtitle {
+            margin-bottom: 12px;
+            color: vars.$purple-secondary-200;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            @include utils.font-mono(0.72rem, 500);
+        }
+
+        &__title {
+            margin-bottom: 14px;
+            font-family: vars.$font-display;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: vars.$text-primary;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        &__desc {
+            font-family: vars.$font-mono;
+            font-size: 0.88rem;
+            font-weight: 400;
+            color: vars.$text-secondary;
+        }
+    }
+
+    &__options {
+        @include utils.d-flex($justify-content: center, $align-items: center, $gap: 12px);
+        margin-bottom: 30px;
+
+        button {
+            padding: 8px 16px;
+        }
+    }
+
+    &__tag {
+        margin-bottom: 30px;
+        text-align: center;
+        transition: color 0.2s ease;
+        @include utils.font-mono(0.72rem, 600);
+    }
+
+    &__content {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 32px;
+        align-items: start;
+
+        @include utils.bp(lg) {
+            grid-template-columns: 1fr;
+        }
+
+        &__list {
+
+            animation: delivFadeUp 0.5s 0.1s ease both;
+
+            &__label {
+                margin-bottom: 24px;
+                font-family: vars.$font-mono;
+                font-size: 0.75rem;
+                color: vars.$text-muted;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                display: block;
+            }
+
+            &__items {
+                margin-bottom: 20px;
+            }
+
+            &__item {
+                margin: 12px 0;
+                padding-bottom: 12px;
+                border-bottom: 1px solid vars.$border-subtle;
+                display: grid;
+                grid-template-columns: 32px auto fit-content(100%);
+                gap: 12px;
+                align-items: center;
+                animation: delivFadeUp 0.4s ease both;
+
+                &:last-of-type {
+                    border-bottom: none;
+                }
+
+                &--icon {
+                    width: 28px;
+                    height: 28px;
+                    background: vars.$card-surface;
+                    border: 1px solid vars.$border-subtle;
+                    border-radius: 6px;
+                    font-size: 0.9rem;
+                    @include utils.d-flex($justify-content: center, $align-items: center);
+                }
+
+                &--content {
+                    h4 {
+                        margin: 0 0 4px;
+                        font-size: 0.85rem;
+                        font-weight: 500;
+                        color: vars.$text-primary;
+                    }
+
+                    p {
+                        font-size: 0.75rem;
+                        color: vars.$text-muted;
+                    }
+                }
+
+                &--value {
+                    padding: 4px 8px;
+                    width: fit-content;
+                    background: vars.$card-surface;
+                    border: 1px solid vars.$border-subtle;
+                    border-radius: 6px;
+
+                    span {
+                        font-family: vars.$font-mono;
+                        font-size: 0.65rem;
+                        color: vars.$text-muted;
+                    }
+                }
+            }
+
+            &__total {
+                padding: 10px 14px;
+                border: 2px solid vars.$border-subtle;
+                background: vars.$card-surface;
+                border-radius: 6px;
+                backdrop-filter: blur(10px);
+
+                &--value {
+                    margin-bottom: 10px;
+                    padding-bottom: 4px;
+                    border-bottom: 1px solid vars.$border-subtle;
+                    @include utils.d-flex($gap: 20px, $align-items: center);
+
+                    p {
+                        font-size: 0.75rem;
+                        color: vars.$text-secondary;
+                    }
+
+                    span {
+                        font-family: vars.$font-mono;
+                        font-size: 0.75rem;
+                        text-decoration: line-through;
+                        color: vars.$text-secondary;
+                    }
+                }
+
+                &--price {
+                    @include utils.d-flex($gap: 20px, $align-items: center);
+
+                    p {
+                        font-size: 0.75rem;
+                        font-weight: 500;
+                    }
+
+                    span {
+                        color: vars.$green-brand;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.browser-mockup {
+    border: 1px solid vars.$border-subtle;
+    border-radius: 8px;
+    animation: delivFadeUp 0.5s ease both;
+
+    &__header {
+        padding: 8px 12px;
+        background: rgba(vars.$background-900, 0.8);
+        @include utils.d-flex($flex-wrap: nowrap, $justify-content: start, $align-items: center, $gap: 10px);
+
+        &__dots {
+            @include utils.d-flex($flex-wrap: nowrap, $justify-content: start, $align-items: center, $gap: 6px);
+
+            .dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+
+                &--red {
+                    background: vars.$color-danger;
+                }
+
+                &--yellow {
+                    background: vars.$color-warning;
+                }
+
+                &--green {
+                    background: vars.$color-success;
+                }
+            }
+        }
+
+        &__url {
+            padding: 4px 8px;
+            width: 100%;
+            background: rgba(vars.$color-black, 0.4);
+            border-radius: 4px;
+            font-size: 0.65rem;
+            color: vars.$text-muted;
+            @include utils.d-flex($flex-wrap: nowrap, $justify-content: start, $align-items: center, $gap: 6px);
+
+            &__text {
+                font-family: vars.$font-mono;
+            }
+        }
+    }
+
+    &__content {
+        padding: 10px;
+        background: vars.$background-900;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+.wf-section {
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow: hidden;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.wf-block {
+    height: 7px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 3px;
+    width: 80px;
+    flex-shrink: 0;
+
+    &--lg {
+        width: 120px;
+        height: 9px;
+    }
+
+    &--md {
+        width: 90px;
+    }
+
+    &--sm {
+        width: 50px;
+    }
+}
+
+.wf-btn {
+    width: 50px;
+    height: 22px;
+    border-radius: 4px;
+    border: 1px solid;
+    flex-shrink: 0;
+}
+
+.wf-btn-solid {
+    width: 60px;
+    height: 20px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    opacity: 0.75;
+
+    &--lg {
+        width: 80px;
+        height: 24px;
+    }
+}
+
+.wf-nav {
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    &__logo {
+        width: 30px;
+        height: 22px;
+        border-radius: 6px;
+        flex-shrink: 0;
+    }
+
+    &__links {
+        @include utils.d-flex($gap: 6px);
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+.wf-hero {
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease;
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        flex: 1;
+    }
+
+    &__img {
+        width: 35%;
+        min-width: 80px;
+        height: 100%;
+        border-radius: 6px;
+        border: 1px solid;
+        background: rgba(255, 255, 255, 0.03);
+    }
+}
+
+.wf-profile {
+    justify-content: center;
+    gap: 14px;
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease;
+
+    &__avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 2px solid;
+        flex-shrink: 0;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+.wf-cards {
+    display: flex;
+    gap: 6px;
+    align-items: stretch;
+    padding: 6px;
+}
+
+.wf-card {
+    flex: 1;
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 6px;
+    background: rgba(255, 255, 255, 0.02);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &__icon {
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+        margin-bottom: 2px;
+    }
+}
+
+.wf-about {
+    display: flex;
+    gap: 10px;
+
+    &__img {
+        width: 35%;
+        border-radius: 6px;
+        border: 1px solid;
+        background: rgba(255, 255, 255, 0.03);
+        flex-shrink: 0;
+    }
+
+    &__text {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        justify-content: center;
+    }
+}
+
+.wf-skills {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 6px;
+}
+
+.wf-skill-badge {
+    height: 18px;
+    width: 42px;
+    border-radius: 4px;
+    border: 1px solid;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.wf-social {
+    @include utils.d-flex($gap: 6px);
+
+    &__icon {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        border: 1px solid;
+    }
+}
+
+.wf-cta {
+    justify-content: center;
+    gap: 12px;
+    border: none;
+    border-radius: 6px;
+}
+
+.wf-footer {
+    justify-content: space-between;
+    opacity: 0.6;
+
+    &__logo {
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    &__links {
+        @include utils.d-flex($gap: 6px);
+    }
+}

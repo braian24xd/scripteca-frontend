@@ -1,0 +1,244 @@
+@use 'pkg:@scripteca/styles/variables' as vars;
+@use 'pkg:@scripteca/styles/mixins' as utils;
+
+@keyframes audienceFadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.audience-section {
+    position: relative;
+    padding: 50px 0;
+
+    // ── Header ──
+    &__header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    &__subtitle {
+        display: block;
+        @include utils.font-mono(0.72rem, 500);
+        color: vars.$purple-secondary-200;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+    }
+
+    &__title {
+        font-family: vars.$font-display;
+        font-size: clamp(2rem, 3.5vw, 2.8rem);
+        font-weight: 700;
+        color: vars.$text-primary;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        margin-bottom: 14px;
+    }
+
+    &__title-accent {
+        // Gradiente de marca para el acento del título
+        background: linear-gradient(90deg, vars.$cyan-emphasys, vars.$purple-secondary-200);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    &__desc {
+        @include utils.font-mono(0.88rem);
+        color: vars.$text-muted;
+    }
+
+    // ─── Grid principal ────────────────────────────────────
+    .audience-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 20px;
+        align-items: start;
+
+        @include utils.bp(lg) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    // ─── Card base ────────────────────────────────────────
+    .audience-card {
+        position: relative;
+        background: vars.$card-surface;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid vars.$border-subtle;
+        border-radius: 20px;
+        padding: 28px;
+        overflow: hidden;
+        animation: audienceFadeUp 0.6s ease both;
+        transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+            border-color: rgba(var(--card-color, #fff), 0.25);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        &__glow {
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(var(--card-color-rgb, 255 255 255), 0.10) 0%,
+                transparent 70%
+            );
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        &:hover &__glow { opacity: 1; }
+
+        // ── Icon wrap ──
+        &__icon-wrap {
+            @include utils.d-flex($align-items: center, $justify-content: center);
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            color: var(--card-color, vars.$text-primary);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative; z-index: 1;
+            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+            &--sm {
+                width: 40px; height: 40px;
+                border-radius: 10px;
+                font-size: 0.95rem;
+                margin-bottom: 14px;
+            }
+        }
+
+        &:hover &__icon-wrap {
+            background: rgba(255, 255, 255, 0.10);
+            border-color: rgba(255, 255, 255, 0.18);
+        }
+
+        &__title {
+            font-family: vars.$font-display;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: vars.$text-primary;
+            margin-bottom: 10px;
+            position: relative; z-index: 1;
+        }
+
+        &__desc {
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: vars.$text-secondary;
+            position: relative; z-index: 1;
+        }
+
+        // ── Ruta tag ──
+        &__route {
+            @include utils.font-mono(0.65rem, 600);
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 10px;
+            border-radius: 999px;
+            margin-bottom: 16px;
+            position: relative; z-index: 1;
+            letter-spacing: 0.04em;
+
+            &--empresa {
+                background: rgba(vars.$green-brand, 0.12);
+                border: 1px solid rgba(vars.$green-brand, 0.25);
+                color: vars.$green-brand;
+            }
+        }
+
+        &__badge {
+            @include utils.font-mono(0.65rem, 600);
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: rgba(vars.$cyan-emphasys, 0.10);
+            border: 1px solid rgba(vars.$cyan-emphasys, 0.25);
+            color: vars.$cyan-emphasys;
+            letter-spacing: 0.04em;
+        }
+
+        &__top {
+            @include utils.d-flex($align-items: center, $justify-content: space-between);
+            margin-bottom: 16px;
+            position: relative; z-index: 1;
+        }
+
+        &__grid-deco {
+            position: absolute;
+            bottom: -10px; right: -10px;
+            width: 180px; height: 120px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 4px;
+            opacity: 0.06;
+            pointer-events: none;
+        }
+
+        &__grid-cell {
+            border: 1px solid vars.$cyan-emphasys;
+            border-radius: 2px;
+        }
+
+        &--featured {
+            padding: 32px;
+            --card-color: #{vars.$green-brand};
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 20px; right: 20px;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, vars.$green-brand, transparent);
+                opacity: 0.5;
+            }
+
+            &:hover {
+                border-color: rgba(vars.$green-brand, 0.30);
+                box-shadow: 0 12px 50px rgba(vars.$green-brand, 0.08);
+            }
+        }
+
+        // ── Small card ──
+        &--sm {
+            padding: 24px;
+        }
+    }
+
+    .audience-secondary {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        &__label {
+            @include utils.d-flex($align-items: center, $gap: 10px);
+            padding: 0 4px;
+        }
+
+        &__route-tag {
+            @include utils.font-mono(0.65rem, 600);
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: rgba(vars.$purple-secondary-200, 0.10);
+            border: 1px solid rgba(vars.$purple-secondary-200, 0.25);
+            color: vars.$purple-secondary-200;
+            white-space: nowrap;
+            letter-spacing: 0.04em;
+        }
+
+        &__route-desc {
+            font-size: 0.78rem;
+            color: vars.$text-muted;
+            line-height: 1.4;
+        }
+    }
+}

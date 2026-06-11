@@ -1,0 +1,166 @@
+@use 'pkg:@scripteca/styles/variables' as vars;
+@use 'pkg:@scripteca/styles/mixins' as utils;
+.faq {
+
+    &__header {
+
+        &--subtitle {
+            margin-bottom: 12px;
+            color: vars.$purple-secondary-200;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            display: block;
+            @include utils.font-mono(0.72rem, 500);
+        }
+
+        &--title {
+            font-family: vars.$font-display;
+            font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+            font-weight: 700;
+            color: vars.$text-primary;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+    }
+
+    .faq-list {
+        max-width: 100%;
+        margin: 50px auto 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .faq-item {
+        background: rgba(vars.$background-800, 0.4);
+        border: 1px solid rgba(vars.$color-white, 0.1);
+        border-radius: 16px;
+        padding: 20px 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        overflow: hidden;
+
+        &.active {
+            border-color: vars.$cyan-emphasys;
+            box-shadow: 0 0 20px rgba(vars.$cyan-emphasys, 0.1);
+            background: rgba(vars.$background-800, 0.6);
+
+            .faq-icon {
+                transform: rotate(180deg);
+                color: vars.$cyan-emphasys;
+            }
+
+            .faq-answer {
+                max-height: 200px;
+                opacity: 1;
+                margin-top: 20px;
+            }
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+
+            h3 {
+                color: vars.$text-primary;
+                font-size: 1.1rem;
+                margin: 0;
+            }
+
+            .faq-icon {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 1.5rem;
+                color: vars.$gray-300;
+                transition: all 0.3s ease;
+            }
+        }
+
+        .faq-answer {
+            max-height: 0;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+            p {
+                color: vars.$text-secondary;
+                line-height: 1.6;
+                font-size: 0.95rem;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.final-cta {
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    //background: vars.$background-900;
+    overflow: hidden;
+
+    .cta-content {
+        position: relative;
+        z-index: 2;
+
+        h2 {
+            font-size: 3.5rem;
+            color: vars.$color-white;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: vars.$gray-200;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+    }
+
+    .btn-glitch {
+        padding: 20px 50px;
+        font-size: 1.2rem;
+        font-weight: 800;
+        background: vars.$cyan-emphasys;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 0 30px rgba(vars.$cyan-emphasys, 0.4);
+        transition: transform 0.2s;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    .cta-glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle,
+                rgba(vars.$purple-brand, 0.15) 0%,
+                transparent 70%);
+        pointer-events: none;
+    }
+}
+
+.typewriter-text {
+  color: vars.$cyan-emphasys;
+  font-family: 'JetBrains Mono', monospace;
+  
+  .cursor {
+    width: 30px;
+    height: 5px;
+    margin-left: 2px;
+    animation: blink 0.8s infinite;
+    background: vars.$cyan-emphasys;
+    display: inline-block;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
