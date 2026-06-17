@@ -22,7 +22,7 @@ const STATS = [
 
 const HeroBanner = () => {
     return (
-        <section className="atomic-hero container">
+        <section className="atomic-hero container" id="banner">
 
             <div className="atomic-hero__glow atomic-hero__glow--left"  aria-hidden="true" />
             <div className="atomic-hero__glow atomic-hero__glow--right" aria-hidden="true" />

@@ -46,14 +46,14 @@ const CommunitySection = () => {
     const secondary = PROFILES.filter(p => !p.featured)
 
     return (
-        <section className="audience-section">
+        <section className="audience-section" id="para-quien">
             <div className="container">
 
                 <div className="audience-section__header">
                     <span className="audience-section__subtitle">COMUNIDAD</span>
                     <h2 className="audience-section__title">
                         ¿Para quién es<br />
-                        <span className="audience-section__title-accent">la Scripteca?</span>
+                        <span className="audience-section__title-accent">La Scripteca?</span>
                     </h2>
                     <p className="audience-section__desc">
                         Dos rutas. Un mismo punto de partida.
@@ -62,7 +62,6 @@ const CommunitySection = () => {
 
                 <div className="audience-grid">
 
-                    {/* Card grande — perfil estrella */}
                     {featured.map(p => (
                         <div
                             key={p.id}
@@ -80,7 +79,6 @@ const CommunitySection = () => {
                                 </span>
                             </div>
 
-                            {/* Ruta tag */}
                             <span className="audience-card__route audience-card__route--empresa">
                                 Ruta Empresa
                             </span>
@@ -88,7 +86,6 @@ const CommunitySection = () => {
                             <h3 className="audience-card__title">{p.title}</h3>
                             <p  className="audience-card__desc">{p.desc}</p>
 
-                            {/* Visual decorativo — grid pattern */}
                             <div className="audience-card__grid-deco" aria-hidden="true">
                                 {Array.from({ length: 20 }).map((_, i) => (
                                     <div key={i} className="audience-card__grid-cell" />
@@ -97,7 +94,6 @@ const CommunitySection = () => {
                         </div>
                     ))}
 
-                    {/* Columna de cards secundarias */}
                     <div className="audience-secondary">
                         <div className="audience-secondary__label">
                             <span className="audience-secondary__route-tag">Ruta Dev</span>

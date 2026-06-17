@@ -60,7 +60,7 @@ const FaqSection = () => {
 
     return (
         <>
-            <section className="faq">
+            <section className="faq" id="faq">
                 <div className="container">
                     <div className="faq__header">
                         <span className="faq__header--subtitle">TERMINAL DE AYUDA</span>

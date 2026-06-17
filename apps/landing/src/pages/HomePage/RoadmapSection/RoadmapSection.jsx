@@ -20,7 +20,7 @@ const WEEKS = [
         week: 'Semana 3',
         level: 3,
         title: 'Interactividad y responsive',
-        desc: 'Tu sitio se adapta a cualquier pantalla. Añades interacciones, animaciones sutiles y componentes reutilizables.',
+        desc: 'Tu sitio se adapta a cualquier pantalla. Añades interacciones, animaciones sutiles y tu sistema de diseño.',
         deliverable: 'Sitio responsive funcional',
     },
     {
@@ -49,7 +49,7 @@ const WEEKS = [
 
 const RoadmapSection = () => {
     return (
-        <section className="roadmap-section">
+        <section className="roadmap-section" id="roadmap">
             <div className="container">
 
                 <div className="roadmap-section__header">

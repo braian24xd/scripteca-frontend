@@ -40,9 +40,9 @@ const THREAD = [
   },
   {
     role: 'tutor',
-    avatar: 'B',
+    avatar: 'L',
     color: '#2DFF82',
-    name: 'Brayan · Tutor',
+    name: 'Linus Torvalds · Tutor',
     time: 'hace 1h',
     msg: 'useCallback memoriza la función en sí. useMemo memoriza el resultado. En este caso devuelves una función, así que useCallback es correcto 🎯',
   },
@@ -58,28 +58,56 @@ const THREAD = [
 
 const FeaturesSection = () => {
   const terminalRef = useRef(null)
+  const hasAnimated = useRef(false)
 
   useEffect(() => {
     const terminal = terminalRef.current
     if (!terminal) return
 
-    const timeouts = CODE_LINES.map(({ text, color, delay }) =>
-      setTimeout(() => {
-        if (typeof window !== 'undefined') {
+    let timeouts = []
+
+    const runTerminal = () => {
+      if (hasAnimated.current) return
+      hasAnimated.current = true
+
+      timeouts = CODE_LINES.map(({ text, color, delay }) =>
+        setTimeout(() => {
           const line = document.createElement('div')
           line.className = `terminal__line terminal__line--${color}`
           line.textContent = text || '\u00A0'
           terminal.appendChild(line)
           terminal.scrollTop = terminal.scrollHeight
-        }
-      }, delay)
+        }, delay)
+      )
+    }
+
+    if (typeof IntersectionObserver === 'undefined') {
+      runTerminal()
+      return () => timeouts.forEach(clearTimeout)
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            runTerminal()
+            observer.disconnect()
+          }
+        })
+      },
+      { threshold: 0.35 }
     )
 
-    return () => timeouts.forEach(clearTimeout)
+    observer.observe(terminal)
+
+    return () => {
+      observer.disconnect()
+      timeouts.forEach(clearTimeout)
+    }
   }, [])
 
   return (
-    <section className="features-impact">
+    <section className="features-impact" id="metodo">
       <div className="container">
 
         <div className="features-impact__header">
@@ -187,7 +215,6 @@ const FeaturesSection = () => {
   )
 }
 
-// Helper — hex a rgb para inline styles
 function hexToRgb(hex) {
   const r = parseInt(hex.slice(1, 3), 16)
   const g = parseInt(hex.slice(3, 5), 16)

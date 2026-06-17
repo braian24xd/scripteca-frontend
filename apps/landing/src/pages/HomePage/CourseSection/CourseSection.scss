@@ -56,7 +56,6 @@
     overflow: hidden;
     animation: courseFadeUp 0.6s ease both;
 
-    // ── Área visual ──
     &__visual {
         background: rgba(vars.$background-900, 0.55);
         border-bottom: 1px solid vars.$border-subtle;
@@ -113,7 +112,6 @@
         }
     }
 
-    // Descripción
     &__desc {
         font-size: 0.92rem;
         line-height: 1.65;
@@ -121,7 +119,6 @@
         margin: 0;
     }
 
-    // Checkpoints
     &__checks {
         list-style: none;
         @include utils.d-flex($flex-direction: column, $gap: 8px, $align-items: start);
@@ -139,7 +136,6 @@
         }
     }
 
-    // Badges de duración
     &__badges {
         @include utils.d-flex($justify-content: start, $align-items: center, $gap: 8px);
         flex-wrap: wrap;
@@ -259,7 +255,7 @@
     animation: courseFadeUp 0.6s 0.12s ease both;
     overflow: hidden;
 
-    // Accent line verde en el top
+    // Accent line en el top (color por estado; default = verde / open)
     &::before {
         content: '';
         position: absolute;
@@ -272,7 +268,6 @@
         opacity: 0.55;
     }
 
-    // Glow de fondo
     &__glow {
         position: absolute;
         top: -80px;
@@ -287,10 +282,10 @@
         z-index: 0;
     }
 
-    // Todo el contenido sobre el glow
     &__status,
     &__price-block,
     &__spots,
+    &__upcoming,
     &__cta,
     &__divider,
     &__trust {
@@ -318,7 +313,6 @@
         animation: statusPulse 2s ease-in-out infinite;
     }
 
-    // ── Precio ──
     &__price-block {
         display: flex;
         flex-direction: column;
@@ -387,6 +381,35 @@
         color: vars.$text-muted;
     }
 
+    // ── Panel "próximamente" (reemplaza la barra de cupos) ──
+    &__upcoming {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 14px 16px;
+        border: 1px solid vars.$border-subtle;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    &__upcoming-row {
+        @include utils.d-flex($justify-content: start, $align-items: center, $gap: 10px);
+        font-size: 0.82rem;
+        color: vars.$text-secondary;
+        line-height: 1.4;
+
+        svg {
+            font-size: 0.82rem;
+            color: vars.$cyan-emphasys;
+            flex-shrink: 0;
+        }
+    }
+
+    &__upcoming-date {
+        @include utils.font-mono(0.78rem, 600);
+        color: vars.$cyan-emphasys;
+    }
+
     &__cta {
         @include utils.d-flex($align-items: center, $justify-content: center, $gap: 10px);
         width: 100%;
@@ -422,13 +445,11 @@
         }
     }
 
-    // ── Divider ──
     &__divider {
         height: 1px;
         background: vars.$border-subtle;
     }
 
-    // ── Trust signals ──
     &__trust {
         list-style: none;
         padding: 0;
@@ -448,6 +469,75 @@
             font-size: 0.85rem;
             color: vars.$text-muted;
             flex-shrink: 0;
+        }
+    }
+}
+
+// ─── Variantes por estado de inscripción ─────────────────────
+
+// Próximamente (cyan = identidad/anticipación)
+.enroll-card--upcoming {
+    &::before {
+        background: linear-gradient(90deg, transparent, vars.$cyan-emphasys, transparent);
+    }
+
+    .enroll-card__glow {
+        background: radial-gradient(circle,
+                rgba(vars.$cyan-emphasys, 0.08) 0%,
+                transparent 70%);
+    }
+
+    .enroll-card__status {
+        color: vars.$cyan-emphasys;
+        background: rgba(vars.$cyan-emphasys, 0.08);
+        border-color: rgba(vars.$cyan-emphasys, 0.22);
+    }
+
+    .enroll-card__status-dot {
+        background: vars.$cyan-emphasys;
+    }
+}
+
+// Cerradas (danger, todo apagado)
+.enroll-card--closed {
+    &::before {
+        background: linear-gradient(90deg, transparent, vars.$color-danger, transparent);
+    }
+
+    .enroll-card__glow {
+        background: radial-gradient(circle,
+                rgba(vars.$color-danger, 0.07) 0%,
+                transparent 70%);
+    }
+
+    .enroll-card__status {
+        color: vars.$color-danger;
+        background: rgba(vars.$color-danger, 0.08);
+        border-color: rgba(vars.$color-danger, 0.22);
+    }
+
+    .enroll-card__status-dot {
+        background: vars.$color-danger;
+        animation: none;
+    }
+
+    // Barra llena en tono apagado (ya no hay urgencia, hay "lleno")
+    .enroll-card__spot--taken {
+        background: rgba(vars.$color-danger, 0.5);
+    }
+
+    // CTA secundario/apagado: ya no es venta activa
+    .enroll-card__cta {
+        background: transparent;
+        color: vars.$text-secondary;
+        border: 1px solid vars.$border-medium;
+        box-shadow: none;
+
+        &:hover {
+            opacity: 1;
+            transform: none;
+            background: rgba(255, 255, 255, 0.04);
+            color: vars.$text-primary;
         }
     }
 }

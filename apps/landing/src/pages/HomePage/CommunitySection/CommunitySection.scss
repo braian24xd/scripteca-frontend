@@ -10,7 +10,6 @@
     position: relative;
     padding: 50px 0;
 
-    // ── Header ──
     &__header {
         text-align: center;
         margin-bottom: 60px;
@@ -36,7 +35,6 @@
     }
 
     &__title-accent {
-        // Gradiente de marca para el acento del título
         background: linear-gradient(90deg, vars.$cyan-emphasys, vars.$purple-secondary-200);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -48,7 +46,6 @@
         color: vars.$text-muted;
     }
 
-    // ─── Grid principal ────────────────────────────────────
     .audience-grid {
         display: grid;
         grid-template-columns: 1.2fr 1fr;
@@ -60,7 +57,6 @@
         }
     }
 
-    // ─── Card base ────────────────────────────────────────
     .audience-card {
         position: relative;
         background: vars.$card-surface;
@@ -97,7 +93,6 @@
 
         &:hover &__glow { opacity: 1; }
 
-        // ── Icon wrap ──
         &__icon-wrap {
             @include utils.d-flex($align-items: center, $justify-content: center);
             width: 52px; height: 52px;
@@ -139,7 +134,6 @@
             position: relative; z-index: 1;
         }
 
-        // ── Ruta tag ──
         &__route {
             @include utils.font-mono(0.65rem, 600);
             display: inline-flex;
@@ -208,7 +202,6 @@
             }
         }
 
-        // ── Small card ──
         &--sm {
             padding: 24px;
         }
