@@ -1,5 +1,5 @@
 packages:
-  - "apps/*"
+  - "apps/landing"
   - "packages/*"
 allowBuilds:
   '@parcel/watcher': false
