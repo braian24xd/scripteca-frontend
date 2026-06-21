@@ -5,6 +5,7 @@
     padding: 12px 18px;
     border: none;
     border-radius: 10px;
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -64,6 +65,7 @@
 
 .button--classic span {
     background: linear-gradient(vars.$color-white, vars.$cyan-emphasys);
+    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     font-weight: 500;
