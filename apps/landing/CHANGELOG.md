@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-06-20
+
+### Fixed
+- **`backdrop-filter` stripped from production bundle** — `vite-react-ssg` pulls
+  `vite@7` which activates LightningCSS automatically; without a browserslist target
+  it was removing `backdrop-filter` from the compiled CSS. Explicitly setting
+  `css.transformer: 'postcss'` and `build.cssMinify: 'esbuild'` in `vite.config.js`
+  restores the property in the production output.
+
 ## [1.0.0] - 2026-06-16
 
 First public release of the landing as an independently versioned package.
@@ -30,5 +39,6 @@ their structure with the platform and did not follow independent versioning: an
 initial beginner-stage version and a second one with a new visual identity.
 Independent versioning of the `landing` package starts at 1.0.0.
 
-[Unreleased]: https://github.com/braian24xd/scripteca-frontend/compare/landing@1.0.0...HEAD
+[Unreleased]: https://github.com/braian24xd/scripteca-frontend/compare/landing@1.0.1...HEAD
+[1.0.1]: https://github.com/braian24xd/scripteca-frontend/compare/landing@1.0.0...landing@1.0.1
 [1.0.0]: https://github.com/braian24xd/scripteca-frontend/releases/tag/landing@1.0.0

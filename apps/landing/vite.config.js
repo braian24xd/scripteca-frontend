@@ -16,11 +16,15 @@ export default defineConfig({
     },
   },
   css: {
+    transformer: 'postcss',
     preprocessorOptions: {
       scss: {
         api: "modern-compiler",
         importers: [new NodePackageImporter()]
       }
     }
+  },
+  build: {
+    cssMinify: 'esbuild'
   }
 })
