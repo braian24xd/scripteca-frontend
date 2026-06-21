@@ -10,6 +10,7 @@
 html,
 body {
   position: relative;
+  color-scheme: dark;
 }
 
 body::before {
@@ -42,6 +43,7 @@ a {
     font-weight: 700;
     font-size: 1.3em;
     background: linear-gradient(#00B0F0, #7c83ff, #7c83ff);
+    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
