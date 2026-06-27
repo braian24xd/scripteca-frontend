@@ -102,3 +102,14 @@ a {
     box-shadow: 0 0 15px rgba($color: vars.$color-warning, $alpha: 0.5) !important;
   }
 }
+
+:root {
+  color-scheme: dark;
+}
+
+/* Señal explícita para los motores de auto-dark (Samsung Internet, Chromium) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark only;
+  }
+}
